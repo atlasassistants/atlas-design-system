@@ -1,10 +1,19 @@
 # Install the Atlas Design System
 
-How to wire this repo in as a Claude Code skill so Claude produces on-brand Atlas UI without further explanation.
+Two ways to use this repo, depending on the tool you're working in:
 
-## One-time team setup
+| Option | Best for | What you do |
+|---|---|---|
+| **[Claude Code](#option-1--claude-code-skill)** | Production code, on-brand UI in development, asset use in scripts | Clone the repo + symlink it into your `~/.claude/skills/` directory |
+| **[Claude design](#option-2--claude-design)** | Visual prototyping, mockups, slide decks, design exploration | Open Claude design, create a new design system from this GitHub URL |
 
-Each teammate runs this once on their machine.
+Most teammates will want both. They share the same repo as the source of truth, so an update on `main` flows to both surfaces.
+
+---
+
+## Option 1 — Claude Code skill
+
+Wire the design system in so Claude Code produces on-brand Atlas UI without further explanation.
 
 ### 1. Clone the repo
 
@@ -46,9 +55,7 @@ ls -la ~/.claude/skills/atlas-design
 # Should show: atlas-design -> /Users/<you>/projects/atlas-design-system
 ```
 
-## How updates flow to the team
-
-This is a normal git repo — pulling the latest is the same as any other.
+### Pulling updates
 
 ```bash
 cd ~/projects/atlas-design-system
@@ -57,34 +64,7 @@ git pull
 
 Because the skill is a symlink, your Claude Code session picks up the new content immediately on next invocation.
 
-## Editing the design system
-
-Branch + PR like any other repo:
-
-```bash
-cd ~/projects/atlas-design-system
-git checkout -b feat/new-card-pattern
-# edit design.md, colors_and_type.css, ui_kits/marketing/, etc.
-git add . && git commit -m "Add featured card hover lift pattern"
-git push -u origin feat/new-card-pattern
-gh pr create
-```
-
-The team reviews; merging to `main` is what gets propagated.
-
-## Troubleshooting
-
-**"Claude doesn't see the skill."**
-- Make sure `~/.claude/skills/atlas-design/SKILL.md` exists when you `ls` it through the symlink.
-- Restart Claude Code after first install — it discovers skills at startup.
-
-**"I want to edit locally but not check changes in yet."**
-- Edit through the symlinked path (or directly in `~/projects/atlas-design-system/`). Edits are immediately live for Claude — you commit them when ready.
-
-**"I don't want to use a symlink."**
-- You can clone directly into `~/.claude/skills/atlas-design/` — `git pull` from there. The symlink approach is cleaner because the canonical clone is separable from Claude config.
-
-## What this skill does
+### What this skill does
 
 When invoked, Claude reads [`design.md`](design.md) and treats itself as an Atlas design expert. It will:
 
@@ -95,3 +75,69 @@ When invoked, Claude reads [`design.md`](design.md) and treats itself as an Atla
 - Copy logos and fonts out of [`assets/`](assets/) and [`fonts/`](fonts/) for static artifacts
 
 For production code, Claude will read the rules and write production-quality CSS / React / Tailwind that uses the design tokens. For throwaway prototypes and slides, Claude will produce static HTML files you can open and view.
+
+---
+
+## Option 2 — Claude design
+
+Use the design system inside Claude design for visual prototyping, mockups, and design exploration.
+
+### 1. Open Claude design
+
+Open Claude design in your browser (or the desktop app if you have it).
+
+### 2. Create a new design system
+
+Choose to create a new design system, then point it at this repo:
+
+```
+https://github.com/atlasassistants/atlas-design-system
+```
+
+Claude design will pull the repo's tokens, components, fonts, and assets into your workspace. Once it finishes importing, the Atlas brand is available across your design sessions — Claude will use the imported palette, type, and components when generating mockups or prototypes.
+
+### 3. Pulling updates
+
+When the design system updates on GitHub, re-sync your design system in Claude design from the same URL. Your local copy reflects whatever's on `main`.
+
+### What you get inside Claude design
+
+- All brand tokens (colors, type, spacing, radius, motion) loaded automatically
+- Inter font files available for type
+- Logo assets and primitive components ready to drop into mockups
+- The full marketing kit (`ui_kits/marketing/`) as a reference build to crib from
+- Voice/tone rules from `design.md` so any copy Claude generates stays on brand
+
+---
+
+## Editing the design system
+
+Either install option uses the same source of truth — edits go through GitHub. Branch + PR like any other repo:
+
+```bash
+cd ~/projects/atlas-design-system
+git checkout -b feat/new-card-pattern
+# edit design.md, colors_and_type.css, ui_kits/marketing/, etc.
+git add . && git commit -m "Add featured card hover lift pattern"
+git push -u origin feat/new-card-pattern
+gh pr create
+```
+
+The team reviews; merging to `main` propagates to everyone — both Claude Code and Claude design pick up the new version on their next pull.
+
+---
+
+## Troubleshooting
+
+**Claude Code: "Claude doesn't see the skill."**
+- Make sure `~/.claude/skills/atlas-design/SKILL.md` exists when you `ls` it through the symlink.
+- Restart Claude Code after first install — it discovers skills at startup.
+
+**Claude Code: "I want to edit locally but not check changes in yet."**
+- Edit through the symlinked path (or directly in `~/projects/atlas-design-system/`). Edits are immediately live for Claude — you commit them when ready.
+
+**Claude Code: "I don't want to use a symlink."**
+- You can clone directly into `~/.claude/skills/atlas-design/` — `git pull` from there. The symlink approach is cleaner because the canonical clone is separable from Claude config.
+
+**Claude design: "It's not picking up my latest changes."**
+- Re-sync the design system from the GitHub URL. Claude design caches the import; pulling from the source refreshes it.

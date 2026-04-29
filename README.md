@@ -2,10 +2,13 @@
 
 The shared design system for Atlas Assistants — a dark, cosmic, lavender-accented brand language used across Atlas marketing, product, and internal tools. This repo is the single source of truth for Atlas visual identity.
 
-The system is **dual-purpose**:
+The system has **three** install paths:
 
-1. **A Claude Code skill** — drop into `~/.claude/skills/atlas-design/` (or any project's `.claude/skills/`) and Claude will produce on-brand UI, slides, and assets without further explanation.
-2. **A standalone design system** — open `ui_kits/marketing/index.html` to see the canonical landing rendered live. Browse `preview/` for component primitives. Copy assets out of `assets/` and `fonts/` for Figma, Keynote, or any non-Claude tool.
+1. **Claude Code skill** — symlink the repo into `~/.claude/skills/atlas-design/` and Claude Code will produce on-brand UI, slides, and assets without further explanation.
+2. **Claude design import** — open Claude design, create a new design system, and point it at this repo's GitHub URL. Tokens, components, fonts, and assets import automatically.
+3. **Standalone design system** — open `ui_kits/marketing/index.html` to see the canonical landing rendered live. Browse `preview/` for component primitives. Copy assets out of `assets/` and `fonts/` for Figma, Keynote, or any non-Claude tool.
+
+Most teammates will use both Claude paths. Full setup steps for each are in [`INSTALL.md`](INSTALL.md).
 
 ## At a glance
 
@@ -61,6 +64,16 @@ ln -s ~/projects/atlas-design-system ~/.claude/skills/atlas-design
 ```
 
 Once symlinked, invoke the skill in Claude Code with `/atlas-design` — Claude will read `design.md` and act as an expert designer producing on-brand Atlas UI, slides, or production code.
+
+## Use in Claude design
+
+Open Claude design, create a new design system, and link this repo:
+
+```
+https://github.com/atlasassistants/atlas-design-system
+```
+
+Claude design will import the tokens, components, fonts, and assets so the Atlas brand is available across your design sessions. Re-sync from the same URL when the system updates. Full steps in [`INSTALL.md`](INSTALL.md).
 
 ## Use the assets directly
 
