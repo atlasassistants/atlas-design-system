@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Elevation</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 36px 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; align-items: end; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--r-xl);
+    padding: 16px;
+    height: 80px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .name { font-size: 12px; font-weight: 500; color: var(--fg-1); }
+  .val { font-size: 10px; color: var(--fg-3); font-family: var(--font-mono); margin-top:2px; }
+</style>
+</head>
+<body>
+  <div class="card" style="box-shadow: var(--shadow-1)"><span class="name">shadow-1</span><span class="val">hairline</span></div>
+  <div class="card" style="box-shadow: var(--shadow-2)"><span class="name">shadow-2</span><span class="val">card</span></div>
+  <div class="card" style="box-shadow: var(--shadow-3); border-color: var(--accent-border)"><span class="name">shadow-3</span><span class="val">primary btn</span></div>
+  <div class="card" style="box-shadow: var(--shadow-4)"><span class="name">shadow-4</span><span class="val">hero · featured</span></div>
+</body>
+</html>

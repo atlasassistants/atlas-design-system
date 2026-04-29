@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Atmosphere</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 0; height: 100vh; overflow: hidden; position: relative; }
+  body::before {
+    content:""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: var(--overlay-radial-top), var(--overlay-radial-bottom);
+  }
+  .stars {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image:
+      radial-gradient(1px 1px at 25% 30%, white, transparent),
+      radial-gradient(1px 1px at 70% 50%, white, transparent),
+      radial-gradient(1px 1px at 40% 80%, white, transparent),
+      radial-gradient(1px 1px at 85% 20%, white, transparent),
+      radial-gradient(1px 1px at 15% 65%, white, transparent),
+      radial-gradient(1px 1px at 60% 75%, white, transparent),
+      radial-gradient(1px 1px at 90% 90%, white, transparent),
+      radial-gradient(1px 1px at 50% 10%, white, transparent);
+    opacity: 0.4;
+    animation: tw 6s ease-in-out infinite alternate;
+  }
+  @keyframes tw { from { opacity: 0.2; } to { opacity: 0.5; } }
+  .orbital { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 320px; height: 320px; pointer-events: none; }
+  .ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(186,156,255,0.18); animation: spin 100s linear infinite; }
+  .ring.inner { inset: 50px; border-color: rgba(186,156,255,0.12); animation: spin 80s linear infinite reverse; }
+  .core { position: absolute; inset: 110px; border-radius: 50%; background: radial-gradient(circle, rgba(186,156,255,0.4), transparent 70%); filter: blur(12px); }
+  @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  .label { position: absolute; bottom: 18px; left: 22px; font-size: 11px; color: var(--fg-3); font-family: var(--font-mono); z-index: 2; }
+</style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="orbital"><div class="ring"></div><div class="ring inner"></div><div class="core"></div></div>
+  <div class="label">orbital backdrop · radial overlays · twinkling stars · 80–100s spin</div>
+</body>
+</html>

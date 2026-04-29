@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Service Icons</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 28px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .ico { width: 44px; height: 44px; border-radius: 10px; background: rgba(186,156,255,0.12); border: 1px solid rgba(186,156,255,0.24); display:flex; align-items:center; justify-content:center; }
+  .ico svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .name { font-size: 11px; color: var(--fg-2); font-weight: 500; text-align: center; }
+</style>
+</head>
+<body>
+  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M17 11h4M19 9v4"/></svg></div><span class="name">EA Staffing</span></div>
+  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div><span class="name">AI Operators</span></div>
+  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg></div><span class="name">Managed AI</span></div>
+  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h7M9 17h7M9 9h2"/></svg></div><span class="name">Executive Brief</span></div>
+  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><span class="name">Community</span></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Buttons</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 28px; display:flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-family: var(--font-sans); font-size: 14px; font-weight: 500;
+    cursor: pointer; border: 1px solid transparent;
+    transition: all var(--dur-base) var(--ease);
+    color: var(--fg-1);
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .primary {
+    background: var(--accent);
+    color: #16093a;
+    box-shadow: var(--shadow-3);
+    font-weight: 600;
+  }
+  .primary:hover { background: var(--lavender-dim); }
+  .secondary {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.12);
+  }
+  .secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+  .ghost {
+    background: transparent;
+    color: var(--fg-2);
+  }
+  .ghost:hover { color: var(--fg-1); background: rgba(255,255,255,0.04); }
+  .gradient {
+    background: var(--gradient-brand);
+    color: white; font-weight: 600;
+    box-shadow: 0 8px 24px rgba(92,112,255,0.32);
+  }
+  .meta { width: 100%; font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); display:block; margin-top: 6px; }
+  .arrow { width: 14px; height: 14px; }
+</style>
+</head>
+<body>
+  <button class="btn primary">Get started <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  <button class="btn secondary">Watch demo</button>
+  <button class="btn ghost">Learn more</button>
+  <button class="btn gradient">Reclaim your week</button>
+  <span class="meta">Primary · Secondary · Ghost · Gradient — all 8px radius, 10×18 padding, transition 300ms · ease(.6,.6,0,1)</span>
+</body>
+</html>

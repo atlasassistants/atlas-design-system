@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Badges & Pills</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 28px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 12px; font-weight: 500;
+  }
+  .accent { background: var(--accent-bg); border: 1px solid var(--accent-border); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; }
+  .live { background: rgba(74,222,128,0.10); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; }
+  .live .dot { width:6px; height:6px; border-radius:999px; background:#4ade80; box-shadow: 0 0 8px #4ade80; }
+  .neutral { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: var(--fg-2); }
+  .filled { background: var(--accent); color: #16093a; font-weight: 600; }
+  .tool { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: var(--fg-2); }
+</style>
+</head>
+<body>
+  <span class="pill accent">SERVICES</span>
+  <span class="pill accent">EA STAFFING</span>
+  <span class="pill live"><span class="dot"></span>Live now</span>
+  <span class="pill filled">Most popular</span>
+  <span class="pill neutral">v2.4</span>
+  <span class="pill tool">📧 Gmail</span>
+  <span class="pill tool">📝 Notion</span>
+  <span class="pill tool">🎙️ Otter</span>
+  <span class="pill tool">📊 Linear</span>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Form Inputs</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  label { font-size: 12px; color: var(--fg-3); font-weight: 500; }
+  input, .search {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-soft);
+    color: var(--fg-1);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font: 500 14px var(--font-sans);
+    transition: all var(--dur-base) var(--ease);
+    outline: none;
+  }
+  input::placeholder { color: var(--fg-3); }
+  input:focus { border-color: var(--accent-border); box-shadow: 0 0 0 3px rgba(186,156,255,0.12); }
+  .search { display:flex; align-items:center; gap: 8px; }
+  .search svg { width: 14px; height: 14px; stroke: var(--fg-3); fill:none; stroke-width: 2; stroke-linecap: round; }
+  .search .ph { flex:1; color: var(--fg-3); font-size: 13px; }
+  .kbd { padding: 2px 6px; border: 1px solid var(--border-soft); border-radius: 4px; font-size: 11px; color: var(--fg-3); font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+  <div class="field">
+    <label>Email</label>
+    <input type="email" placeholder="you@company.com" value="founder@atlas.co" />
+  </div>
+  <div class="field">
+    <label>Company</label>
+    <input type="text" placeholder="Acme Inc." />
+  </div>
+  <div class="field">
+    <label>Workspace search</label>
+    <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><span class="ph">Search briefings, drafts, files…</span><span class="kbd">⌘K</span></div>
+  </div>
+  <div class="field">
+    <label>Focused state</label>
+    <input type="text" value="Q3 board prep" autofocus />
+  </div>
+</body>
+</html>

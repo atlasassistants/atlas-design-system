@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Logo</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; }
+  .tile { border: 1px solid var(--border-soft); border-radius: var(--r-xl); padding: 20px; display: flex; align-items: center; justify-content: center; min-height: 120px; box-shadow: var(--shadow-2); }
+  .light { background: #ffffff; }
+  .dark  { background: var(--bg-2); }
+  .tile img { max-width: 100%; max-height: 80px; height: auto; object-fit: contain; }
+  .lbl { position: absolute; }
+  .wrap { position: relative; }
+  .wrap small { display:block; margin-top: 8px; color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: var(--ls-wide); text-align: center; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="tile light"><img src="../assets/atlas-logo-dark.png" alt="Atlas dark logo" /></div>
+    <small>Logo on light</small>
+  </div>
+  <div class="wrap">
+    <div class="tile dark"><img src="../assets/atlas-logo-white.png" alt="Atlas mark" /></div>
+    <small>Mark on dark</small>
+  </div>
+</body>
+</html>

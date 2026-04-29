@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Cards</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--r-xl);
+    padding: 22px;
+    box-shadow: var(--shadow-2);
+    position: relative; overflow: hidden;
+  }
+  .card.featured {
+    box-shadow: var(--shadow-glow);
+    border-color: rgba(186,156,255,0.24);
+  }
+  .card.featured::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(186,156,255,0.10), transparent 70%);
+  }
+  .ico { width: 36px; height: 36px; border-radius: 10px; background: rgba(186,156,255,0.12); border: 1px solid rgba(186,156,255,0.24); display:flex; align-items:center; justify-content:center; margin-bottom: 12px;}
+  .ico svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  h4 { margin: 0 0 6px 0; font-size: 16px; font-weight: 600; }
+  p { margin: 0; font-size: 13px; color: var(--fg-2); line-height: 1.5; }
+  .tag { position: absolute; top: -10px; left: 22px; padding: 4px 10px; background: var(--accent); color: #16093a; border-radius: 999px; font-size: 11px; font-weight: 600;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M17 11h4M19 9v4"/></svg></div>
+    <h4>EA Staffing</h4>
+    <p>Pre-vetted human assistants matched to your operating rhythm in two weeks.</p>
+  </div>
+  <div class="card featured">
+    <span class="tag">Most popular</span>
+    <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div>
+    <h4>AI Operators</h4>
+    <p>Custom agents that draft, file, and brief — trained on your stack and your voice.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+/* =========================================================
+   Atlas Assistants — Colors & Type
+   Cosmic dark theme. Inter type. Lavender accent + signature
+   blue→magenta brand gradient.
+   ========================================================= */
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- COLOR — surfaces ---------- */
+  --bg:           #050314;   /* Cosmic Black, page bg */
+  --bg-2:         #0a0620;   /* Slightly lifted bg */
+  --surface:      #110a2c;   /* Cards, panels */
+  --surface-2:    #1a1140;   /* Raised surface, hover */
+  --border:       #2a1f55;   /* Strong border (key cards, modals) */
+  --border-soft:  #1d1640;   /* Hairline border / divider */
+
+  /* ---------- COLOR — foreground ---------- */
+  --fg-1: #ffffff;                       /* Primary text */
+  --fg-2: rgba(255, 255, 255, 0.72);     /* Secondary text */
+  --fg-3: rgba(255, 255, 255, 0.50);     /* Tertiary / placeholders */
+  --fg-4: rgba(255, 255, 255, 0.32);     /* Quaternary / hairlines */
+
+  /* ---------- COLOR — brand / accent ---------- */
+  --lavender:     #ba9cff;   /* Primary accent */
+  --indigo:       #9382ff;   /* Info / secondary accent */
+  --periwinkle:   #5c70ff;   /* Gradient start (cool blue) */
+  --magenta:      #b675f5;   /* Gradient end (warm purple) */
+  --lavender-dim: #cfb8ff;   /* Hover ring */
+  --plum-deep:    #3c087e;   /* Deep accent shadow */
+
+  /* Brand gradient — Atlas's signature */
+  --gradient-brand: linear-gradient(135deg, #5c70ff 0%, #b675f5 100%);
+  /* Text gradient — used in headlines */
+  --gradient-text:  linear-gradient(135deg, #ffffff 0%, #d6c8ff 50%, #ba9cff 100%);
+  /* Soft text gradient — used in section titles */
+  --gradient-text-soft: linear-gradient(135deg, #ffffff 30%, #ba9cff 100%);
+
+  /* ---------- COLOR — semantic ---------- */
+  --accent:        var(--lavender);
+  --accent-bg:     rgba(186, 156, 255, 0.12);   /* Tinted accent fill */
+  --accent-border: rgba(186, 156, 255, 0.24);   /* Accent ring */
+  --accent-glow:   rgba(186, 156, 255, 0.28);   /* Outer glow under btns */
+  --info:          var(--indigo);
+
+  /* ---------- COLOR — overlays / atmosphere ---------- */
+  --overlay-radial-top:    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(186,156,255,0.18), transparent 70%);
+  --overlay-radial-bottom: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(92,112,255,0.10), transparent 70%);
+
+  /* ---------- TYPE — families ---------- */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menoto, Consolas, "Liberation Mono", monospace;
+
+  /* ---------- TYPE — scale ---------- */
+  --text-xs:   12px;
+  --text-sm:   13px;
+  --text-base: 14px;
+  --text-md:   15px;
+  --text-lg:   16px;
+  --text-xl:   17px;
+  --text-2xl:  18px;
+  --text-3xl:  22px;
+  --text-4xl:  32px;
+  --text-5xl:  44px;
+  --text-6xl:  56px;
+  --text-7xl:  78px;
+
+  /* ---------- TYPE — weight ---------- */
+  --w-regular:  400;
+  --w-medium:   500;
+  --w-semibold: 600;
+  --w-bold:     700;
+
+  /* ---------- TYPE — line / letter ---------- */
+  --lh-tight: 1.05;
+  --lh-snug:  1.2;
+  --lh-base:  1.5;
+  --lh-loose: 1.6;
+  --ls-tight: -0.03em;
+  --ls-snug:  -0.025em;
+  --ls-base:  -0.01em;
+  --ls-wide:   0.08em;   /* uppercase eyebrows */
+  --ls-wider:  0.16em;   /* "trusted by" labels */
+
+  /* ---------- SPACING — 4px grid ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+
+  /* ---------- RADIUS ---------- */
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 10px;
+  --r-xl: 12px;
+  --r-2xl: 14px;
+  --r-3xl: 16px;
+  --r-4xl: 24px;
+  --r-pill: 999px;
+
+  /* ---------- ELEVATION ---------- */
+  --shadow-1: inset 0 1px 0 rgba(255,255,255,0.04);                     /* hairline highlight */
+  --shadow-2: inset 0 1px 0 rgba(255,255,255,0.06),
+              0 8px 24px rgba(92,112,255,0.10);                         /* lifted card */
+  --shadow-3: 0 8px 24px rgba(186,156,255,0.28),
+              inset 0 1px 0 rgba(255,255,255,0.4);                      /* primary button */
+  --shadow-4: 0 32px 80px rgba(92,112,255,0.15),
+              0 0 80px rgba(186,156,255,0.08),
+              inset 0 1px 0 rgba(255,255,255,0.06);                     /* hero app frame */
+  --shadow-glow: 0 0 0 1px rgba(186,156,255,0.16),
+                 0 32px 64px rgba(186,156,255,0.08);                    /* featured plan */
+
+  /* ---------- MOTION ---------- */
+  --ease:      cubic-bezier(0.6, 0.6, 0, 1);   /* signature easing */
+  --ease-in:   cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:  cubic-bezier(0, 0, 0.2, 1);
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:  150ms;
+  --dur-base:  300ms;
+  --dur-slow:  450ms;
+  --dur-page:  600ms;
+
+  /* ---------- LAYOUT ---------- */
+  --container-w: 1296px;
+  --container-pad: 24px;
+}
+
+/* =========================================================
+   SEMANTIC ELEMENT STYLES
+   Apply these via element selectors wherever this file is loaded.
+   ========================================================= */
+
+html, body {
+  background: var(--bg);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  line-height: var(--lh-base);
+  font-weight: var(--w-regular);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(40px, 6vw, 78px);
+  font-weight: var(--w-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: var(--w-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+}
+h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-3xl);
+  font-weight: var(--w-semibold);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-base);
+}
+h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-lg);
+  font-weight: var(--w-semibold);
+  line-height: var(--lh-snug);
+}
+h5 {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--w-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: var(--fg-4);
+}
+
+p { color: var(--fg-2); line-height: var(--lh-base); }
+
+small, .caption {
+  font-size: var(--text-sm);
+  color: var(--fg-3);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+/* Eyebrow / section badge */
+.eyebrow {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  border-radius: var(--r-pill);
+  font-size: var(--text-xs);
+  font-weight: var(--w-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+}
+
+/* Headline gradient mixin */
+.grad-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.grad-text-soft {
+  background: var(--gradient-text-soft);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

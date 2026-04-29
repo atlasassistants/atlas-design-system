@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Brand Mark</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 28px; display: flex; align-items: center; gap: 28px; }
+  .mark { display: block; filter: drop-shadow(0 8px 24px rgba(92,112,255,0.32)); }
+  .label { font-size: 11px; text-transform: uppercase; letter-spacing: var(--ls-wide); color: var(--fg-4); margin-top: 10px; text-align: center; }
+  .word { font-family: var(--font-sans); font-weight: 600; font-size: 28px; letter-spacing: -0.02em; }
+  .word .stack { display: flex; flex-direction: column; line-height: 1; }
+  .word .stack b { font-weight: 600; }
+  .word .stack span { font-weight: 500; font-size: 11px; letter-spacing: var(--ls-wide); color: var(--fg-3); text-transform: uppercase; margin-top: 4px; }
+  .col { display: flex; align-items: center; gap: 16px; }
+  .pad { padding: 18px; border: 1px solid var(--border-soft); border-radius: var(--r-xl); }
+</style>
+</head>
+<body>
+  <div class="pad col">
+    <img class="mark" src="../assets/atlas-mark.png" alt="Atlas" style="width: 56px; height: 56px;" />
+    <div class="word stack"><b>atlas</b><span>ASSISTANTS</span></div>
+  </div>
+  <div class="pad" style="display:grid; grid-template-columns: repeat(3,1fr); gap: 18px; flex: 1; align-items: end;">
+    <div><img class="mark" src="../assets/atlas-mark.png" alt="" style="width: 56px; height: 56px; margin: 0 auto;" /><div class="label">Hero · 56px</div></div>
+    <div><img class="mark" src="../assets/atlas-mark.png" alt="" style="width: 36px; height: 36px; margin: 0 auto;" /><div class="label">Nav · 36px</div></div>
+    <div><img class="mark" src="../assets/atlas-mark.png" alt="" style="width: 24px; height: 24px; margin: 0 auto;" /><div class="label">Inline · 24px</div></div>
+  </div>
+</body>
+</html>

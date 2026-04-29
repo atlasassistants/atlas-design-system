@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Radii</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 24px; display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; }
+  .cell { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+  .sw { width: 64px; height: 56px; background: var(--surface-2); border:1px solid var(--accent-border); }
+  .name { font-size: 11px; color: var(--fg-1); font-weight:500; }
+  .val { font-size: 10px; color: var(--fg-3); font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+  <div class="cell"><div class="sw" style="border-radius:4px"></div><span class="name">xs</span><span class="val">4px</span></div>
+  <div class="cell"><div class="sw" style="border-radius:6px"></div><span class="name">sm</span><span class="val">6px</span></div>
+  <div class="cell"><div class="sw" style="border-radius:8px"></div><span class="name">md</span><span class="val">8px</span></div>
+  <div class="cell"><div class="sw" style="border-radius:10px"></div><span class="name">lg</span><span class="val">10px</span></div>
+  <div class="cell"><div class="sw" style="border-radius:12px"></div><span class="name">xl</span><span class="val">12px</span></div>
+  <div class="cell"><div class="sw" style="border-radius:14px"></div><span class="name">2xl</span><span class="val">14px</span></div>
+  <div class="cell"><div class="sw" style="border-radius:24px"></div><span class="name">4xl</span><span class="val">24px</span></div>
+  <div class="cell"><div class="sw" style="border-radius:999px"></div><span class="name">pill</span><span class="val">999px</span></div>
+</body>
+</html>

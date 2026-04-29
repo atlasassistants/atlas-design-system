@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Avatars</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 28px; display: flex; gap: 14px; align-items: center; }
+  .av { border-radius: 999px; background: var(--gradient-brand); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; box-shadow: 0 4px 12px rgba(92,112,255,0.32); flex-shrink: 0; }
+  .a-lg { width: 56px; height: 56px; font-size: 18px; }
+  .a-md { width: 40px; height: 40px; font-size: 14px; }
+  .a-sm { width: 28px; height: 28px; font-size: 11px; }
+  .stack { display: flex; }
+  .stack .av { margin-left: -10px; border: 2px solid var(--bg); }
+  .stack .av:first-child { margin-left: 0; }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); margin-left: 16px; }
+</style>
+</head>
+<body>
+  <div class="av a-lg">SC</div>
+  <div class="av a-md">JR</div>
+  <div class="av a-sm">M</div>
+  <div class="stack">
+    <div class="av a-md">SC</div>
+    <div class="av a-md" style="background: linear-gradient(135deg,#9382ff,#5c70ff)">JR</div>
+    <div class="av a-md" style="background: linear-gradient(135deg,#b675f5,#ba9cff)">MK</div>
+    <div class="av a-md" style="background: rgba(255,255,255,0.1); color: var(--fg-2); box-shadow:none">+8</div>
+  </div>
+  <span class="meta">Gradient-fill · 2-letter · stacked variant</span>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Nav Bar</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 0; min-height: 200px; background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(186,156,255,0.18), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(92,112,255,0.10), transparent 70%),
+    var(--bg); }
+  .nav {
+    margin: 16px 24px 0;
+    border-radius: 999px;
+    padding: 8px 8px 8px 18px;
+    background: rgba(5,3,20,0.6);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--border-soft);
+    display: flex; align-items: center; gap: 18px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .orb { width: 28px; height: 28px; display: block; filter: drop-shadow(0 4px 10px rgba(92,112,255,0.3)); }
+  .word { font-weight: 600; font-size: 16px; }
+  .links { display: flex; gap: 4px; flex: 1; justify-content: center; }
+  .links a { color: var(--fg-2); text-decoration:none; font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: 999px; transition: all var(--dur-base) var(--ease); }
+  .links a:hover, .links a.active { color: var(--fg-1); background: rgba(255,255,255,0.06); }
+  .cta { display: flex; gap: 8px; align-items: center; }
+  .ghost { color: var(--fg-2); font-size: 13px; padding: 6px 12px; }
+  .btn { padding: 8px 16px; border-radius: 999px; background: var(--accent); color: #16093a; font-size: 13px; font-weight: 600; box-shadow: var(--shadow-3); }
+</style>
+</head>
+<body>
+  <div class="nav">
+    <div class="brand"><img class="orb" src="../assets/atlas-mark.png" alt="Atlas" /><span class="word">atlas</span></div>
+    <div class="links">
+      <a class="active">Services</a>
+      <a>Pricing</a>
+      <a>Brief</a>
+      <a>Community</a>
+      <a>About</a>
+    </div>
+    <div class="cta"><a class="ghost">Sign in</a><span class="btn">Reclaim your week</span></div>
+  </div>
+</body>
+</html>
