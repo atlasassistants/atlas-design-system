@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<title>Atlas — Light Mode</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<style>
+  body { margin: 0; padding: 32px; background: var(--bg); min-height: 100vh; position: relative; }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: var(--overlay-radial-top), var(--overlay-radial-bottom);
+  }
+  .grid {
+    position: relative; z-index: 1;
+    max-width: 960px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  }
+  .full { grid-column: 1 / -1; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--r-xl);
+    padding: 24px;
+    box-shadow: var(--shadow-2);
+  }
+  .card.featured {
+    border-color: var(--accent-border);
+    box-shadow: var(--shadow-glow);
+    position: relative;
+    overflow: hidden;
+  }
+  .card.featured::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(186,156,255,0.08), transparent 70%);
+  }
+  .ico {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--accent-bg); border: 1px solid var(--accent-border);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
+  }
+  .ico svg { width: 20px; height: 20px; stroke: var(--accent-text); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  h3 { margin: 0 0 4px 0; font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+  h4 { margin: 0 0 6px 0; font-size: 16px; font-weight: 600; }
+  p  { margin: 0; font-size: 14px; }
+  .grad { background: var(--gradient-text-soft); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: inherit; font-weight: 600; font-size: 14px; padding: 10px 18px;
+    border-radius: 8px; border: 1px solid transparent; cursor: pointer; text-decoration: none;
+    transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.3s var(--ease), opacity 0.3s var(--ease);
+  }
+  .btn-primary { background: var(--accent); color: #0a0620; box-shadow: var(--shadow-3); }
+  .btn-primary:hover { opacity: 0.92; transform: translateY(-1px); }
+  .btn-outline { color: var(--fg-1); background: transparent; border-color: var(--border); }
+  .btn-outline:hover { background: var(--surface-2); border-color: var(--accent-border); }
+  .btn-ghost { color: var(--accent-text); background: transparent; }
+  .btn-ghost:hover { background: var(--accent-bg); }
+
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px;
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-border);
+    color: var(--accent-text);
+    border-radius: var(--r-pill);
+    font-size: 12px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+
+  .input {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px;
+    font-family: inherit; font-size: 14px; color: var(--fg-1);
+    width: 100%;
+  }
+  .input::placeholder { color: var(--fg-3); }
+  .input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg); }
+
+  .lede { font-size: 17px; color: var(--fg-2); max-width: 600px; margin: 0 auto 24px; text-align: center; line-height: 1.55; }
+  .header { text-align: center; margin-bottom: 24px; position: relative; z-index: 1; }
+  .header h2 { margin: 0 0 8px 0; font-size: 36px; font-weight: 700; letter-spacing: -0.025em; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <span class="badge">Light theme</span>
+    <h2>Atlas in <span class="grad">daylight</span></h2>
+    <p class="lede">Same brand, lifted off white. Use this layer for product surfaces — auth, settings, in-app reading — where the dark cosmic theme would feel heavy.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M17 11h4M19 9v4"/></svg></div>
+      <h4>EA Staffing</h4>
+      <p>Pre-vetted human assistants matched to your operating rhythm in two weeks.</p>
+    </div>
+    <div class="card featured">
+      <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div>
+      <h4>AI Operators</h4>
+      <p>Custom agents that draft, file, and brief — trained on your stack and your voice.</p>
+    </div>
+
+    <div class="card full">
+      <h4>Buttons</h4>
+      <div class="row" style="margin-top: 12px;">
+        <button class="btn btn-primary">Book a call</button>
+        <button class="btn btn-outline">See services</button>
+        <button class="btn btn-ghost">Learn more →</button>
+      </div>
+    </div>
+
+    <div class="card full">
+      <h4>Form</h4>
+      <div class="row" style="margin-top: 12px; align-items: stretch;">
+        <input class="input" placeholder="you@company.com" style="flex: 1;" />
+        <button class="btn btn-primary">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

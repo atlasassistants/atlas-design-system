@@ -47,7 +47,7 @@ This system was reverse-engineered from the **`reflect-design`** reference codeb
 |---|---|
 | Brand name | **Atlas Assistants** (lowercase "atlas" in product UI) |
 | Tagline used | "Executive support, reimagined" / "Operate in your zone of genius" |
-| Primary surface | Dark (Cosmic Black `#050314`) — the brand is essentially dark-mode-only |
+| Primary surface | Dark (Cosmic Black `#050314`) — marketing is dark-mode-first; a light theme exists for product surfaces (see ["Light mode"](#light-mode)) |
 | Single accent | Lavender `#ba9cff` — the only true pop of color |
 | Brand gradient | `linear-gradient(135deg, #5c70ff, #b675f5)` — periwinkle → magenta. Used on the logo orb, primary mark backgrounds, avatar fills, and large display text fades. |
 | Type | **Inter** only (400 / 500 / 600 / 700) |
@@ -157,6 +157,65 @@ The target landing inlines a small set: a "users + add" people icon (EA Staffing
 - `assets/atlas-logo-white.png` — full lockup, white-on-dark.
 - Render the mark as an `<img>`, never as CSS shapes. At nav size (36px) apply `filter: drop-shadow(0 8px 24px rgba(92,112,255,0.32))` for the same lit-from-behind feel as the rest of the brand.
 - Minimum size: 16px. Below that, switch to the wordmark-only.
+
+---
+
+## Light mode
+
+Atlas is dark-by-default — the marketing site, the landing, anything pitch-facing stays cosmic. **Light mode is an opt-in layer for product surfaces** where dark is too heavy: auth screens, settings, in-app reading, exported documents.
+
+### How it works
+
+The light theme is defined in `colors_and_type.css` under `[data-theme="light"]`. Same token names, inverted surfaces. Apply via:
+
+```html
+<html data-theme="light">
+<!-- or scope to a region -->
+<body data-theme="light">
+<section data-theme="light">
+```
+
+Components that use `var(--bg)`, `var(--surface)`, `var(--fg-1)`, etc. switch automatically. No component code changes are needed.
+
+### What changes
+
+| Token | Dark | Light |
+|---|---|---|
+| `--bg` | `#050314` (Cosmic Black) | `#fafaff` (near-white, subtle cool tint) |
+| `--bg-2` | `#0a0620` | `#f4f0ff` (lavender wash) |
+| `--surface` | `#110a2c` | `#ffffff` (cards on bg) |
+| `--surface-2` | `#1a1140` | `#f8f6ff` (hovered) |
+| `--border` | `#2a1f55` | `#e5e1f5` |
+| `--border-soft` | `#1d1640` | `#efebfa` |
+| `--fg-1` | `#ffffff` | `#050314` (Cosmic Black for body text) |
+| `--fg-2…4` | `rgba(255,255,255, 0.72/0.5/0.32)` | `rgba(5,3,20, 0.72/0.5/0.32)` |
+| `--accent` (fills) | `#ba9cff` | `#ba9cff` (unchanged — lavender CTAs work on both) |
+| **`--accent-text` (new)** | inherits `--accent` | `#5046e4` (darker indigo for AA contrast on white) |
+| Stars overlay | visible | hidden (`--stars-opacity: 0`) |
+| Atmosphere overlays | strong | reduced ~3× |
+| Inset white highlights on cards | yes | dropped |
+| Card shadows | cool drop + inset glow | subtle dark drop + inset white |
+
+### Rules
+
+- **Never mix freely.** A page is either dark or light, not both. The only exception is the executive workspace mock inside the marketing hero — it stays dark even if the surrounding shell is light.
+- **CTA buttons stay lavender on both.** `var(--accent)` as background + `#0a0620` text reads on both modes — don't introduce a "light-mode CTA" variant.
+- **Use `--accent-text` for accent text on light surfaces** — links, accent labels, list-item bullets. Never put body-sized `#ba9cff` text on white (fails AA contrast at 2.18:1).
+- **The brand gradient is unchanged.** Use it on the logomark, headline accents, and avatar fills regardless of theme.
+- **Atmosphere is subtler.** Stars are off; radial glows are dialed down. The light theme is *clean*, not cosmic.
+
+### When to reach for it
+
+- Auth flow (sign in, sign up, forgot password) — reading-heavy and ambient
+- In-product reading surfaces — the exec workspace's "long form" view, exported PDFs/HTML
+- Partner-facing pages where light is the convention (legal, security disclosure, RFP attachments)
+- Anywhere the eye needs to live for >5 minutes
+
+If you're not sure: **stay dark**. The Atlas brand is the cosmic one — light mode is a quiet utility layer, not the alternate identity.
+
+### Reference
+
+See [`preview/light-mode.html`](preview/light-mode.html) for the canonical light-mode primitive page.
 
 ---
 

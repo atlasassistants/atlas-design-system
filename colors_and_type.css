@@ -156,6 +156,74 @@
   /* ---------- LAYOUT ---------- */
   --container-w: 1296px;
   --container-pad: 24px;
+
+  /* ---------- ATMOSPHERE OPACITY (toggled per theme) ---------- */
+  --stars-opacity: 0.6;
+}
+
+/* =========================================================
+   LIGHT THEME — opt-in via `[data-theme="light"]` on <html> or <body>.
+   Same tokens, inverted surfaces. Lavender accent stays as a fill,
+   but accent *text* shifts to a darker indigo for AA contrast on white.
+   Dark is the brand default; light is for product surfaces (auth,
+   in-app reading) where dark is too heavy.
+   ========================================================= */
+
+[data-theme="light"] {
+  /* ---------- COLOR — surfaces ---------- */
+  --bg:           #fafaff;   /* Page bg — near white with a cool tint */
+  --bg-2:         #f4f0ff;   /* Lifted bg — the lavender wash */
+  --surface:      #ffffff;   /* Cards on the bg */
+  --surface-2:    #f8f6ff;   /* Hovered surface */
+  --border:       #e5e1f5;   /* Visible divider */
+  --border-soft:  #efebfa;   /* Hairline border */
+
+  /* ---------- COLOR — foreground ---------- */
+  --fg-1: #050314;                       /* Primary text (Cosmic Black) */
+  --fg-2: rgba(5, 3, 20, 0.72);          /* Secondary */
+  --fg-3: rgba(5, 3, 20, 0.5);           /* Tertiary / placeholders */
+  --fg-4: rgba(5, 3, 20, 0.32);          /* Quaternary / hairlines */
+
+  /* ---------- COLOR — brand / accent ---------- */
+  /* Fills stay lavender — the brand pop is unchanged */
+  --accent:        var(--lavender);
+  /* But accent *text* on white needs more contrast — shift to indigo */
+  --accent-text:   #5046e4;
+  --accent-bg:     rgba(186, 156, 255, 0.18);
+  --accent-border: rgba(186, 156, 255, 0.36);
+  --accent-glow:   rgba(186, 156, 255, 0.40);
+
+  /* ---------- TEXT GRADIENTS (re-tuned for white surfaces) ---------- */
+  /* Default text gradients start white — invisible on a white bg.
+     Light-mode versions start at Cosmic Black and fade into the brand. */
+  --gradient-text:      linear-gradient(135deg, #050314 0%, #5046e4 55%, #b675f5 100%);
+  --gradient-text-soft: linear-gradient(135deg, #050314 30%, #5046e4 100%);
+
+  /* ---------- COLOR — overlays / atmosphere ---------- */
+  /* Subtler radial wash so brand cohesion survives without overpowering */
+  --overlay-radial-top:    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(186,156,255,0.10), transparent 70%);
+  --overlay-radial-bottom: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(92,112,255,0.05), transparent 70%);
+
+  /* Stars don't read on white — disable them in light mode */
+  --stars-opacity: 0;
+
+  /* ---------- ELEVATION ---------- */
+  /* Drop the inset white highlight (already on white) and use cool gray drops */
+  --shadow-1: 0 1px 2px rgba(5, 3, 20, 0.04);
+  --shadow-2: 0 4px 12px rgba(5, 3, 20, 0.05),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --shadow-3: 0 8px 20px rgba(186, 156, 255, 0.4),
+              inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --shadow-4: 0 24px 48px rgba(92, 112, 255, 0.08),
+              0 0 60px rgba(186, 156, 255, 0.05);
+  --shadow-glow: 0 0 0 1px rgba(186, 156, 255, 0.24),
+                 0 24px 48px rgba(186, 156, 255, 0.10);
+}
+
+/* Dark mode is default; this selector exists for explicit opt-in. */
+[data-theme="dark"] {
+  /* No-op — :root already defines dark. Selector kept so components
+     can force dark inside an otherwise-light shell. */
 }
 
 /* =========================================================
