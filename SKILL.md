@@ -1,9 +1,24 @@
 ---
 name: atlas-design
-description: Use this skill to generate well-branded interfaces and assets for Atlas Assistants, either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping.
+description: "Atlas Assistants brand-lock for any Atlas-branded UI, site, slide, mock, or asset. Supplies the LOCKED brand invariants — cosmic palette, lavender accent, blue→magenta gradient, Inter type, logo, signature easing, and voice — and delegates layout, composition, and motion to the taste-skill (design-taste-frontend) engine, so Atlas work stays on-brand without looking templated."
 user-invocable: true
 ---
 
-Read the design.md file within this skill, and explore the other available files.
-If creating visual artifacts (slides, mocks, throwaway prototypes, etc), copy assets out and create static HTML files for the user to view. If working on production code, you can copy assets and read the rules here to become an expert in designing with this brand.
-If the user invokes this skill without any other guidance, ask them what they want to build or design, ask some questions, and act as an expert designer who outputs HTML artifacts _or_ production code, depending on the need.
+# Atlas Design — brand-lock
+
+**This skill is a brand-lock, not a layout template.** For any Atlas frontend, the design engine is the **taste-skill** (`design-taste-frontend`); this skill supplies the brand invariants it must respect.
+
+## How to use it
+
+1. **Drive layout / composition / motion with taste-skill.** Let it run brief inference and set its `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY` dials for what you're building. Composition should be *fresh each build*.
+2. **Load this skill's LOCKED brand invariants as hard constraints** — palette, Inter, logo, gradient, `cubic-bezier(0.6, 0.6, 0, 1)` easing, 4px grid, and the voice rules in `design.md` → CONTENT FUNDAMENTALS. These never bend.
+3. **Treat the reference landing + `ui_kits/marketing/` as a token source, not a layout to clone.** Do not reproduce the exact target page unless explicitly asked — cloning it is what makes every Atlas build look identical.
+4. **Conflict rule:** brand-lock wins on brand (keep Inter; keep the occasional em-dash in Atlas copy; keep the palette + gradient). taste-skill wins on structure (layout, spacing rhythm, section variety, motion).
+
+Read **`design.md`** for the full system — start with its "Composition model" section — and explore `colors_and_type.css`, `assets/`, and `fonts/`.
+
+## Output
+
+- **Visual artifacts** (slides, mocks, throwaway prototypes): copy assets out and produce static HTML for the user to view.
+- **Production code:** apply the LOCKED tokens + voice and design with taste-skill as an expert in the Atlas brand.
+- **If invoked with no other guidance:** ask what they want to build, ask a few scoping questions, then act as an expert designer outputting HTML artifacts _or_ production code as needed.

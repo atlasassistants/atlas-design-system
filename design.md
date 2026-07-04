@@ -6,6 +6,27 @@ This system was reverse-engineered from the **`reflect-design`** reference codeb
 
 ---
 
+## Composition model — read this first
+
+**This is a brand-lock, not a layout template.** The design engine for any Atlas frontend is the **taste-skill** (`design-taste-frontend`). This system supplies the brand invariants it must respect; taste-skill decides how the page is actually composed. That split is deliberate — reproducing the one reference landing on every build is what makes Atlas work look identical.
+
+- **taste-skill owns (vary freely per build):** layout family, section structure, composition, spacing rhythm, hero treatment, motion choreography, and how adventurous the design is (its `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY` dials).
+- **This brand-lock owns — LOCKED, never override:**
+  - **Color** — Cosmic Black `#050314` base, lavender `#ba9cff` as the only accent, brand gradient `linear-gradient(135deg, #5c70ff, #b675f5)`, and the light/dark token map.
+  - **Type** — Inter only (400 / 500 / 600 / 700). No second typeface.
+  - **Logo** — the Atlas mark / lockup files in `assets/`, rendered as `<img>`.
+  - **Voice** — the CONTENT FUNDAMENTALS rules (confident, founder-grade, sentence case, second-person, the forbidden-words list).
+  - **Signature easing** — `cubic-bezier(0.6, 0.6, 0, 1)`. **4px grid.**
+- **REFERENCE ONLY — do not clone:** the target landing (`reflect-design/_target-atlas-landing.html`), the card anatomy, the orbital starfield + rotating rings, the fixed `120px` section paddings, and `ui_kits/marketing/` are **one expression** of the brand. Use them as a **token / pattern source**, not a layout to rebuild. Don't reproduce that exact page unless explicitly asked.
+
+**Conflict rule.** Where taste-skill and this brand-lock disagree:
+- **Brand-lock wins on brand invariants** — keep **Inter** (taste-skill's "no Inter default" does not apply to Atlas), keep the occasional **em-dash in marketing copy** (taste-skill's em-dash ban is overridden for Atlas voice), keep the palette and gradient.
+- **taste-skill wins on structure** — layout, composition, spacing rhythm, section variety, and motion patterns are its call, even where the reference landing did something different.
+
+Net: **on-brand always, composition fresh per build.**
+
+---
+
 ## Sources
 
 - **Reference codebase (read-only mount):** `reflect-design/`
@@ -86,6 +107,8 @@ This system was reverse-engineered from the **`reflect-design`** reference codeb
 ---
 
 ## VISUAL FOUNDATIONS
+
+> **Locked vs reference:** the *token values* below — color, Inter, the 4px spacing scale, corner-radius scale, easing — are LOCKED brand invariants. The specific *expressions* — the orbital starfield, the rotating hero rings, the exact card recipe, the fixed 120px section rhythm — are REFERENCE ONLY. Let taste-skill choose the composition; pull these values in as the palette it paints with. (See "Composition model" above.)
 
 **Color vibe.** Cosmic, indigo, premium. The whole experience lives on `#050314` — a deep blue-black that reads almost violet under the content. Surfaces step up in 5–10% lightness increments (`#0a0620` → `#110a2c` → `#1a1140`); borders sit between them at very low opacity. Lavender `#ba9cff` is the only chromatic accent — used for buttons, badges, focus rings, active list items, and gradient accent stops. Two cooler purples (`#9382ff` indigo, `#5c70ff` periwinkle) and one warmer one (`#b675f5` magenta) appear only inside gradients.
 
