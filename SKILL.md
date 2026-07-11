@@ -10,12 +10,13 @@ user-invocable: true
 
 ## How to use it
 
-1. **Drive layout / composition / motion with taste-skill.** Let it run brief inference and set its `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY` dials for what you're building. Composition should be *fresh each build*.
-2. **Load this skill's LOCKED brand invariants as hard constraints** — palette, Inter, logo, gradient, `cubic-bezier(0.6, 0.6, 0, 1)` easing, 4px grid, and the voice rules in `design.md` → CONTENT FUNDAMENTALS. These never bend.
-3. **Treat the reference landing + `ui_kits/marketing/` as a token source, not a layout to clone.** Do not reproduce the exact target page unless explicitly asked — cloning it is what makes every Atlas build look identical.
-4. **Conflict rule:** brand-lock wins on brand (keep Inter; keep the occasional em-dash in Atlas copy; keep the palette + gradient). taste-skill wins on structure (layout, spacing rhythm, section variety, motion).
+1. **Load the identity first — `brand-identity.md`.** The brand concept ("put the weight down" / the Leverage Line), positioning, messaging pillars, and canonical vocabulary. Every asset stands on one of the five pillars; the vocabulary table wins over any conflicting copy.
+2. **Drive layout / composition / motion with taste-skill.** Let it run brief inference and set its `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY` dials for what you're building. Composition should be *fresh each build*.
+3. **Load this skill's LOCKED brand invariants as hard constraints** — palette, Inter, logo, gradient, `cubic-bezier(0.6, 0.6, 0, 1)` easing, 4px grid, and the voice rules in `design.md` → CONTENT FUNDAMENTALS. These never bend.
+4. **Treat the reference landing + `ui_kits/marketing/` as a token source, not a layout to clone.** Do not reproduce the exact target page unless explicitly asked — cloning it is what makes every Atlas build look identical.
+5. **Conflict rule:** brand-lock wins on brand (keep Inter; keep the occasional em-dash in Atlas copy; keep the palette + gradient). taste-skill wins on structure (layout, spacing rhythm, section variety, motion).
 
-Read **`design.md`** for the full system — start with its "Composition model" section — and explore `colors_and_type.css`, `assets/`, and `fonts/`.
+Read **`brand-identity.md`** first, then **`design.md`** for the full system — start with its "Composition model" section — and explore `colors_and_type.css`, `assets/`, and `fonts/`.
 
 ## Output
 

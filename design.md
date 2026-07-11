@@ -1,6 +1,6 @@
 # Atlas Assistants Design System
 
-Atlas pairs founders and executives with world-class, AI-trained executive assistants and AI Operators. The product surface is a marketing site (selling EA staffing, AI Operators, Managed AI Services, Executive Brief, and the Atlas Community) plus an executive workspace shown as a demo inside the hero. The brand is a cosmic, dark-mode aesthetic — deep purple-black surfaces, orbital starfields, lavender as the only true accent, and a signature blue→magenta brand gradient on the logo and buttons.
+Atlas Assistants is an AI-first company that takes founders across the Leverage Line — from carrying the company on their shoulders to owning a company that improves itself. The offer is the **Atlas Executive OS**: a client-owned Founder Brain + a dedicated agent + self-improving loops, run by a dedicated human AI Operator as a hybrid managed service. The brand's "who we are" layer — concept, positioning, pillars, canonical vocabulary — lives in **`brand-identity.md`. Read it first**; this file is the visual and verbal expression of that identity. The brand is a cosmic, dark-mode aesthetic — deep purple-black surfaces, orbital starfields, lavender as the only true accent, and a signature blue→magenta brand gradient on the logo and buttons. None of it is decoration: the Leverage Line is the signature graphic device, the orbital rings are the five levels of company autonomy, the starfield is the system running while you sleep, and the gradient is the ascent.
 
 This system was reverse-engineered from the **`reflect-design`** reference codebase that the Atlas team uses as their structural starting point — Atlas borrows reflect's 4px grid, signature `cubic-bezier(.6,.6,0,1)` easing, layered orbital motion, and shadow/elevation pattern, then swaps in Atlas's own colors, type, and product copy.
 
@@ -12,6 +12,7 @@ This system was reverse-engineered from the **`reflect-design`** reference codeb
 
 - **taste-skill owns (vary freely per build):** layout family, section structure, composition, spacing rhythm, hero treatment, motion choreography, and how adventurous the design is (its `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY` dials).
 - **This brand-lock owns — LOCKED, never override:**
+  - **Identity** — the brand concept, positioning, messaging pillars, and canonical vocabulary in `brand-identity.md`. Every asset stands on a pillar.
   - **Color** — Cosmic Black `#050314` base, lavender `#ba9cff` as the only accent, brand gradient `linear-gradient(135deg, #5c70ff, #b675f5)`, and the light/dark token map.
   - **Type** — Inter only (400 / 500 / 600 / 700). No second typeface.
   - **Logo** — the Atlas mark / lockup files in `assets/`, rendered as `<img>`.
@@ -43,6 +44,7 @@ Net: **on-brand always, composition fresh per build.**
 
 ```
 .
+├── brand-identity.md          ← the "who we are" layer — concept, positioning, pillars, vocabulary. READ FIRST.
 ├── design.md                  ← this file
 ├── SKILL.md                   ← Claude Code skill manifest (drop-in)
 ├── colors_and_type.css        ← CSS variables + semantic element styles
@@ -66,8 +68,9 @@ Net: **on-brand always, composition fresh per build.**
 
 | | |
 |---|---|
-| Brand name | **Atlas Assistants** (lowercase "atlas" in product UI) |
-| Tagline used | "Executive support, reimagined" / "Operate in your zone of genius" |
+| Brand name | **Atlas Assistants** (lowercase "atlas" in product UI; bias to the logomark — "ASSISTANTS" is legacy-category, full lockup for formal surfaces only) |
+| Brand concept | **Put the weight down** — the founder has been playing Atlas; the OS takes the sky. See `brand-identity.md`. |
+| Tagline used | "Operate in your zone of genius" (north star) / "Put the weight down" (brand promise) |
 | Primary surface | Dark (Cosmic Black `#050314`) — marketing is dark-mode-first; a light theme exists for product surfaces (see ["Light mode"](#light-mode)) |
 | Single accent | Lavender `#ba9cff` — the only true pop of color |
 | Brand gradient | `linear-gradient(135deg, #5c70ff, #b675f5)` — periwinkle → magenta. Used on the logo orb, primary mark backgrounds, avatar fills, and large display text fades. |
@@ -92,17 +95,17 @@ Net: **on-brand always, composition fresh per build.**
 
 **Emoji.** Almost never. Body copy is emoji-free. The one place they appear is as small inline icons inside the AI Operator mock chat bubble (`📧 Gmail`, `📝 Notion`, `🎙️ Otter`, `📊 Linear`) — there they read as tool-tags, not decoration. Don't add them anywhere else.
 
-**Examples (verbatim from the target landing):**
+**Examples (canonical — from `brand-identity.md`'s copy bank; the old staffing-era landing copy is retired):**
 
-- *"Operate in your zone of genius."* — primary headline; "zone of genius" is gradient-filled.
-- *"Atlas pairs founders and executives with world-class assistants and AI operators — so the operational weight lifts off your calendar and your best work has room to breathe."* — sub-headline; one long sentence, em-dash break.
-- *"Matched in two weeks, not three months."* — feature headline; uses the rhythm of contrast.
-- *"Your EA, with 10x reach."* — short, declarative, gradient on the proof-point.
-- *"We screen, interview, train, and back every match with a 90-day guarantee. The role is theirs, the support is yours."* — feature body; comma-list cadence + chiasmus.
-- *"Reclaim your week."* — final CTA. Two words. That's the whole vibe.
-- *"Made for operators who want their week back."* — footer pay-off line.
+- *"Operate in your zone of genius."* — primary headline; "zone of genius" is gradient-filled. Was a tagline; now the north-star belief.
+- *"You don't have a time problem. You have a leverage problem."* — the diagnosis; rhythm of contrast.
+- *"We've placed 300+ executive assistants. Then we built the thing that made them optional."* — proof + pattern interrupt in two sentences.
+- *"Work stops when you don't respond."* — pain line; short, declarative, second person.
+- *"The company got better last month — and it wasn't my idea."* — the destination; em-dash break.
+- *"Put the weight down."* — the brand promise. Three words. That's the whole vibe.
+- *"Made for founders crossing the Leverage Line."* — footer pay-off line.
 
-**Forbidden words/patterns.** "Revolutionary", "best-in-class", "next-gen", "leverage cutting-edge AI", "synergy", "platform that empowers". No exclamation marks (one per page max, and even that's a stretch). No "🚀". No ALL CAPS shouting.
+**Forbidden words/patterns.** "Revolutionary", "best-in-class", "next-gen", "leverage cutting-edge AI", "synergy", "platform that empowers". No exclamation marks (one per page max, and even that's a stretch). No "🚀". No ALL CAPS shouting. No "buy back your time" except when naming it as the outdated advice. The full canonical always/never vocabulary lives in `brand-identity.md` — it wins over any copy that conflicts with it.
 
 ---
 
@@ -174,7 +177,7 @@ The target landing inlines a small set: a "users + add" people icon (EA Staffing
 **Unicode chars.** A few well-chosen ones: `⌘` for the keyboard hint inside the workspace search input. The dot separator in the hero meta-row is a real `<span>` with a 4px circle background, not a `·`.
 
 **Logo files.**
-- `assets/atlas-mark.png` — the Atlas **logomark**: an "A" inscribed inside an open ring, both filled with the brand gradient (blue → purple). Transparent background. This is the canonical brand mark — use it on light surfaces.
+- `assets/atlas-mark.png` — the Atlas **logomark**: an "A" inscribed inside an open ring, both filled with the brand gradient (blue → purple). Transparent background. This is the canonical brand mark — use it on light surfaces. Read it through the brand concept: the "A" stands *inside* the ring — the founder at the center of a system in orbit around them, not on their shoulders.
 - `assets/atlas-mark-white.png` — same logomark, solid white. Use on dark surfaces (the marketing site, dark hero panels, etc).
 - `assets/atlas-logo-dark.png` — full lockup ("atlas" wordmark + "ASSISTANTS"), navy-on-white. Use on light surfaces / partner pages.
 - `assets/atlas-logo-white.png` — full lockup, white-on-dark.
