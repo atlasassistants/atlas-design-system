@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Atlas Social Kit — Artboards</title>
+<style>
+  @font-face { font-family:"Inter"; src:url("../../fonts/Inter-Regular.ttf") format("truetype"); font-weight:400; font-display:swap; }
+  @font-face { font-family:"Inter"; src:url("../../fonts/Inter-Medium.ttf") format("truetype"); font-weight:500; font-display:swap; }
+  @font-face { font-family:"Inter"; src:url("../../fonts/Inter-SemiBold.ttf") format("truetype"); font-weight:600; font-display:swap; }
+  @font-face { font-family:"Inter"; src:url("../../fonts/Inter-Bold.ttf") format("truetype"); font-weight:700; font-display:swap; }
+
+  :root{
+    --bg:#050314; --bg-2:#0a0620; --surface:#110a2c;
+    --border:#2a1f55; --border-soft:#1d1640;
+    --fg-1:#ffffff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.5);
+    --accent:#ba9cff;
+    --gradient:linear-gradient(135deg,#5c70ff 0%,#b675f5 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a0620;font-family:Inter,-apple-system,sans-serif;color:var(--fg-1);padding:48px}
+  h1.kit{font-size:20px;font-weight:600;margin-bottom:8px}
+  p.kit{font-size:13px;color:var(--fg-3);margin-bottom:40px;max-width:64ch}
+  .boards{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+  .slot{display:flex;flex-direction:column;gap:10px}
+  .slot > span{font-size:12px;color:var(--fg-3);font-weight:500}
+  /* preview scale; ?full renders 1:1 */
+  .scale{transform:scale(.4);transform-origin:top left}
+  .scale.sq{width:432px;height:432px}
+  .scale.pt{width:432px;height:540px}
+  .scale.og{width:480px;height:252px}
+  body.full .scale{transform:none}
+  body.full .scale.sq{width:1080px;height:1080px}
+  body.full .scale.pt{width:1080px;height:1350px}
+  body.full .scale.og{width:1200px;height:630px}
+
+  .board{position:relative;background:var(--bg);overflow:hidden;font-family:Inter,-apple-system,sans-serif}
+  .board.sq{width:1080px;height:1080px}
+  .board.pt{width:1080px;height:1350px}
+  .board.og{width:1200px;height:630px}
+
+  /* shared devices */
+  .stars,.stars::after{position:absolute;inset:0;pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%,rgba(255,255,255,.5),transparent),
+      radial-gradient(1px 1px at 34% 62%,rgba(255,255,255,.35),transparent),
+      radial-gradient(1.5px 1.5px at 58% 30%,rgba(255,255,255,.4),transparent),
+      radial-gradient(1px 1px at 72% 74%,rgba(255,255,255,.3),transparent),
+      radial-gradient(1px 1px at 88% 12%,rgba(255,255,255,.45),transparent),
+      radial-gradient(1.5px 1.5px at 20% 86%,rgba(255,255,255,.3),transparent),
+      radial-gradient(1px 1px at 46% 8%,rgba(255,255,255,.35),transparent),
+      radial-gradient(1px 1px at 80% 46%,rgba(255,255,255,.4),transparent)}
+  .glow-top{position:absolute;inset:0;background:radial-gradient(52% 34% at 50% 0%,rgba(186,156,255,.16),transparent 62%);pointer-events:none}
+  .lev-line{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#5c70ff 18%,#b675f5 82%,transparent)}
+  .lev-line::after{content:"";position:absolute;left:0;right:0;top:2px;height:120px;background:linear-gradient(180deg,rgba(5,3,20,0) 0%,rgba(5,3,20,.55) 100%)}
+  .brandrow{position:absolute;left:72px;bottom:64px;display:flex;align-items:center;gap:20px}
+  .brandrow img{height:56px;width:auto;filter:drop-shadow(0 8px 24px rgba(92,112,255,.32))}
+  .brandrow b{font-size:30px;font-weight:600;letter-spacing:-.01em}
+  .grad-text{background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* 1 — statement */
+  #statement .copy{position:absolute;left:72px;right:88px;top:200px}
+  #statement .l1{font-size:74px;font-weight:700;letter-spacing:-.03em;line-height:1.08;color:var(--fg-2)}
+  #statement .l2{font-size:88px;font-weight:700;letter-spacing:-.03em;line-height:1.06;margin-top:36px}
+  #statement .lev-line{top:640px}
+
+  /* 2 — felt sentence */
+  #felt-sentence .tag{position:absolute;top:120px;left:0;right:0;text-align:center;font-size:24px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  #felt-sentence .q{position:absolute;top:0;bottom:120px;left:110px;right:110px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:76px;font-weight:700;letter-spacing:-.025em;line-height:1.14}
+  #felt-sentence .ring{position:absolute;left:50%;top:56%;width:760px;height:760px;transform:translate(-50%,-50%);border:1px solid rgba(186,156,255,.16);border-radius:50%}
+  #felt-sentence .ring.r2{width:980px;height:980px;border-color:rgba(186,156,255,.09)}
+
+  /* 3 — carousel cover */
+  #carousel-cover .orbits{position:absolute;right:-360px;top:50%;transform:translateY(-50%);width:1100px;height:1100px}
+  #carousel-cover .orbits i{position:absolute;border:1px solid rgba(186,156,255,.14);border-radius:50%;inset:0}
+  #carousel-cover .orbits i:nth-child(2){inset:100px}
+  #carousel-cover .orbits i:nth-child(3){inset:200px}
+  #carousel-cover .orbits i:nth-child(4){inset:300px}
+  #carousel-cover .orbits i:nth-child(5){inset:400px;border-color:rgba(186,156,255,.3);box-shadow:0 0 80px rgba(186,156,255,.12)}
+  #carousel-cover .copy{position:absolute;left:72px;top:340px;right:420px}
+  #carousel-cover .eyebrow{font-size:26px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:40px}
+  #carousel-cover h2{font-size:104px;font-weight:700;letter-spacing:-.03em;line-height:1.05}
+  #carousel-cover p{margin-top:44px;font-size:34px;line-height:1.45;color:var(--fg-2);max-width:20ch}
+
+  /* 4 — carousel interior */
+  #carousel-slide .num{position:absolute;left:72px;top:150px;font-size:200px;font-weight:700;letter-spacing:-.04em;line-height:1}
+  #carousel-slide .arc{position:absolute;right:-520px;top:-520px;width:1040px;height:1040px;border:1px solid rgba(186,156,255,.18);border-radius:50%}
+  #carousel-slide .body{position:absolute;left:72px;right:88px;top:470px}
+  #carousel-slide .lvl{font-size:30px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  #carousel-slide h2{margin-top:22px;font-size:84px;font-weight:700;letter-spacing:-.03em;line-height:1.08}
+  #carousel-slide .felt{margin-top:52px;font-size:42px;line-height:1.4;color:var(--fg-2);max-width:24ch}
+  #carousel-slide .who{margin-top:44px;font-size:30px;color:var(--fg-3)}
+  #carousel-slide .who b{color:var(--fg-1);font-weight:600}
+
+  /* 5 — OG */
+  #og .copy{position:absolute;left:64px;top:140px;right:420px}
+  #og h2{font-size:64px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+  #og p{margin-top:24px;font-size:26px;color:var(--fg-2)}
+  #og .lev-line{top:470px}
+  #og .brandrow{left:64px;bottom:44px}
+  #og .brandrow img{height:44px}
+  #og .brandrow b{font-size:24px}
+  #og .mark-orb{position:absolute;right:-160px;top:50%;transform:translateY(-50%);width:520px;height:520px;border:1px solid rgba(186,156,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center}
+  #og .mark-orb img{height:190px;filter:drop-shadow(0 16px 48px rgba(92,112,255,.4))}
+</style>
+</head>
+<body>
+<h1 class="kit">Atlas Social Kit — artboards</h1>
+<p class="kit">Preview at 40%. Add <code>?full</code> to the URL for exact pixel size, then screenshot each board. Swap the copy per post; every board stands on one messaging pillar (see brand-identity.md). Copy shown uses the canonical copy bank.</p>
+
+<div class="boards">
+
+  <div class="slot"><span>#statement · 1080×1080 · pillar: the false summit / diagnosis</span>
+  <div class="scale sq"><div class="board sq" id="statement">
+    <div class="stars"></div><div class="glow-top"></div>
+    <div class="copy">
+      <div class="l1">You don't have a time problem.</div>
+      <div class="l2">You have a <span class="grad-text">leverage problem</span>.</div>
+    </div>
+    <div class="lev-line"></div>
+    <div class="brandrow"><img src="../../assets/atlas-mark-white.png" alt="Atlas mark"><b>atlas</b></div>
+  </div></div></div>
+
+  <div class="slot"><span>#felt-sentence · 1080×1080 · pillar: the line &amp; the ladder</span>
+  <div class="scale sq"><div class="board sq" id="felt-sentence">
+    <div class="stars"></div>
+    <div class="ring"></div><div class="ring r2"></div>
+    <div class="tag">Level 2 · The Bottleneck Company</div>
+    <div class="q">"I built a team<br>that needs me."</div>
+    <div class="brandrow"><img src="../../assets/atlas-mark-white.png" alt="Atlas mark"><b>atlas</b></div>
+  </div></div></div>
+
+  <div class="slot"><span>#carousel-cover · 1080×1350 · pillar: the line &amp; the ladder</span>
+  <div class="scale pt"><div class="board pt" id="carousel-cover">
+    <div class="stars"></div><div class="glow-top"></div>
+    <div class="orbits"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="copy">
+      <div class="eyebrow">The map</div>
+      <h2>The five levels of company <span class="grad-text">autonomy</span></h2>
+      <p>How much of your company runs, learns, and improves without you?</p>
+    </div>
+    <div class="brandrow"><img src="../../assets/atlas-mark-white.png" alt="Atlas mark"><b>atlas</b></div>
+  </div></div></div>
+
+  <div class="slot"><span>#carousel-slide · 1080×1350 · one level per slide</span>
+  <div class="scale pt"><div class="board pt" id="carousel-slide">
+    <div class="stars"></div>
+    <div class="arc"></div>
+    <div class="num grad-text">2</div>
+    <div class="body">
+      <div class="lvl">The Bottleneck Company</div>
+      <h2>You hired. The OS never left your head.</h2>
+      <div class="felt">"Fifty hours in, roughly seven hours of true output. Effective leverage: 0.14×."</div>
+      <div class="who">The founder here is <b>The Manager</b></div>
+    </div>
+    <div class="brandrow"><img src="../../assets/atlas-mark-white.png" alt="Atlas mark"><b>atlas</b></div>
+  </div></div></div>
+
+  <div class="slot"><span>#og · 1200×630 · link previews</span>
+  <div class="scale og"><div class="board og" id="og">
+    <div class="stars"></div><div class="glow-top"></div>
+    <div class="mark-orb"><img src="../../assets/atlas-mark-white.png" alt="Atlas mark"></div>
+    <div class="copy">
+      <h2>Put the <span class="grad-text">weight</span> down.</h2>
+      <p>The Self-Improving Company, explained.</p>
+    </div>
+    <div class="lev-line"></div>
+    <div class="brandrow"><b>atlas</b></div>
+  </div></div></div>
+
+</div>
+<script>if(location.search.includes('full'))document.body.classList.add('full')</script>
+</body>
+</html>

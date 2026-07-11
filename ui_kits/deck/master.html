@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Atlas Deck Kit — Slide Masters</title>
+<style>
+  @font-face { font-family:"Inter"; src:url("../../fonts/Inter-Regular.ttf") format("truetype"); font-weight:400; font-display:swap; }
+  @font-face { font-family:"Inter"; src:url("../../fonts/Inter-Medium.ttf") format("truetype"); font-weight:500; font-display:swap; }
+  @font-face { font-family:"Inter"; src:url("../../fonts/Inter-SemiBold.ttf") format("truetype"); font-weight:600; font-display:swap; }
+  @font-face { font-family:"Inter"; src:url("../../fonts/Inter-Bold.ttf") format("truetype"); font-weight:700; font-display:swap; }
+  :root{
+    --bg:#050314; --surface:#110a2c; --surface-2:#1a1140;
+    --border:#2a1f55; --border-soft:#1d1640;
+    --fg-1:#fff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.5);
+    --accent:#ba9cff; --gradient:linear-gradient(135deg,#5c70ff,#b675f5);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#0a0620;font-family:Inter,-apple-system,sans-serif;color:var(--fg-1);padding:48px}
+  h1.kit{font-size:20px;font-weight:600;margin-bottom:8px}
+  p.kit{font-size:13px;color:var(--fg-3);margin-bottom:40px;max-width:70ch}
+  .label{font-size:12px;color:var(--fg-3);font-weight:500;margin:36px 0 10px}
+  .frame{width:960px;height:540px;overflow:hidden}
+  .slide{position:relative;width:1920px;height:1080px;background:var(--bg);transform:scale(.5);transform-origin:top left;overflow:hidden}
+  .stars{position:absolute;inset:0;pointer-events:none;background-image:
+    radial-gradient(1px 1px at 14% 22%,rgba(255,255,255,.45),transparent),
+    radial-gradient(1px 1px at 38% 68%,rgba(255,255,255,.3),transparent),
+    radial-gradient(1.5px 1.5px at 62% 26%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1px 1px at 78% 78%,rgba(255,255,255,.3),transparent),
+    radial-gradient(1px 1px at 90% 14%,rgba(255,255,255,.4),transparent),
+    radial-gradient(1px 1px at 24% 88%,rgba(255,255,255,.28),transparent)}
+  .glow{position:absolute;inset:0;background:radial-gradient(48% 36% at 50% 0%,rgba(186,156,255,.14),transparent 60%);pointer-events:none}
+  .grad{background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lev-line{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#5c70ff 15%,#b675f5 85%,transparent)}
+  .pgmark{position:absolute;right:80px;bottom:56px;display:flex;align-items:center;gap:16px;color:var(--fg-3);font-size:22px}
+  .pgmark img{height:40px;opacity:.9}
+  .eyebrow{font-size:26px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+
+  /* 1 title */
+  #s1 .mark{position:absolute;left:120px;top:120px;height:96px;filter:drop-shadow(0 12px 36px rgba(92,112,255,.4))}
+  #s1 .copy{position:absolute;left:120px;bottom:200px;right:400px}
+  #s1 h2{font-size:128px;font-weight:700;letter-spacing:-.03em;line-height:1.04}
+  #s1 .sub{margin-top:44px;font-size:36px;color:var(--fg-2)}
+  #s1 .meta{position:absolute;left:120px;bottom:96px;font-size:26px;color:var(--fg-3)}
+  #s1 .orb{position:absolute;right:-420px;top:-420px;width:1200px;height:1200px;border:1px solid rgba(186,156,255,.14);border-radius:50%}
+  #s1 .orb.o2{inset:auto;right:-300px;top:-300px;width:960px;height:960px;border-color:rgba(186,156,255,.08)}
+
+  /* 2 divider */
+  #s2 .lev-line{top:50%}
+  #s2 .above{position:absolute;left:120px;top:0;height:50%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:64px}
+  #s2 h2{font-size:112px;font-weight:700;letter-spacing:-.03em;line-height:1.05;max-width:16ch}
+  #s2 .below{position:absolute;left:120px;top:calc(50% + 64px);font-size:34px;color:var(--fg-2);max-width:44ch}
+  #s2 .zone{position:absolute;right:120px;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3)}
+  #s2 .zone.a{top:calc(50% - 88px)}
+  #s2 .zone.b{top:calc(50% + 56px)}
+
+  /* 3 content */
+  #s3 .copy{position:absolute;left:120px;top:200px;right:760px}
+  #s3 h2{font-size:88px;font-weight:700;letter-spacing:-.03em;line-height:1.08}
+  #s3 .body{margin-top:56px;font-size:32px;line-height:1.55;color:var(--fg-2);max-width:38ch}
+  #s3 .orbwrap{position:absolute;right:-260px;top:50%;transform:translateY(-50%);width:900px;height:900px}
+  #s3 .orbwrap i{position:absolute;border:1px solid rgba(186,156,255,.15);border-radius:50%;inset:0}
+  #s3 .orbwrap i:nth-child(2){inset:130px;border-color:rgba(186,156,255,.1)}
+  #s3 .orbwrap i:nth-child(3){inset:260px;border-color:rgba(186,156,255,.24)}
+
+  /* 4 ladder */
+  #s4 h2{position:absolute;left:120px;top:104px;font-size:72px;font-weight:700;letter-spacing:-.03em}
+  #s4 .rows{position:absolute;left:120px;right:120px;top:260px}
+  #s4 .row{display:flex;align-items:center;gap:40px;padding:30px 40px;border:1px solid var(--border-soft);background:var(--surface);border-radius:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);margin-bottom:18px}
+  #s4 .row .n{font-size:44px;font-weight:700;width:64px}
+  #s4 .row .nm{font-size:36px;font-weight:600;flex:1}
+  #s4 .row .id{font-size:28px;color:var(--fg-3)}
+  #s4 .row.hot{border-color:rgba(186,156,255,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 0 1px rgba(186,156,255,.12),0 16px 48px rgba(186,156,255,.08)}
+  #s4 .cross{display:flex;align-items:center;gap:28px;margin:26px 0}
+  #s4 .cross .ln{flex:1;height:2px;background:linear-gradient(90deg,transparent,#5c70ff 20%,#b675f5 80%,transparent)}
+  #s4 .cross span{font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500}
+
+  /* 5 verbs */
+  #s5 h2{position:absolute;left:120px;top:120px;font-size:72px;font-weight:700;letter-spacing:-.03em}
+  #s5 .grid{position:absolute;left:120px;right:120px;top:320px;display:grid;grid-template-columns:repeat(5,1fr);gap:22px}
+  #s5 .verb{padding:44px 32px;border:1px solid var(--border-soft);background:var(--surface);border-radius:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+  #s5 .verb h3{font-size:38px;font-weight:600;letter-spacing:-.01em}
+  #s5 .verb p{margin-top:20px;font-size:24px;line-height:1.5;color:var(--fg-3)}
+  #s5 .verb .own{margin-top:34px;font-size:22px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3)}
+  #s5 .verb.human{background:var(--surface-2);border-color:rgba(186,156,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 0 1px rgba(186,156,255,.14),0 24px 64px rgba(186,156,255,.1)}
+  #s5 .verb.human .own{color:var(--accent)}
+  #s5 .note{position:absolute;left:120px;bottom:110px;font-size:28px;color:var(--fg-2)}
+
+  /* 6 equation */
+  #s6 .eq{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:150px;font-weight:700;letter-spacing:-.03em}
+  #s6 .eq .x{color:var(--fg-3);margin:0 48px;font-weight:400}
+  #s6 .cap{position:absolute;left:0;right:0;bottom:220px;text-align:center;font-size:32px;color:var(--fg-2)}
+
+  /* 7 quote */
+  #s7 .q{position:absolute;left:200px;right:200px;top:0;bottom:80px;display:flex;flex-direction:column;justify-content:center}
+  #s7 .q p{font-size:96px;font-weight:700;letter-spacing:-.025em;line-height:1.16}
+  #s7 .who{margin-top:64px;font-size:30px;color:var(--fg-3)}
+
+  /* 8 closing */
+  #s8 .copy{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  #s8 h2{font-size:150px;font-weight:700;letter-spacing:-.03em}
+  #s8 .cta{margin-top:72px;padding:26px 64px;background:var(--accent);color:#0a0620;font-size:34px;font-weight:600;border-radius:12px;box-shadow:0 8px 24px rgba(186,156,255,.28)}
+  #s8 .ring{position:absolute;left:50%;top:50%;width:1300px;height:1300px;transform:translate(-50%,-50%);border:1px solid rgba(186,156,255,.1);border-radius:50%}
+</style>
+</head>
+<body>
+<h1 class="kit">Atlas Deck Kit — slide masters</h1>
+<p class="kit">Eight masters at 1920×1080, previewed at 50%. Duplicate a master, swap the copy, keep the geometry. Print to PDF (landscape, background graphics on) for a shareable deck.</p>
+
+<div class="label">1 · Title</div>
+<div class="frame"><div class="slide" id="s1">
+  <div class="stars"></div><div class="glow"></div>
+  <div class="orb"></div><div class="orb o2"></div>
+  <img class="mark" src="../../assets/atlas-mark-white.png" alt="Atlas mark">
+  <div class="copy"><h2>The Self-Improving <span class="grad">Company</span></h2>
+  <div class="sub">How founders cross the Leverage Line.</div></div>
+  <div class="meta">Atlas Assistants · Colin Pal</div>
+</div></div>
+
+<div class="label">2 · Chapter divider — the Leverage Line</div>
+<div class="frame"><div class="slide" id="s2">
+  <div class="stars"></div>
+  <div class="lev-line"></div>
+  <div class="zone a">Above the line</div>
+  <div class="zone b">Below the line</div>
+  <div class="above"><h2>The <span class="grad">Leverage Line</span></h2></div>
+  <div class="below">Below it, growth costs the founder more of themselves. Above it, less. This chapter draws the line.</div>
+  <div class="pgmark"><img src="../../assets/atlas-mark-white.png" alt=""></div>
+</div></div>
+
+<div class="label">3 · Content (default)</div>
+<div class="frame"><div class="slide" id="s3">
+  <div class="stars"></div><div class="glow"></div>
+  <div class="orbwrap"><i></i><i></i><i></i></div>
+  <div class="copy">
+    <h2>Hiring was never up. It was <span class="grad">sideways</span>.</h2>
+    <div class="body">You didn't relocate the operating system. You hired a call center to query it. Every hire came with a context tax, payable by you.</div>
+  </div>
+  <div class="pgmark"><img src="../../assets/atlas-mark-white.png" alt=""></div>
+</div></div>
+
+<div class="label">4 · The Ladder</div>
+<div class="frame"><div class="slide" id="s4">
+  <div class="stars"></div>
+  <h2>The five levels of company autonomy</h2>
+  <div class="rows">
+    <div class="row hot"><div class="n grad">5</div><div class="nm">The Self-Improving Company</div><div class="id">Founder = The Owner</div></div>
+    <div class="row"><div class="n">4</div><div class="nm">The Self-Learning Company</div><div class="id">Founder = The Multiplier</div></div>
+    <div class="row"><div class="n">3</div><div class="nm">The Self-Monitoring Company</div><div class="id">Founder = The Architect</div></div>
+    <div class="cross"><div class="ln"></div><span>The Leverage Line</span><div class="ln"></div></div>
+    <div class="row"><div class="n">2</div><div class="nm">The Bottleneck Company</div><div class="id">Founder = The Manager</div></div>
+    <div class="row"><div class="n">1</div><div class="nm">The Operator Company</div><div class="id">Founder = The Product</div></div>
+  </div>
+</div></div>
+
+<div class="label">5 · The Five Verbs</div>
+<div class="frame"><div class="slide" id="s5">
+  <div class="stars"></div>
+  <h2>Five verbs run every company</h2>
+  <div class="grid">
+    <div class="verb"><h3>Notice</h3><p>See what's happening and what matters.</p><div class="own">System</div></div>
+    <div class="verb"><h3>Plan</h3><p>Turn what matters into options and a path.</p><div class="own">System</div></div>
+    <div class="verb human"><h3>Decide</h3><p>The judgment call. Taste, discernment, values.</p><div class="own">Human · always</div></div>
+    <div class="verb"><h3>Execute</h3><p>Send it, build it, book it, close it.</p><div class="own">System</div></div>
+    <div class="verb"><h3>Improve</h3><p>Make the whole loop better next time.</p><div class="own">System proposes</div></div>
+  </div>
+  <div class="note">Decide never moves. We fire the 90% of work wrapped around it.</div>
+</div></div>
+
+<div class="label">6 · The Equation</div>
+<div class="frame"><div class="slide" id="s6">
+  <div class="stars"></div><div class="glow"></div>
+  <div class="eq">Output <span class="x">=</span> Time <span class="x">×</span> <span class="grad">Leverage</span></div>
+  <div class="cap">Time is capped. Effort is capped. Leverage has no ceiling.</div>
+  <div class="pgmark"><img src="../../assets/atlas-mark-white.png" alt=""></div>
+</div></div>
+
+<div class="label">7 · Quote / felt sentence</div>
+<div class="frame"><div class="slide" id="s7">
+  <div class="stars"></div>
+  <div class="q">
+    <p>"The company got better last month — and it <span class="grad">wasn't my idea</span>."</p>
+    <div class="who">The Level 5 founder · The Owner</div>
+  </div>
+  <div class="pgmark"><img src="../../assets/atlas-mark-white.png" alt=""></div>
+</div></div>
+
+<div class="label">8 · Closing</div>
+<div class="frame"><div class="slide" id="s8">
+  <div class="stars"></div><div class="glow"></div>
+  <div class="ring"></div>
+  <div class="copy">
+    <h2>Put the <span class="grad">weight</span> down.</h2>
+    <div class="cta">Book the walkthrough</div>
+  </div>
+  <div class="pgmark"><img src="../../assets/atlas-mark-white.png" alt=""></div>
+</div></div>
+
+</body>
+</html>

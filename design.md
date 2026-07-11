@@ -54,12 +54,17 @@ Net: **on-brand always, composition fresh per build.**
 │   ├── atlas-logo-dark.png    ← full lockup, navy-on-white
 │   └── atlas-logo-white.png   ← full lockup, white-on-dark
 ├── fonts/                     ← Inter (regular, medium, semibold, bold)
-├── preview/                   ← Design System tab cards
+├── preview/                   ← Design System tab cards + brand-board.html (the identity at a glance — share this with new teammates)
 └── ui_kits/
-    └── marketing/             ← Atlas marketing-site UI kit (the only product)
-        ├── README.md
-        ├── index.html
-        └── *.jsx              ← Nav, Hero, Services, Pricing, etc.
+    ├── marketing/             ← Atlas marketing-site UI kit
+    │   ├── README.md
+    │   ├── index.html
+    │   └── *.jsx              ← Nav, Hero, Services, Pricing, etc.
+    ├── social/                ← social artboards (post, felt-sentence, carousel, OG) — README + templates.html
+    ├── deck/                  ← presentation slide masters (title, divider, ladder, verbs, equation…) — README + master.html
+    ├── email/                 ← client-safe email skeleton + rules (light-body exception documented) — README + template.html
+    ├── internal/              ← internal docs/dashboards/reports conventions — README
+    └── app/                   ← product-UI guidance (decided-shaped screens, lavender = action) — README
 ```
 
 ---
