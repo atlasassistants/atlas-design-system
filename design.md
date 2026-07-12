@@ -73,7 +73,7 @@ Net: **on-brand always, composition fresh per build.**
 
 | | |
 |---|---|
-| Brand name | **Atlas Assistants** (lowercase "atlas" in product UI; bias to the logomark — "ASSISTANTS" is legacy-category, full lockup for formal surfaces only) |
+| Brand name | **Atlas Assistants**. Logo = image files only: full lockup (`atlas-logo-white/dark.png`) by default, mark alone for small/square spots. **Never typeset the wordmark next to the mark** — see LOGO USAGE in Iconography. |
 | Brand concept | **Put the weight down** — the founder has been playing Atlas; the OS takes the sky. See `brand-identity.md`. |
 | Tagline used | "Operate in your zone of genius" (north star) / "Put the weight down" (brand promise) |
 | Primary surface | Dark (Cosmic Black `#050314`) — marketing is dark-mode-first; a light theme exists for product surfaces (see ["Light mode"](#light-mode)) |
@@ -92,7 +92,7 @@ Net: **on-brand always, composition fresh per build.**
 
 **Tone.** Calm, premium, in control. The product promises *relief from operational drag* — the copy reads the way a great Chief of Staff would talk: direct, unflappable, never breathless.
 
-**Casing.** Sentence case for everything in body and most headlines. The wordmark is set in lowercase ("atlas"). Eyebrows / section badges (e.g. `SERVICES`, `PRICING`, `EA STAFFING`) are uppercase with `0.08em` letter-spacing — these are the only place uppercase appears.
+**Casing.** Sentence case for everything in body and most headlines. (The lowercase "atlas" wordmark exists only inside the logo image files — never set it in type; see LOGO USAGE.) Eyebrows / section badges (e.g. `SERVICES`, `PRICING`, `EA STAFFING`) are uppercase with `0.08em` letter-spacing — these are the only place uppercase appears.
 
 **Person.** Second-person ("you", "your week", "your calendar") in headlines and CTAs. First-person plural ("we", "our bench") when describing the Atlas team. Never "I". Never "we believe…" / "we think…" — Atlas states, doesn't speculate.
 
@@ -182,12 +182,17 @@ The target landing inlines a small set: a "users + add" people icon (EA Staffing
 **Unicode chars.** A few well-chosen ones: `⌘` for the keyboard hint inside the workspace search input. The dot separator in the hero meta-row is a real `<span>` with a 4px circle background, not a `·`.
 
 **Logo files.**
-- `assets/atlas-mark.png` — the Atlas **logomark**: an "A" inscribed inside an open ring, both filled with the brand gradient (blue → purple). Transparent background. This is the canonical brand mark — use it on light surfaces. Read it through the brand concept: the "A" stands *inside* the ring — the founder at the center of a system in orbit around them, not on their shoulders.
-- `assets/atlas-mark-white.png` — same logomark, solid white. Use on dark surfaces (the marketing site, dark hero panels, etc).
-- `assets/atlas-logo-dark.png` — full lockup ("atlas" wordmark + "ASSISTANTS"), navy-on-white. Use on light surfaces / partner pages.
-- `assets/atlas-logo-white.png` — full lockup, white-on-dark.
-- Render the mark as an `<img>`, never as CSS shapes. At nav size (36px) apply `filter: drop-shadow(0 8px 24px rgba(92,112,255,0.32))` for the same lit-from-behind feel as the rest of the brand.
-- Minimum size: 16px. Below that, switch to the wordmark-only.
+- `assets/atlas-logo-white.png` — **the full logo (lockup)**: mark + "atlas ASSISTANTS" wordmark, white-on-dark. **The default logo for dark surfaces.**
+- `assets/atlas-logo-dark.png` — full lockup, navy-on-white. **The default logo for light surfaces / partner pages.**
+- `assets/atlas-mark.png` — the **logomark alone**: an "A" inscribed inside an open ring, both filled with the brand gradient (blue → purple). Transparent background. Light surfaces. Read it through the brand concept: the "A" stands *inside* the ring — the founder at the center of a system in orbit around them, not on their shoulders.
+- `assets/atlas-mark-white.png` — same logomark, solid white. Dark surfaces.
+
+**LOGO USAGE — LOCKED (the #1 observed misuse is building a fake lockup):**
+- **Two approved forms, both as image files: the full lockup, or the mark alone.** The lockup is the default — navs, headers, footers, title slides, email headers. The mark alone is for small/square spots only: favicon, avatar, watermark, slide-corner, and contexts where the lockup already appeared.
+- **NEVER typeset the wordmark.** Do not place text ("atlas", "Atlas", "atlas assistants") next to the mark to simulate a logo — no `<img mark> + <span>atlas</span>` navs. The wordmark is part of the logo artwork; if you need the logo with the name, use the lockup file. (The brand name may of course appear as plain text *in prose* — just never styled as a logo.)
+- Render as `<img>`, never as CSS shapes or recreated type. On dark surfaces apply `filter: drop-shadow(0 8px 24px rgba(92,112,255,0.32))` for the lit-from-behind feel.
+- Minimum sizes: lockup ≥ 24px tall (below that it's unreadable — switch to the mark); mark ≥ 16px.
+- The pre-2026 flat-violet logo is retired everywhere. If you see it, flag it.
 
 ---
 
@@ -231,6 +236,7 @@ Components that use `var(--bg)`, `var(--surface)`, `var(--fg-1)`, etc. switch au
 
 - **Never mix freely.** A page is either dark or light, not both. The only exception is the executive workspace mock inside the marketing hero — it stays dark even if the surrounding shell is light.
 - **CTA buttons stay lavender on both.** `var(--accent)` as background + `#0a0620` text reads on both modes — don't introduce a "light-mode CTA" variant.
+- **Logo on light:** switch files — `atlas-logo-dark.png` (lockup) / `atlas-mark.png` (gradient mark). The white variants vanish on white.
 - **Use `--accent-text` for accent text on light surfaces** — links, accent labels, list-item bullets. Never put body-sized `#ba9cff` text on white (fails AA contrast at 2.18:1).
 - **The brand gradient is unchanged.** Use it on the logomark, headline accents, and avatar fills regardless of theme.
 - **Atmosphere is subtler.** Stars are off; radial glows are dialed down. The light theme is *clean*, not cosmic.

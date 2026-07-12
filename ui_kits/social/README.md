@@ -27,7 +27,7 @@ Fixed-size HTML artboards for social graphics. Open `templates.html` in a browse
 - Dark boards only — social is a pitch-facing surface (no light mode here).
 - One gradient moment per board, max. Gradient goes on the key phrase, never the whole line.
 - Lavender `#ba9cff` is the only accent. The gradient is `135deg #5c70ff → #b675f5`.
-- Inter only. Current logomark only — the pre-2026 logo is retired.
+- Inter only. Logo = the full lockup image (`atlas-logo-white.png`) bottom-left by default; never typeset "atlas" next to the mark. The pre-2026 logo is retired.
 - Em-dashes are allowed in Atlas copy (brand voice) — but never as decoration.
 - No hashtag walls in the graphic itself; hashtags live in the caption if at all.
 - Mock numbers never ship: every stat on a board must be a real, sourced number.

@@ -40,7 +40,7 @@
 
   /* hero */
   .hero{padding:120px 0 96px;border-bottom:1px solid var(--border-soft);position:relative}
-  .hero img.mark{height:72px;filter:drop-shadow(0 8px 24px rgba(92,112,255,.32));margin-bottom:44px}
+  .hero img.mark{height:64px;width:auto;filter:drop-shadow(0 8px 24px rgba(92,112,255,.32));margin-bottom:44px}
   .hero h1{font-size:clamp(38px,6vw,72px);font-weight:700;letter-spacing:-.03em;line-height:1.06;max-width:16ch}
   .hero p.one{margin-top:32px;font-size:clamp(17px,2vw,21px);color:var(--fg-2);max-width:52ch;line-height:1.6}
   .hero .rings{position:absolute;right:-320px;top:-160px;width:760px;height:760px;pointer-events:none}
@@ -125,7 +125,7 @@
 
   <div class="hero">
     <div class="rings"><i></i><i></i><i></i></div>
-    <img class="mark" src="../assets/atlas-mark-white.png" alt="Atlas logomark">
+    <img class="mark" src="../assets/atlas-logo-white.png" alt="Atlas Assistants">
     <h1>Put the <span class="grad">weight</span> down.</h1>
     <p class="one">Atlas takes founders across the Leverage Line — from carrying the company on their shoulders to owning a company that improves itself. This board is the brand at a glance; the full system lives in <b>brand-identity.md</b> and <b>design.md</b>.</p>
   </div>
@@ -154,6 +154,23 @@
   </section>
 
   <section>
+    <h2>The logo — two forms, image files only</h2>
+    <div class="devices">
+      <div class="card" style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+        <img src="../assets/atlas-logo-white.png" alt="Atlas Assistants full lockup" style="height:44px;width:auto">
+        <p style="font-size:13px;color:var(--fg-3);line-height:1.55"><b style="color:var(--fg-1)">The full lockup — the default.</b> Mark + "atlas ASSISTANTS" wordmark, one artwork. Navs, headers, footers, title slides, email headers. Files: <code>atlas-logo-white.png</code> (dark) / <code>atlas-logo-dark.png</code> (light).</p>
+      </div>
+      <div class="card" style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+        <img src="../assets/atlas-mark-white.png" alt="Atlas mark" style="height:44px;width:auto">
+        <p style="font-size:13px;color:var(--fg-3);line-height:1.55"><b style="color:var(--fg-1)">The mark alone — small spots only.</b> Favicon, avatar, watermark, slide corners. Files: <code>atlas-mark-white.png</code> (dark) / <code>atlas-mark.png</code> (light).</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px;border-color:rgba(186,156,255,.3)">
+      <p style="font-size:14px;color:var(--fg-2);line-height:1.6"><b style="color:var(--fg-1)">Never typeset the wordmark.</b> Don't place text "atlas" next to the mark to simulate a logo — the wordmark is part of the logo artwork, not UI text. If you need the logo with the name, use the lockup file. The pre-2026 flat-violet logo is retired everywhere.</p>
+    </div>
+  </section>
+
+  <section>
     <h2>Color</h2>
     <div class="swatches">
       <div class="sw"><div class="chip" style="background:#050314;border-bottom:1px solid var(--border-soft)"></div><div class="meta"><b>Cosmic Black</b><span>#050314 · the void</span></div></div>
@@ -164,6 +181,9 @@
       <div class="sw"><div class="chip" style="background:#5c70ff"></div><div class="meta"><b>Periwinkle</b><span>#5c70ff · gradient only</span></div></div>
     </div>
     <div class="gradbar">The gradient: 135° #5c70ff → #b675f5 · logo, headline accents, avatar fills. Never a flat button fill.</div>
+    <div class="card" style="margin-top:16px">
+      <p style="font-size:14px;color:var(--fg-2);line-height:1.6"><b style="color:var(--fg-1)">Two modes, dark by default.</b> Everything pitch-facing stays cosmic dark. A full light theme ships in the tokens (<code>colors_and_type.css → [data-theme="light"]</code>) for reading surfaces: docs, reports, auth, in-app reading, email bodies. On light: text goes Cosmic Black, accent <i>text</i> shifts to indigo <code>#5046e4</code> for contrast, stars turn off, CTAs stay lavender, and the logo switches to the dark-variant files. Canonical demo: <code>preview/light-mode.html</code>.</p>
+    </div>
   </section>
 
   <section>

@@ -75,7 +75,7 @@ Atlas Assistants ............ the company (the mark, the name, the world)
 - **The company brand** carries trust and the visual world.
 - **The POV** carries the argument — it's what we teach, publish, and are known for.
 - **The offer** carries the transaction. Offer names may evolve; the POV and company brand do not.
-- **Wordmark note:** "ASSISTANTS" reads as the legacy category. Bias toward the logomark + lowercase "atlas" in product UI and marketing. Full lockup remains for formal/legal surfaces. The logo does not change.
+- **Logo note:** the logo does not change, and it comes in exactly two approved forms, both as image files — the **full lockup** (mark + "atlas ASSISTANTS" wordmark; the default for navs, headers, footers, title slides) and the **mark alone** (small/square spots: favicon, avatar, watermark, corners). **Never typeset the wordmark** — placing text "atlas" next to the mark to simulate a logo is the #1 observed misuse. Full rules: `design.md` → LOGO USAGE.
 - The HoldCo / roll-up architecture question stays open (see colin-brain strategy docs); nothing here blocks on it.
 
 ---
@@ -130,9 +130,10 @@ The single merged list. If copy anywhere conflicts with this table, this table w
 - "AI replaces people" framing — our claim is the opposite: all the human jobs become human
 - 🚀, ALL-CAPS shouting, exclamation marks (one per page max)
 
-**⚠️ Open conflict to resolve (Colin + Zion):** the messaging doc's kill list bans *"coordination tax"*, but the guide uses it deliberately in its strongest triplet ("a context tax, a coordination tax, and a decision tax"). **Recommendation:** retire the ban — allow the *tax* family in teaching contexts (guide, masterclass, long-form), keep it out of cold ad copy where it reads as jargon. Whichever way this lands, update both docs and this table together.
+**Context-dependent (resolved 2026-07-12):**
+- *"coordination tax"* (and the tax family: context tax, decision tax) — **allowed in teaching contexts** (the guide, masterclass, long-form essays) where the triplet earns its keep; **still banned in cold ad and sales copy**, where it reads as jargon.
 
-**⚠️ Number consistency:** canonical placement count is **300+** (per company overview). The sales-page draft says 120 — update it or justify the discrepancy before the funnel ships.
+**Numbers:** the canonical placement count is **300+** (per the company overview). Any asset that says otherwise is wrong — fix it, don't average it.
 
 ---
 
@@ -173,7 +174,7 @@ Until dedicated surface kits ship, apply these rules:
 - **Social:** every graphic stands on one pillar. Dark base, Inter, lavender accent, one gradient moment max. Felt sentences and copy-bank lines are the caption library.
 - **Internal artifacts (docs, dashboards, reports):** light mode allowed (see `design.md` → Light mode); tokens and Inter still apply. Internal work is brand work — the team lives in the brand before clients do.
 - **App / product surfaces:** the workspace is the brand's proof. Calm, decided-shaped presentation of work; lavender only for action; no decoration the concept can't justify.
-- **Every surface:** current logo only — the pre-2026 logo is retired everywhere, no exceptions.
+- **Every surface:** current logo only, as image files only — full lockup by default, mark alone for small/square spots, never a typeset wordmark next to the mark. The pre-2026 logo is retired everywhere, no exceptions.
 
 ---
 

@@ -38,8 +38,8 @@ body::before {
 /* ---------- NAV ---------- */
 .nav { position: sticky; top: 0; z-index: 100; padding: 20px 0; backdrop-filter: blur(18px); background: rgba(5,3,20,0.6); border-bottom: 1px solid rgba(255,255,255,0.04); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--fg-1); font-weight: 600; font-size: 16px; letter-spacing: -0.01em; }
-.nav-logo { width: 36px; height: 36px; flex-shrink: 0; display: block; filter: drop-shadow(0 8px 24px rgba(92,112,255,0.32)); }
+.nav-brand { display: flex; align-items: center; text-decoration: none; }
+.nav-logo { height: 30px; width: auto; flex-shrink: 0; display: block; filter: drop-shadow(0 8px 24px rgba(92,112,255,0.32)); }
 .nav-links { display: flex; align-items: center; gap: 4px; padding: 6px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 999px; }
 .nav-link { color: var(--fg-2); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; border-radius: 999px; transition: color 0.3s var(--ease); cursor: pointer; }
 .nav-link:hover, .nav-link.active { color: var(--fg-1); }
