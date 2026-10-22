@@ -2,27 +2,176 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Logo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Logo</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; }
-  .tile { border: 1px solid var(--border-soft); border-radius: var(--r-xl); padding: 20px; display: flex; align-items: center; justify-content: center; min-height: 120px; box-shadow: var(--shadow-2); }
-  .light { background: #ffffff; }
-  .dark  { background: var(--bg-2); }
-  .tile img { max-width: 100%; max-height: 80px; height: auto; object-fit: contain; }
-  .lbl { position: absolute; }
-  .wrap { position: relative; }
-  .wrap small { display:block; margin-top: 8px; color: var(--fg-3); font-size: 11px; text-transform: uppercase; letter-spacing: var(--ls-wide); text-align: center; }
+  .tiles { display: grid; gap: 24px; }
+  .tiles.two { grid-template-columns: 1fr 1fr; }
+  .tiles.four { grid-template-columns: repeat(4, 1fr); }
+  .tile { display: grid; gap: 12px; align-content: start; }
+  .surface { height: 240px; border-radius: var(--r-3xl); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .tiles.four .surface { height: 200px; }
+  .surface .lockup { height: 72px; width: auto; }
+  .lockup-v { height: 176px; width: auto; }
+  .surface .mark { height: 88px; width: auto; }
+  .s-pearl { background: var(--pearl-white); box-shadow: inset 0 0 0 1px var(--border); }
+  .s-white { background: #FFFFFF; box-shadow: inset 0 0 0 1px var(--border); }
+  .s-deep { background: var(--deep-blue); }
+  .s-vivid { background: var(--vivid-purple); }
+  .s-brand { background: var(--gradient-brand); }
+  .s-missing { border: 1.5px dashed var(--border); background: var(--bg-2); color: var(--fg-3); font-size: 15px; text-align: center; padding: 24px; line-height: 1.5; }
+  .tile b { font: var(--w-semibold) 16px/1.3 var(--font-display); color: var(--fg-1); }
+  .tile .pv-code { display: block; margin-top: 2px; }
+  .tile p { margin: 0; font-size: 15px; }
+  .cs { border-radius: var(--r-3xl); background: #FFFFFF; box-shadow: inset 0 0 0 1px var(--border); padding: 32px 40px 28px; }
+  .clearspace { width: 100%; height: auto; display: block; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 20px; font-size: 15px; color: var(--fg-2); }
+  .legend i { display: inline-block; width: 28px; height: 0; border-top: 2px dashed; vertical-align: middle; margin-right: 10px; }
+  .legend i.gap { height: 14px; border: 0; background: var(--vivid-purple-20); width: 14px; }
+  .sizes { display: flex; align-items: flex-end; gap: 40px; }
+  .sizes .tile { justify-items: start; }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="tile light"><img src="../assets/atlas-logo-dark.png" alt="Atlas dark logo" /></div>
-    <small>Logo on light</small>
-  </div>
-  <div class="wrap">
-    <div class="tile dark"><img src="../assets/atlas-logo-white.png" alt="Atlas mark" /></div>
-    <small>Mark on dark</small>
-  </div>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Logo</h1>
+      <p>The four default files, then the full logo package from the designer, each on the surface it was made for. The logo is always an image: never rebuilt with CSS, never typeset, and never paired with typed text to fake a lockup.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Full lockup</h2>
+    <p class="pv-lede">Gradient symbol plus wordmark. Use the gradient-symbol lockups only on Pearl White, white, or Deep Blue.</p>
+    <div class="tiles two">
+      <div class="tile">
+        <div class="surface s-pearl"><img class="lockup" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants logo, Deep Blue wordmark" /></div>
+        <div><b>Default on light</b><span class="pv-code">assets/atlas-logo-dark.png</span></div>
+        <p>Gradient symbol and Deep Blue wordmark (guidelines page 1). Pearl White or white surfaces.</p>
+      </div>
+      <div class="tile">
+        <div class="surface s-deep"><img class="lockup" src="../assets/atlas-logo-white.png" alt="Atlas Assistants logo, white wordmark" /></div>
+        <div><b>Default on Deep Blue</b><span class="pv-code">assets/atlas-logo-white.png</span></div>
+        <p>Gradient symbol and white wordmark (page 3). Deep Blue and dark surfaces.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Symbol only</h2>
+    <p class="pv-lede">For favicons, avatars, watermarks, and small or square spots. On Vivid Purple, mid-tone gradients, or photos, use the white symbol.</p>
+    <div class="tiles four">
+      <div class="tile">
+        <div class="surface s-pearl"><img class="mark" src="../assets/atlas-mark.png" alt="Atlas symbol, gradient" /></div>
+        <div><b>Gradient on Pearl White</b><span class="pv-code">assets/atlas-mark.png</span></div>
+      </div>
+      <div class="tile">
+        <div class="surface s-white"><img class="mark" src="../assets/atlas-mark.png" alt="Atlas symbol, gradient" /></div>
+        <div><b>Gradient on white</b><span class="pv-code">assets/atlas-mark.png</span></div>
+      </div>
+      <div class="tile">
+        <div class="surface s-vivid"><img class="mark" src="../assets/atlas-mark-white.png" alt="Atlas symbol, white" /></div>
+        <div><b>White on Vivid Purple</b><span class="pv-code">assets/atlas-mark-white.png</span></div>
+      </div>
+      <div class="tile">
+        <div class="surface s-brand"><img class="mark" src="../assets/atlas-mark-white.png" alt="Atlas symbol, white" /></div>
+        <div><b>White on the brand gradient</b><span class="pv-code">assets/atlas-mark-white.png</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>All-white lockup</h2>
+    <p class="pv-lede">For photos, Vivid Purple, and mid-tone gradients, where the gradient symbol loses contrast (guidelines page 4). From the designer's logo package.</p>
+    <div class="tiles two">
+      <div class="tile">
+        <div class="surface s-vivid"><img class="lockup" src="../assets/logo/svg/horizontal-all-white.svg" alt="Atlas Assistants logo, All white, horizontal" /></div>
+        <div><b>All white, horizontal</b><span class="pv-code">assets/logo/svg/horizontal-all-white.svg</span></div>
+        <p>On Vivid Purple, gradients, and photos.</p>
+      </div>
+      <div class="tile">
+        <div class="surface s-brand"><img class="lockup-v" src="../assets/logo/svg/vertical-all-white.svg" alt="Atlas Assistants logo, All white, vertical" /></div>
+        <div><b>All white, vertical</b><span class="pv-code">assets/logo/svg/vertical-all-white.svg</span></div>
+        <p>Stacked version for square and tall spaces.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Vertical lockup</h2>
+    <p class="pv-lede">Symbol above the wordmark. Use it where a horizontal lockup would be too small: square tiles, covers, and social avatars with room.</p>
+    <div class="tiles two">
+      <div class="tile">
+        <div class="surface s-pearl"><img class="lockup-v" src="../assets/logo/svg/vertical-gradient-deep-blue.svg" alt="Atlas Assistants logo, Vertical, on light" /></div>
+        <div><b>Vertical, on light</b><span class="pv-code">assets/logo/svg/vertical-gradient-deep-blue.svg</span></div>
+        <p>Gradient symbol and Deep Blue wordmark.</p>
+      </div>
+      <div class="tile">
+        <div class="surface s-deep"><img class="lockup-v" src="../assets/logo/svg/vertical-gradient-white.svg" alt="Atlas Assistants logo, Vertical, on Deep Blue" /></div>
+        <div><b>Vertical, on Deep Blue</b><span class="pv-code">assets/logo/svg/vertical-gradient-white.svg</span></div>
+        <p>Gradient symbol and white wordmark.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>One-color versions</h2>
+    <p class="pv-lede">For one-color uses where the gradient cannot reproduce (stamps, embroidery, single-ink print). On screens, prefer the gradient lockups. Shown: Vivid Purple and black. Electric Purple and Soft Blue Violet versions are in the package too, and every colorway exists as horizontal, vertical, and symbol-only, in SVG and PNG (<code class="pv-code">assets/logo/</code>). The wordmark-only version shown small on guidelines page 1 is not in the package; do not typeset it.</p>
+    <div class="tiles two">
+      <div class="tile">
+        <div class="surface s-pearl"><img class="lockup" src="../assets/logo/svg/horizontal-vivid-purple.svg" alt="Atlas Assistants logo, Vivid Purple" /></div>
+        <div><b>Vivid Purple</b><span class="pv-code">assets/logo/svg/horizontal-vivid-purple.svg</span></div>
+        <p>One color, on light.</p>
+      </div>
+      <div class="tile">
+        <div class="surface s-pearl"><img class="lockup" src="../assets/logo/svg/horizontal-black.svg" alt="Atlas Assistants logo, Black" /></div>
+        <div><b>Black</b><span class="pv-code">assets/logo/svg/horizontal-black.svg</span></div>
+        <p>One color, for print and documents.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Clear space</h2>
+    <p class="pv-lede">x is the gap between the symbol and the wordmark (guidelines page 2, measured). The page prints 2x and 4.5x labels without a written rule, so the spacing below is an Atlas convention derived from the diagram: at least 2x clear on every side, and about 4.5x on the left and right where space allows. Measured on the master file, x is 166px of a 3001px-wide lockup.</p>
+    <div class="cs">
+      <svg class="clearspace" viewBox="-760 -400 4520 1840" role="img" aria-label="Clear-space diagram: x is the gap between the symbol and the wordmark; keep 2x on every side, 4.5x left and right where space allows."><g fill="none" stroke-width="1.5" font-family="Poppins, sans-serif" font-weight="600" font-size="78"><rect vector-effect="non-scaling-stroke" x="-613" y="-251" width="4227" height="1539" rx="24" fill="rgba(92,112,255,0.07)" stroke="#5C70FF" stroke-dasharray="10 8"/><rect vector-effect="non-scaling-stroke" x="-198" y="-251" width="3397" height="1539" fill="rgba(69,0,249,0.05)" stroke="#4500F9" stroke-dasharray="10 8"/><rect vector-effect="non-scaling-stroke" x="949" y="81" width="166" height="876" fill="rgba(69,0,249,0.20)"/><image href="../assets/atlas-logo-dark.png" x="0" y="0" width="3001" height="1038"/><rect vector-effect="non-scaling-stroke" x="134" y="81" width="2734" height="876" fill="none" stroke="rgba(12,1,59,0.35)"/><line vector-effect="non-scaling-stroke" x1="949" y1="-70" x2="1115" y2="-70" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="949" y1="-98" x2="949" y2="-42" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="1115" y1="-98" x2="1115" y2="-42" stroke="#4500F9"/><text fill="#0C013B" stroke="none" x="1032.0" y="-110" text-anchor="middle">x</text><line vector-effect="non-scaling-stroke" x1="2620" y1="-251" x2="2620" y2="81" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="2592" y1="-251" x2="2648" y2="-251" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="2592" y1="81" x2="2648" y2="81" stroke="#4500F9"/><text fill="#0C013B" stroke="none" x="2664" y="-63.0" text-anchor="start">2x</text><line vector-effect="non-scaling-stroke" x1="2620" y1="956" x2="2620" y2="1288" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="2592" y1="956" x2="2648" y2="956" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="2592" y1="1288" x2="2648" y2="1288" stroke="#4500F9"/><text fill="#0C013B" stroke="none" x="2664" y="1144.0" text-anchor="start">2x</text><line vector-effect="non-scaling-stroke" x1="-198" y1="330" x2="134" y2="330" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="-198" y1="302" x2="-198" y2="358" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="134" y1="302" x2="134" y2="358" stroke="#4500F9"/><text fill="#0C013B" stroke="none" x="-32.0" y="294" text-anchor="middle">2x</text><line vector-effect="non-scaling-stroke" x1="2867" y1="330" x2="3199" y2="330" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="2867" y1="302" x2="2867" y2="358" stroke="#4500F9"/><line vector-effect="non-scaling-stroke" x1="3199" y1="302" x2="3199" y2="358" stroke="#4500F9"/><text fill="#0C013B" stroke="none" x="3033.0" y="294" text-anchor="middle">2x</text><line vector-effect="non-scaling-stroke" x1="-613" y1="760" x2="134" y2="760" stroke="#5C70FF"/><line vector-effect="non-scaling-stroke" x1="-613" y1="732" x2="-613" y2="788" stroke="#5C70FF"/><line vector-effect="non-scaling-stroke" x1="134" y1="732" x2="134" y2="788" stroke="#5C70FF"/><text fill="#0C013B" stroke="none" x="-405" y="724" text-anchor="middle">4.5x</text><line vector-effect="non-scaling-stroke" x1="2867" y1="760" x2="3614" y2="760" stroke="#5C70FF"/><line vector-effect="non-scaling-stroke" x1="2867" y1="732" x2="2867" y2="788" stroke="#5C70FF"/><line vector-effect="non-scaling-stroke" x1="3614" y1="732" x2="3614" y2="788" stroke="#5C70FF"/><text fill="#0C013B" stroke="none" x="3406" y="724" text-anchor="middle">4.5x</text></g></svg>
+      <div class="legend">
+        <span><i class="gap"></i>x: symbol-to-wordmark gap</span>
+        <span><i style="color:var(--vivid-purple)"></i>Convention minimum: 2x on every side</span>
+        <span><i style="color:var(--soft-blue-violet)"></i>Convention preferred: 4.5x left and right</span>
+        <span><i style="color:var(--deep-blue-40);border-top-style:solid;border-top-width:1px"></i>Artwork edge (the PNG adds its own padding)</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Minimum size</h2>
+    <p class="pv-lede">Atlas convention: the lockup is at least 24px tall; below that, switch to the symbol. The symbol is at least 16px.</p>
+    <div class="pv-panel">
+      <div class="sizes">
+        <div class="tile"><img src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" style="height:48px;width:auto" /><span class="pv-label">Lockup 48px</span></div>
+        <div class="tile"><img src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" style="height:32px;width:auto" /><span class="pv-label">Lockup 32px</span></div>
+        <div class="tile"><img src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" style="height:24px;width:auto" /><span class="pv-label">Lockup 24px, minimum</span></div>
+        <div class="tile"><img src="../assets/atlas-mark.png" alt="Atlas symbol" style="height:32px;width:auto" /><span class="pv-label">Symbol 32px</span></div>
+        <div class="tile"><img src="../assets/atlas-mark.png" alt="Atlas symbol" style="height:16px;width:auto" /><span class="pv-label">Symbol 16px, minimum</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Render the logo as an image file. Never recreate it with CSS shapes or type.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Never place "atlas" or "Atlas Assistants" as text next to the symbol. The name may appear in prose.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Switch the file with the surface: dark lockup on light, white lockup on Deep Blue, white symbol on purple and gradients.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Do not recolor, stretch, rotate, outline, or add effects. The pre-2026 flat-violet logo is retired; flag any instance.</li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

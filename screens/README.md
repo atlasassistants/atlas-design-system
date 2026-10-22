@@ -1,59 +1,44 @@
 # Screenshots
 
-Rendered captures of the Atlas design system. Sourced from the marketing kit and the preview primitive pages — regenerated on every meaningful change so the visuals stay in sync with the code.
-
-## Contents
+Rendered captures of the preview pages and the surface kits, for quick visual review. Regenerate them whenever a preview page, a kit, or `colors_and_type.css` changes.
 
 ```
 screens/
-├── home/        Marketing landing — full page + section captures
-├── sections/    (reserved for cropped section studies)
-├── preview/     One per primitive page in /preview
-└── light/       Light-mode renders
+├── preview/   One full-page capture per page in preview/ (1440px wide, 1x)
+└── kits/      Captures of each surface kit
 ```
 
-### `home/`
-Captured at viewport `1440×900` with `deviceScaleFactor: 2` (Retina).
+Captures of the retired 2026 cosmic system live in `_reference/legacy-cosmic-2026/screens/`.
 
-| File | Shows |
+## `preview/`
+
+| Group | Files |
 |---|---|
-| `full-page.png` | The complete marketing landing, top to bottom |
-| `01-hero.png` | Hero — orbital backdrop, gradient headline, dual CTAs |
-| `02-app-frame.png` | Executive workspace mock with toggleable tasks |
-| `03-services.png` | 5-card service grid (EA Staffing spans 2 cols) |
-| `04-feature-ea.png` | EA matching panel with candidate cards + fit scores |
-| `05-feature-ai.png` | AI Operator chat panel with tool tags |
-| `06-stats.png` | 4-stat proof bar + testimonials |
-| `07-pricing.png` | 3 plans, middle one featured with "Most popular" tag |
-| `08-faq.png` | Accordion FAQ |
-| `09-cta-footer.png` | Final CTA block + 4-column footer |
+| Index and brand | `index`, `brand-board`, `logo`, `patterns`, `light-dark` |
+| Foundations | `colors`, `gradients`, `type`, `spacing`, `radii`, `elevation` |
+| Components | `buttons`, `badges`, `cards`, `inputs`, `nav`, `avatars`, `icons` |
 
-### `preview/`
-One static page per design primitive — useful for quick visual QA.
+## `kits/`
 
-| Group | Pages |
-|---|---|
-| Color | `colors-surfaces`, `colors-foreground`, `colors-accent`, `gradients` |
-| Type | `type-display`, `type-body` |
-| Layout | `spacing`, `radii`, `elevation` |
-| Components | `buttons`, `cards`, `nav`, `inputs`, `badges`, `avatars`, `icons`, `logo` |
-| Brand | `brand-orb`, `atmosphere` |
-
-### `light/`
-| File | Shows |
-|---|---|
-| `light-mode.png` | The light-theme primitive page (`preview/light-mode.html`) — same components on white |
+| File | Source | Size |
+|---|---|---|
+| `marketing-desktop-1440.png` | `ui_kits/marketing/index.html` | 1440 wide, full page |
+| `marketing-mobile-390.png` | `ui_kits/marketing/index.html` | 390 wide, full page |
+| `social.png` | `ui_kits/social/templates.html` | 1440 wide, boards at 40% |
+| `deck.png` | `ui_kits/deck/master.html` | 1440 wide, slides at 31% |
+| `email.png` | `ui_kits/email/template.html` | 760 wide (logo URLs pointed at `assets/` for the capture) |
 
 ## How to regenerate
 
+Captures use headless Chrome:
+
 ```bash
-cd /tmp
-npm install --no-save playwright@1.59.1
-npx playwright install chromium
-node /tmp/atlas-screenshots.js       # full landing + all preview pages
-node /tmp/atlas-screenshots-fix.js   # re-shoots section captures using element-anchored scroll
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
+  --hide-scrollbars --allow-file-access-from-files --window-size=1440,<height> \
+  --screenshot=<out.png> file://<absolute-path-to-page>
 ```
 
-The capture scripts spin a tiny static server on `127.0.0.1:8765`, render each page through Chromium, and write into `screens/`. Both scripts live in `/tmp/` rather than the repo — they're capture tooling, not part of the design system.
-
-If you change the marketing kit (`ui_kits/marketing/`) or any preview primitive, re-run the relevant script before committing.
+- **Height:** measure the page's full scroll height first (any browser automation works), then pass it as `<height>`.
+- **Marketing kit:** it loads `.jsx` files through Babel, so add `--allow-file-access-from-files` and `--virtual-time-budget=5000` to let React render before the capture.
+- **390px mobile:** headless Chrome on macOS will not lay out narrower than 500px. Render the page inside a 390px-wide `<iframe>` in a wrapper HTML file, capture the wrapper, then crop to 390px.
+- **Email:** replace `LOGO_URL` with `file://<repo>/assets` in a scratch copy before capturing.

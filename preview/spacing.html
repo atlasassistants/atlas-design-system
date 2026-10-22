@@ -2,25 +2,75 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Spacing Scale</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Spacing</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 24px; }
-  .row { display: grid; grid-template-columns: 56px 1fr 80px; align-items: center; gap: 14px; padding: 6px 0; }
-  .bar { height: 14px; background: var(--gradient-brand); border-radius: 4px; }
-  .name { font-size: 12px; font-weight: 500; }
-  .val { font-size: 11px; color: var(--fg-3); font-family: var(--font-mono); text-align: right; }
+  .steps { display: grid; gap: 12px; }
+  .step { display: grid; grid-template-columns: 120px 80px 1fr; align-items: center; gap: 20px; }
+  .step b { font: var(--w-semibold) 15px/1 var(--font-display); color: var(--fg-1); }
+  .step .bar { height: 20px; border-radius: var(--r-xs); background: var(--vivid-purple-40); }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .frame { position: relative; border: 1px solid var(--border); border-radius: var(--r-xl); background: var(--surface); padding: 24px; }
+  .frame .guide { border-left: 1px dashed var(--vivid-purple-60); border-right: 1px dashed var(--vivid-purple-60); padding: 0 24px; }
+  .frame .content { height: 120px; border-radius: var(--r-md); background: var(--vivid-purple-20); display: flex; align-items: center; justify-content: center; color: var(--fg-2); font-size: 14px; }
+  .sect { border: 1px solid var(--border); border-radius: var(--r-xl); background: var(--surface); overflow: hidden; }
+  .sect .pad { background: var(--yellow-green-40); color: var(--deep-blue); font: var(--w-semibold) 14px/1 var(--font-body); display: flex; align-items: center; padding-left: 16px; }
+  .sect .mid { height: 120px; display: flex; align-items: center; justify-content: center; color: var(--fg-2); font-size: 14px; }
 </style>
 </head>
 <body>
-  <div class="row"><span class="name">space-1</span><div class="bar" style="width:4px"></div><span class="val">4px</span></div>
-  <div class="row"><span class="name">space-2</span><div class="bar" style="width:8px"></div><span class="val">8px</span></div>
-  <div class="row"><span class="name">space-3</span><div class="bar" style="width:12px"></div><span class="val">12px</span></div>
-  <div class="row"><span class="name">space-4</span><div class="bar" style="width:16px"></div><span class="val">16px</span></div>
-  <div class="row"><span class="name">space-6</span><div class="bar" style="width:24px"></div><span class="val">24px</span></div>
-  <div class="row"><span class="name">space-8</span><div class="bar" style="width:32px"></div><span class="val">32px</span></div>
-  <div class="row"><span class="name">space-12</span><div class="bar" style="width:48px"></div><span class="val">48px</span></div>
-  <div class="row"><span class="name">space-20</span><div class="bar" style="width:80px"></div><span class="val">80px</span></div>
-  <div class="row"><span class="name">space-30</span><div class="bar" style="width:120px"></div><span class="val">120px</span></div>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Spacing</h1>
+      <p>Everything sits on a 4px grid. The container is 1200px with 24px gutters. Sections breathe with 96 to 120px on desktop and 64 to 80px on mobile; separate them with whitespace and hairlines, not stacked color bands.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Scale</h2>
+    <div class="steps">
+      <div class="step"><b>--space-1</b><span class="pv-label">4px</span><div class="bar" style="width:4px"></div></div>
+      <div class="step"><b>--space-2</b><span class="pv-label">8px</span><div class="bar" style="width:8px"></div></div>
+      <div class="step"><b>--space-3</b><span class="pv-label">12px</span><div class="bar" style="width:12px"></div></div>
+      <div class="step"><b>--space-4</b><span class="pv-label">16px</span><div class="bar" style="width:16px"></div></div>
+      <div class="step"><b>--space-5</b><span class="pv-label">20px</span><div class="bar" style="width:20px"></div></div>
+      <div class="step"><b>--space-6</b><span class="pv-label">24px</span><div class="bar" style="width:24px"></div></div>
+      <div class="step"><b>--space-8</b><span class="pv-label">32px</span><div class="bar" style="width:32px"></div></div>
+      <div class="step"><b>--space-10</b><span class="pv-label">40px</span><div class="bar" style="width:40px"></div></div>
+      <div class="step"><b>--space-12</b><span class="pv-label">48px</span><div class="bar" style="width:48px"></div></div>
+      <div class="step"><b>--space-16</b><span class="pv-label">64px</span><div class="bar" style="width:64px"></div></div>
+      <div class="step"><b>--space-20</b><span class="pv-label">80px</span><div class="bar" style="width:80px"></div></div>
+      <div class="step"><b>--space-24</b><span class="pv-label">96px</span><div class="bar" style="width:96px"></div></div>
+      <div class="step"><b>--space-30</b><span class="pv-label">120px</span><div class="bar" style="width:120px"></div></div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Layout</h2>
+    <div class="layout">
+      <div class="pv-stack">
+        <span class="pv-label">Container: --container-w 1200px, --container-pad 24px</span>
+        <div class="frame"><div class="guide"><div class="content">Content column, max 1200px</div></div></div>
+      </div>
+      <div class="pv-stack">
+        <span class="pv-label">Section padding: 96-120px desktop, 64-80px mobile</span>
+        <div class="sect"><div class="pad" style="height:40px">96-120px</div><div class="mid">Section content</div><div class="pad" style="height:40px">96-120px</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Use the tokens. No 5px, 10px, or 18px values.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Body copy runs 60 to 75 characters per line; cap text columns, not the container.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Below 768px, multi-column layouts collapse to one column with 20 to 24px side padding.</li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

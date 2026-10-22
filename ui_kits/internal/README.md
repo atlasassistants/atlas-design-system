@@ -1,22 +1,17 @@
 # Atlas Internal Artifact Kit
 
-Rules for internal surfaces: documents, reports, dashboards, training material, HTML artifacts agents generate for the team. Internal work is brand work — the team lives in the brand before clients do — but internal surfaces optimize for *reading and deciding*, not pitching.
+Rules for internal surfaces: documents, reports, dashboards, training material, and HTML artifacts agents generate for the team. Internal work is brand work, but it optimizes for reading and deciding, not pitching.
 
-## Theme choice per artifact
+## Theme
 
-| Artifact | Theme | Why |
-|---|---|---|
-| Written docs, reports, exported PDFs | **Light** (`design.md` → Light mode tokens) | The eye lives there >5 minutes |
-| Dashboards, scorecards, status boards | **Dark** | Glanceable, matches the workspace world |
-| Presentations / all-hands decks | **Dark** (use `../deck/`) | Pitch-adjacent surfaces stay cosmic |
-| One page, one theme | — | Never mix per `design.md` theme-lock |
+**Light by default** for every internal artifact: docs, reports, exported PDFs, dashboards, and scorecards (`design.md` > Light and dark). Use the dark theme only for an all-hands or pitch-adjacent deck, and build that with `../deck/`.
 
 ## Rules
 
-- **Tokens always.** Even a quick internal HTML artifact uses the palette (`colors_and_type.css`), Inter, the 4px grid, and the radius scale. "It's just internal" is how brand drift starts.
-- **Light surfaces:** bg `#fafaff`, cards `#ffffff`, text `#050314`, accent text `#5046e4` (never `#ba9cff` body text on white). No starfield, no orbital decoration — light mode is clean, not cosmic.
-- **Dark dashboards:** full token map, card anatomy from `design.md`, atmosphere dialed low (dashboards inform; they don't perform). Numbers in tables get `font-variant-numeric: tabular-nums`.
-- **Charts and data visuals:** sequential scales built from the indigo→lavender family; lavender marks the highlighted series only. Never use the brand gradient as a chart scale — it encodes nothing.
-- **Header pattern:** mark (20–24px) + document title + date. No hero sections in internal docs.
-- **Voice carries over:** declarative, precise, no hype — an internal report written in Atlas voice is the training set for the brand ("the exhaust of your judgment becomes the training").
-- **Decided-shaped documents:** every internal report ends with the decision it's asking for (or states that none is needed). That's the Five Verbs applied to our own artifacts — work arrives at humans decided-shaped.
+- **Tokens always.** Load `colors_and_type.css`; use Poppins for headings and Outfit for body, the 4px grid, and the radius scale. Do not hard-code colors.
+- **Surfaces:** Pearl White page (`--bg`), white cards (`--surface`), Deep Blue text (`--fg-1`), Vivid Purple for links and the one primary action (`--accent-text`, `--accent`).
+- **Yellow Green** appears only as a fill behind Deep Blue text (a badge or a highlighter mark). Never as text, icons, or chart lines on light.
+- **Charts:** one series in Vivid Purple; more series step through the 80/60/40/20 tints of Vivid Purple, then Soft Blue Violet and Electric Purple tints. Highlight the series that carries the takeaway in full Vivid Purple. Never use a gradient as a data scale. Numbers in tables use `font-variant-numeric: tabular-nums`.
+- **No decoration:** no gradient objects, watermark outlines, or symbol watermarks in working documents. A small gradient symbol (20 to 24px) in the header is enough.
+- **Header pattern:** symbol (`atlas-mark.png`), document title, date. No hero sections.
+- **Voice:** declarative and precise, per `design.md` > CONTENT FUNDAMENTALS. A report ends with the decision it needs, or says none is needed.

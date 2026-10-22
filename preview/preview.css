@@ -1,0 +1,222 @@
+/* =========================================================
+   Atlas preview pages: page shell + reference component recipes.
+   Load ../colors_and_type.css first; every value here is a token
+   or a design.md convention. Kits may copy these recipes.
+   Light is the default. Wrap any region in data-theme="dark" and
+   the same classes render the dark roles (Yellow Green actions).
+   ========================================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+img { display: block; max-width: 100%; }
+
+/* ---------- Icons (Lucide-style line icons, inline SVG) ---------- */
+svg.i {
+  width: 24px; height: 24px; flex: none;
+  fill: none; stroke: currentColor; stroke-width: 1.75;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ---------- Page shell ---------- */
+.pv { max-width: 1312px; margin: 0 auto; padding: 56px 64px 88px; }
+.pv-head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 48px;
+  padding-bottom: 32px; margin-bottom: 8px; border-bottom: 1px solid var(--border-soft);
+}
+.pv-head h1 { margin: 0; font-size: 44px; line-height: 1.1; }
+.pv-head p { margin: 14px 0 0; max-width: 64ch; font-size: 17px; }
+.pv-head .pv-logo { height: 32px; width: auto; flex: none; margin-top: 8px; }
+.pv-section { margin-top: 56px; }
+.pv-section > h2 { margin: 0 0 8px; font-size: 26px; line-height: 1.25; }
+.pv-section > .pv-lede { margin: 0 0 28px; max-width: 72ch; font-size: 16px; }
+.pv-label { font: var(--w-medium) 14px/1.4 var(--font-body); color: var(--fg-3); }
+.pv-code { font-family: var(--font-mono); font-size: 12.5px; color: var(--fg-2); }
+.pv-note { font-size: 14px; color: var(--fg-3); margin: 16px 0 0; }
+.pv-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.pv-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.pv-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.pv-stack { display: grid; gap: 20px; align-content: start; }
+.pv-panel {
+  position: relative; overflow: hidden;
+  background: var(--bg); color: var(--fg-1);
+  border: 1px solid var(--border-soft); border-radius: var(--r-3xl);
+  padding: 36px 40px 40px;
+}
+.pv-panel[data-theme="dark"] { border-color: transparent; }
+.pv-panel > .pv-label:first-child { display: block; margin-bottom: 24px; }
+.pv-rule { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.pv-rule li { position: relative; padding-left: 28px; color: var(--fg-2); font-size: 16px; }
+.pv-rule li svg.i { position: absolute; left: 0; top: 2px; width: 18px; height: 18px; color: var(--accent-text); }
+
+.pv-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.pv-table th {
+  text-align: left; font: var(--w-semibold) 14px/1.3 var(--font-body); color: var(--fg-3);
+  padding: 0 20px 12px 0; border-bottom: 1px solid var(--border);
+}
+.pv-table td { padding: 14px 20px 14px 0; border-bottom: 1px solid var(--border-soft); color: var(--fg-2); vertical-align: middle; }
+.pv-table td:first-child { color: var(--fg-1); }
+.pv-table tr:last-child td { border-bottom: 0; }
+.pv-chip {
+  display: inline-block; width: 18px; height: 18px; border-radius: 6px; vertical-align: -4px;
+  margin-right: 10px; box-shadow: inset 0 0 0 1px var(--border);
+}
+
+/* ---------- Buttons (design.md > Buttons) ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  height: 48px; padding: 0 24px;
+  border: 1px solid transparent; border-radius: var(--r-pill);
+  font: var(--w-semibold) 15px/1 var(--font-display); letter-spacing: 0.005em;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: background-color var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease),
+              transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease);
+}
+.btn svg.i { width: 18px; height: 18px; stroke-width: 2; }
+.btn:hover, .btn.is-hover { transform: translateY(-1px); }
+.btn:focus-visible, .btn.is-focus { outline: none; box-shadow: var(--focus-ring); }
+.btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: var(--shadow-3); }
+.btn-primary:hover, .btn-primary.is-hover { background: var(--accent-hover); }
+.btn-primary.is-focus { box-shadow: var(--shadow-3), var(--focus-ring); }
+.btn-secondary { background: transparent; color: var(--fg-1); border-color: var(--border); }
+.btn-secondary:hover, .btn-secondary.is-hover { background: var(--accent-bg); border-color: var(--accent-border); }
+.btn-link { height: auto; padding: 4px 0; background: none; border: 0; color: var(--accent-text); }
+.btn-link:hover, .btn-link.is-hover { transform: none; text-decoration: underline; text-underline-offset: 5px; }
+.btn-sm { height: 40px; padding: 0 18px; font-size: 14px; }
+.btn-lg { height: 56px; padding: 0 30px; font-size: 16px; }
+.btn[disabled], .btn.is-disabled {
+  background: var(--surface-2); color: var(--fg-4); border-color: var(--border-soft);
+  box-shadow: none; transform: none; cursor: not-allowed;
+}
+/* Circular arrow button: Vivid Purple + white on light, Yellow Green + Deep Blue on dark. */
+.btn-arrow { width: 56px; height: 56px; padding: 0; border-radius: 50%; background: var(--accent); color: var(--on-accent); }
+.btn-arrow svg.i { width: 24px; height: 24px; stroke-width: 2.25; }
+.btn-arrow.btn-sm { width: 44px; height: 44px; }
+.btn-arrow.btn-sm svg.i { width: 20px; height: 20px; }
+.btn-arrow.btn-lg { width: 72px; height: 72px; }
+.btn-arrow.btn-lg svg.i { width: 30px; height: 30px; }
+.btn-arrow:hover, .btn-arrow.is-hover { background: var(--accent-hover); }
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 28px; padding: 0 12px; border-radius: var(--r-pill);
+  font: var(--w-semibold) 13px/1 var(--font-body); white-space: nowrap;
+}
+.badge svg.i { width: 14px; height: 14px; stroke-width: 2.25; }
+.badge-highlight { background: var(--highlight); color: var(--on-highlight); }
+.badge-accent { background: var(--accent-bg); color: var(--accent-text); }
+.badge-outline { border: 1px solid var(--border); color: var(--fg-2); }
+.badge-solid { background: var(--fg-1); color: var(--bg); }
+
+/* ---------- Cards ---------- */
+.card {
+  position: relative; overflow: hidden;
+  background: var(--surface); color: var(--fg-1);
+  border: 1px solid var(--border-soft); border-radius: var(--r-xl); padding: 28px;
+  transition: box-shadow var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+}
+.card:hover, .card.is-hover { box-shadow: var(--shadow-2); transform: translateY(-2px); }
+.card h3 { margin: 20px 0 8px; font-size: 20px; }
+.card p { margin: 0; font-size: 16px; }
+.card .btn-link { margin-top: 18px; }
+.card-featured { border-color: transparent; box-shadow: var(--shadow-glow); }
+.card-gradient { border-color: transparent; background: var(--gradient-vivid); }
+.card-gradient p { color: var(--fg-1); }
+.panel-lg { border-radius: var(--r-3xl); }
+
+/* Icon container */
+.icon-box {
+  width: 44px; height: 44px; border-radius: var(--r-lg); flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent-bg); color: var(--accent-text);
+}
+
+/* ---------- Inputs ---------- */
+.field { display: grid; gap: 8px; align-content: start; }
+.field > label { font: var(--w-medium) 15px/1.3 var(--font-body); color: var(--fg-1); }
+.field .help { font-size: 14px; line-height: 1.45; color: var(--fg-3); }
+.field .err { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.45; color: var(--fg-1); font-weight: var(--w-medium); }
+.field .err svg.i { width: 18px; height: 18px; margin-top: 1px; }
+.input {
+  width: 100%; height: 48px; padding: 0 20px;
+  background: var(--surface); color: var(--fg-1);
+  border: 1px solid var(--border); border-radius: var(--r-pill);
+  font: var(--w-regular) 16px/1.2 var(--font-body);
+  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.input::placeholder { color: var(--fg-3); }
+.input:focus, .input.is-focus { outline: none; border-color: var(--accent); box-shadow: var(--focus-ring); }
+.input.is-error { border-color: var(--fg-1); box-shadow: inset 0 0 0 1px var(--fg-1); }
+.input:disabled { background: var(--surface-2); color: var(--fg-4); border-color: var(--border-soft); }
+textarea.input { height: auto; min-height: 128px; padding: 14px 20px; border-radius: var(--r-lg); line-height: 1.55; resize: vertical; }
+.select { position: relative; }
+.select .input { appearance: none; -webkit-appearance: none; padding-right: 48px; }
+.select svg.i { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--fg-2); pointer-events: none; }
+.input-icon { position: relative; }
+.input-icon > svg.i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--fg-3); }
+.input-icon .input { padding-left: 46px; }
+
+/* ---------- Avatars (gradient-brand fill, Deep Blue initials) ---------- */
+.avatar {
+  --size: 40px;
+  width: var(--size); height: var(--size); border-radius: 50%; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--gradient-brand); color: var(--deep-blue);
+  font: var(--w-semibold) calc(var(--size) * 0.36)/1 var(--font-display); letter-spacing: 0.01em;
+}
+.avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.avatar-stack { display: flex; }
+.avatar-stack .avatar { box-shadow: 0 0 0 3px var(--bg); }
+.avatar-stack .avatar + .avatar { margin-left: -10px; }
+.avatar-more { background: var(--accent-bg); color: var(--accent-text); }
+
+/* ---------- Brand patterns ---------- */
+/* Gradient object: always carries data-theme="dark" in markup. */
+.g-object { position: relative; overflow: hidden; isolation: isolate; border-radius: var(--r-3xl); color: var(--fg-1); }
+.g-deep  { background: var(--gradient-deep); }
+.g-vivid { background: var(--gradient-vivid); }
+.g-brand { background: var(--gradient-brand); }
+/* Body copy on gradients is Pearl White: --fg-2 drops to 4.0:1 on Vivid Purple. */
+.g-object p { color: var(--fg-1); }
+/* Watermark outlines: the designer's 'Logo Watermark Outlines' file (concentric outlines of the symbol), oversized and cropped. */
+.contour::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url("../assets/patterns/logo-watermark-outlines-web.png") 92% 30% / 160% auto no-repeat;
+}
+/* Fade the lines out behind bottom-left copy. */
+.contour.contour-soft::before {
+  -webkit-mask-image: linear-gradient(35deg, transparent 22%, #000 62%);
+  mask-image: linear-gradient(35deg, transparent 22%, #000 62%);
+}
+/* Symbol watermark: very large, cropped by the edge. */
+.watermark { position: absolute; z-index: -1; pointer-events: none; height: 130%; width: auto; max-width: none; right: -18%; top: -12%; }
+.watermark.on-gradient { opacity: 0.08; }
+.watermark.on-light { opacity: 0.05; }
+/* Corner wash (light surfaces only). */
+.wash { background: var(--wash-corner), var(--bg); }
+
+/* Six-tab color strip (brand boards and covers only). */
+.tab-strip { display: flex; height: 48px; border-radius: var(--r-pill); overflow: hidden; }
+.tab-strip > span { flex: 1; border-radius: var(--r-pill) 0 0 var(--r-pill); margin-left: -28px; }
+.tab-strip > span:first-child { margin-left: 0; }
+.tab-strip > .tab-pearl { box-shadow: inset 0 0 0 1px var(--border); }
+
+/* Palette cards (after guidelines page 6). */
+.palette { display: flex; }
+.pcard {
+  position: relative; flex: 0 0 calc(100% / 6 + 24px); min-width: 0; display: flex; flex-direction: column;
+  height: 440px; border-radius: var(--r-3xl); overflow: hidden; margin-left: -24px;
+  box-shadow: -10px 0 24px rgba(12, 1, 59, 0.10);
+}
+.pcard:first-child { margin-left: 0; box-shadow: none; }
+.pcard:last-child { flex-basis: calc(100% / 6); }
+.pcard .pc-body { flex: 1; padding: 28px 24px 22px 28px; display: flex; flex-direction: column; justify-content: space-between; }
+.pcard .pc-name { font: var(--w-bold) 24px/1.15 var(--font-display); letter-spacing: -0.01em; }
+.pcard .pc-codes { font: var(--w-regular) 14px/1.5 var(--font-body); }
+.pcard .pc-codes b { font-weight: var(--w-semibold); display: block; margin-top: 8px; }
+.pcard .pc-tints { display: grid; grid-template-rows: repeat(4, 22px); }
+/* Bands sit over #DCDCE6, the guidelines page color, so they match page 6. */
+.pcard .pc-tints span { background: linear-gradient(var(--t), var(--t)), #DCDCE6; }
+.pc-light { color: var(--deep-blue); }
+.pc-dark { color: #FFFFFF; }
+.pc-pearl { box-shadow: -10px 0 24px rgba(12, 1, 59, 0.10), inset 0 0 0 1px var(--border); }

@@ -1,5 +1,13 @@
 # Atlas Brand Identity — Put the Weight Down
 
+> **Status (2026-10-22): prior brand work, not current positioning.** This file predates the Atlas Q4 2026 reset. Keep it for its concept, vocabulary, and copy craft. It does not control the offer.
+> - Do not reuse its positioning in public copy without Colin's review.
+> - Do not call Atlas a managed service.
+> - Do not present the "Atlas Executive OS" or the "AI Operator" as offers.
+> - Do not frame hiring or EAs as a false solution. Atlas's current model is a talent partnership; the public role is the **Exec Ops Partner**.
+>
+> The visual system this file mentions changed on 2026-10-22. See `BRAND-GUIDELINES.md` and `design.md`.
+
 This is the "who we are" layer of the Atlas brand — the identity every other file in this system expresses. `design.md` defines how Atlas looks; this file defines what Atlas *means*. When any asset decision is ambiguous — a social graphic, a deck slide, a headline, an app screen — resolve it here first.
 
 **Canonical order:** `brand-identity.md` (who we are) → `design.md` (how we look and speak) → tokens & kits (what we build with). Conflicts resolve upward.
@@ -28,14 +36,13 @@ Why keep the name? Because the name was always about the weight. Atlas the staff
 
 ### The concept made visible
 
-The existing cosmic visual system isn't decoration — every element carries the concept:
+The visual system carries the concept. This table was updated on 2026-10-22 for the current brand guidelines.
 
 | Element | What it means |
 |---|---|
-| **The Leverage Line** | The brand's signature graphic device: one horizon line in the cosmic world. Below it — weight, density, dark. Above it — orbit, altitude, light. Use it in decks, landing pages, socials as the recurring visual idea. |
-| **The orbital rings** | The five levels of company autonomy — orbits at increasing altitude. The climb, drawn. |
-| **The starfield** | The system running while you sleep. "The company got better last month — and it wasn't my idea." |
-| **The gradient** (blue → magenta) | Ascent. Blue at the bottom of the climb, magenta at altitude. |
+| **The Leverage Line** | A graphic device: one horizon line. Below it: weight, density, Deep Blue. Above it: altitude, light, Pearl White. It works on gradient bands, decks, and social. |
+| **The gradients** | Ascent. The deep gradient climbs from Deep Blue through Vivid Purple to Electric Purple; the logo gradient runs from Soft Blue Violet to Electric Purple. |
+| ~~Orbital rings, starfield~~ | Retired with the 2026 cosmic visual system on 2026-10-22. |
 | **The logomark** | The "A" stands *inside* the ring — the founder at the center of a system in orbit around them, not on their shoulders. |
 
 ---
@@ -167,13 +174,13 @@ Use the five levels' felt sentences (guide, Ch. 4) as a ready-made ladder for ca
 
 ## Applying the Identity Across Surfaces
 
-Until dedicated surface kits ship, apply these rules:
+The surface kits in `ui_kits/` (marketing, social, deck, email, internal, app) implement these rules:
 
 - **Landing pages / web:** `design.md` + taste-skill, as today. Lead with a pillar, not a feature list.
-- **Decks / presentations:** dark cosmic base, one idea per slide, the Leverage Line as the recurring device (position content above/below it meaningfully). Ladder diagrams use the five-orbit motif.
-- **Social:** every graphic stands on one pillar. Dark base, Inter, lavender accent, one gradient moment max. Felt sentences and copy-bank lines are the caption library.
-- **Internal artifacts (docs, dashboards, reports):** light mode allowed (see `design.md` → Light mode); tokens and Inter still apply. Internal work is brand work — the team lives in the brand before clients do.
-- **App / product surfaces:** the workspace is the brand's proof. Calm, decided-shaped presentation of work; lavender only for action; no decoration the concept can't justify.
+- **Decks / presentations:** deep-gradient covers and dividers, light content slides, one idea per slide, the Leverage Line as the recurring device (position content above/below it meaningfully).
+- **Social:** every graphic stands on one pillar. Gradient or Deep Blue base, Poppins headline, Yellow Green accent, circular arrow CTA (see `design.md`). Felt sentences and copy-bank lines are the caption library, subject to the status note above.
+- **Internal artifacts (docs, dashboards, reports):** light by default (see `design.md` → Light and dark); tokens, Poppins, and Outfit apply. Internal work is brand work — the team lives in the brand before clients do.
+- **App / product surfaces:** the workspace is the brand's proof. Calm, decided-shaped presentation of work; Vivid Purple only for action; no decoration the concept can't justify.
 - **Every surface:** current logo only, as image files only — full lockup by default, mark alone for small/square spots, never a typeset wordmark next to the mark. The pre-2026 logo is retired everywhere, no exceptions.
 
 ---

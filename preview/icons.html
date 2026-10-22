@@ -2,21 +2,101 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Service Icons</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Icons</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 28px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
-  .cell { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-  .ico { width: 44px; height: 44px; border-radius: 10px; background: rgba(186,156,255,0.12); border: 1px solid rgba(186,156,255,0.24); display:flex; align-items:center; justify-content:center; }
-  .ico svg { width: 22px; height: 22px; stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-  .name { font-size: 11px; color: var(--fg-2); font-weight: 500; text-align: center; }
+  .icons { display: grid; grid-template-columns: repeat(6, 1fr); gap: 28px 16px; }
+  .icons .cell { display: grid; justify-items: start; gap: 10px; }
+  .icons .name { font-size: 14px; color: var(--fg-2); }
+  .plain { display: flex; gap: 28px; align-items: center; color: var(--fg-1); }
+  .plain .accent { color: var(--accent-text); }
 </style>
 </head>
 <body>
-  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M17 11h4M19 9v4"/></svg></div><span class="name">EA Staffing</span></div>
-  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div><span class="name">AI Operators</span></div>
-  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg></div><span class="name">Managed AI</span></div>
-  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h7M9 17h7M9 9h2"/></svg></div><span class="name">Executive Brief</span></div>
-  <div class="cell"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><span class="name">Community</span></div>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Icons</h1>
+      <p>Inline SVG line icons in the Lucide style: 24×24 viewBox, 1.75px stroke, round caps and joins, no fill. The container is a 44px rounded square (12px radius) with an <code class="pv-code">--accent-bg</code> fill. Paths below are Lucide (ISC license), inlined; no icon CDN.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>On light and dark</h2>
+    <div class="pv-grid-2">
+      <div class="pv-panel">
+        <span class="pv-label">Light: Vivid Purple in --accent-bg</span>
+        <div class="icons">
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span><span class="name">Calendar</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><span class="name">Mail</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="name">Team</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span><span class="name">Document</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="name">Checklist</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="name">Time</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="name">Focus</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="name">Security</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="name">Message</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span><span class="name">Work</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><span class="name">Rhythm</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span class="name">Search</span></div>
+        </div>
+      </div>
+      <div class="pv-panel" data-theme="dark">
+        <span class="pv-label">Dark: Yellow Green in --accent-bg</span>
+        <div class="icons">
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span><span class="name">Calendar</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><span class="name">Mail</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="name">Team</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span><span class="name">Document</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg></span><span class="name">Checklist</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span class="name">Time</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="name">Focus</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="name">Security</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="name">Message</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg></span><span class="name">Work</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><span class="name">Rhythm</span></div>
+          <div class="cell"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span class="name">Search</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Without a container</h2>
+    <p class="pv-lede">Inline icons take <code class="pv-code">--fg-1</code> or <code class="pv-code">--accent-text</code> on light; Pearl White or Yellow Green on dark. CTA arrows are always the diagonal up-right icon.</p>
+    <div class="pv-grid-2">
+      <div class="pv-panel">
+        <div class="plain">
+          <svg class="i" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+          <svg class="i" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <svg class="i accent" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+          <svg class="i accent" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          <span class="pv-label">--fg-1 and --accent-text</span>
+        </div>
+      </div>
+      <div class="pv-panel" data-theme="dark">
+        <div class="plain">
+          <svg class="i" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+          <svg class="i" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <svg class="i accent" viewBox="0 0 24 24"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+          <svg class="i accent" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          <span class="pv-label">Pearl White and Yellow Green</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>One icon family. Copy Lucide paths inline rather than loading an icon CDN.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Never Yellow Green icons on a light surface. Never unicode arrows.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>No emoji in UI or body copy.</li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Color</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
+<style>
+  .tints { display: grid; grid-template-columns: 200px repeat(5, 1fr); gap: 10px 12px; align-items: center; }
+  .tints .sw { height: 56px; border-radius: var(--r-lg); box-shadow: inset 0 0 0 1px var(--border-soft); }
+  .tints .nm { font: var(--w-semibold) 15px/1.3 var(--font-display); }
+  .tints .hd { padding-bottom: 2px; }
+  .tints .tk { font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-3); margin-top: 6px; }
+  .sample {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 72px; height: 40px; border-radius: var(--r-md); margin-right: 14px; vertical-align: middle;
+    font: var(--w-semibold) 18px/1 var(--font-display); box-shadow: inset 0 0 0 1px var(--border-soft);
+  }
+  .ratio { font: var(--w-semibold) 16px/1 var(--font-display); color: var(--fg-1); }
+  .never td { color: var(--fg-1); }
+  .pv-table .pv-code { white-space: nowrap; }
+</style>
+</head>
+<body>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Color</h1>
+      <p>Six colors from the brand guidelines (page 6), each with four tints. Light is the default: Pearl White pages, Deep Blue text, Vivid Purple actions. Yellow Green is a fill on light and the accent on dark.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Palette</h2>
+    <p class="pv-lede">Names, HEX, and RGB are printed in the guidelines. The four bands under each card are the base color at 80, 60, 40, and 20% opacity, shown over #DCDCE6 (the guidelines page color) so they match page 6. Card text is Deep Blue on Soft Blue Violet and Electric Purple for AA contrast at small sizes; the guidelines print it white.</p>
+    <div class="palette">
+      <div class="pcard pc-dark" style="background:var(--deep-blue)">
+        <div class="pc-body"><div class="pc-name">Deep<br>Blue</div><div class="pc-codes"><b>HEX</b>#0C013B<b>RGB</b>12, 1, 59</div></div>
+        <div class="pc-tints"><span style="--t:var(--deep-blue-80)"></span><span style="--t:var(--deep-blue-60)"></span><span style="--t:var(--deep-blue-40)"></span><span style="--t:var(--deep-blue-20)"></span></div>
+      </div>
+      <div class="pcard pc-light pc-pearl" style="background:var(--pearl-white)">
+        <div class="pc-body"><div class="pc-name">Pearl<br>White</div><div class="pc-codes"><b>HEX</b>#FBFEF7<b>RGB</b>251, 254, 247</div></div>
+        <div class="pc-tints"><span style="--t:var(--pearl-white-80)"></span><span style="--t:var(--pearl-white-60)"></span><span style="--t:var(--pearl-white-40)"></span><span style="--t:var(--pearl-white-20)"></span></div>
+      </div>
+      <div class="pcard pc-light" style="background:var(--soft-blue-violet)">
+        <div class="pc-body"><div class="pc-name">Soft Blue<br>Violet</div><div class="pc-codes"><b>HEX</b>#5C70FF<b>RGB</b>92, 112, 255</div></div>
+        <div class="pc-tints"><span style="--t:var(--soft-blue-violet-80)"></span><span style="--t:var(--soft-blue-violet-60)"></span><span style="--t:var(--soft-blue-violet-40)"></span><span style="--t:var(--soft-blue-violet-20)"></span></div>
+      </div>
+      <div class="pcard pc-light" style="background:var(--electric-purple)">
+        <div class="pc-body"><div class="pc-name">Electric<br>Purple</div><div class="pc-codes"><b>HEX</b>#B675F5<b>RGB</b>182, 117, 245</div></div>
+        <div class="pc-tints"><span style="--t:var(--electric-purple-80)"></span><span style="--t:var(--electric-purple-60)"></span><span style="--t:var(--electric-purple-40)"></span><span style="--t:var(--electric-purple-20)"></span></div>
+      </div>
+      <div class="pcard pc-light" style="background:var(--yellow-green)">
+        <div class="pc-body"><div class="pc-name">Yellow<br>Green</div><div class="pc-codes"><b>HEX</b>#E0FE53<b>RGB</b>224, 254, 83</div></div>
+        <div class="pc-tints"><span style="--t:var(--yellow-green-80)"></span><span style="--t:var(--yellow-green-60)"></span><span style="--t:var(--yellow-green-40)"></span><span style="--t:var(--yellow-green-20)"></span></div>
+      </div>
+      <div class="pcard pc-dark" style="background:var(--vivid-purple)">
+        <div class="pc-body"><div class="pc-name">Vivid<br>Purple</div><div class="pc-codes"><b>HEX</b>#4500F9<b>RGB</b>69, 0, 249</div></div>
+        <div class="pc-tints"><span style="--t:var(--vivid-purple-80)"></span><span style="--t:var(--vivid-purple-60)"></span><span style="--t:var(--vivid-purple-40)"></span><span style="--t:var(--vivid-purple-20)"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Tints on Pearl White</h2>
+    <p class="pv-lede">The same opacity tokens as they render on a light page. Use them for soft fills, tags, and chart series. They are not new hues.</p>
+    <div class="tints">
+      <span></span><span class="pv-label hd">Base</span><span class="pv-label hd">80%</span><span class="pv-label hd">60%</span><span class="pv-label hd">40%</span><span class="pv-label hd">20%</span>
+      <div><div class="nm">Deep Blue</div><div class="tk">--deep-blue-*</div></div>
+      <div class="sw" style="background:var(--deep-blue)"></div><div class="sw" style="background:var(--deep-blue-80)"></div><div class="sw" style="background:var(--deep-blue-60)"></div><div class="sw" style="background:var(--deep-blue-40)"></div><div class="sw" style="background:var(--deep-blue-20)"></div>
+      <div><div class="nm">Soft Blue Violet</div><div class="tk">--soft-blue-violet-*</div></div>
+      <div class="sw" style="background:var(--soft-blue-violet)"></div><div class="sw" style="background:var(--soft-blue-violet-80)"></div><div class="sw" style="background:var(--soft-blue-violet-60)"></div><div class="sw" style="background:var(--soft-blue-violet-40)"></div><div class="sw" style="background:var(--soft-blue-violet-20)"></div>
+      <div><div class="nm">Electric Purple</div><div class="tk">--electric-purple-*</div></div>
+      <div class="sw" style="background:var(--electric-purple)"></div><div class="sw" style="background:var(--electric-purple-80)"></div><div class="sw" style="background:var(--electric-purple-60)"></div><div class="sw" style="background:var(--electric-purple-40)"></div><div class="sw" style="background:var(--electric-purple-20)"></div>
+      <div><div class="nm">Yellow Green</div><div class="tk">--yellow-green-*</div></div>
+      <div class="sw" style="background:var(--yellow-green)"></div><div class="sw" style="background:var(--yellow-green-80)"></div><div class="sw" style="background:var(--yellow-green-60)"></div><div class="sw" style="background:var(--yellow-green-40)"></div><div class="sw" style="background:var(--yellow-green-20)"></div>
+      <div><div class="nm">Vivid Purple</div><div class="tk">--vivid-purple-*</div></div>
+      <div class="sw" style="background:var(--vivid-purple)"></div><div class="sw" style="background:var(--vivid-purple-80)"></div><div class="sw" style="background:var(--vivid-purple-60)"></div><div class="sw" style="background:var(--vivid-purple-40)"></div><div class="sw" style="background:var(--vivid-purple-20)"></div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Roles</h2>
+    <p class="pv-lede">Use the semantic tokens, not raw HEX. Light is <code class="pv-code">:root</code>; dark is <code class="pv-code">data-theme="dark"</code> on any element.</p>
+    <table class="pv-table">
+      <thead><tr><th style="width:20%">Role</th><th style="width:22%">Token</th><th style="width:29%">Light (default)</th><th style="width:29%">Dark</th></tr></thead>
+      <tbody>
+        <tr><td>Page background</td><td><span class="pv-code">--bg</span></td><td><span class="pv-chip" style="background:#FBFEF7"></span>Pearl White #FBFEF7</td><td><span class="pv-chip" style="background:#0C013B"></span>Deep Blue #0C013B</td></tr>
+        <tr><td>Lifted band</td><td><span class="pv-code">--bg-2</span></td><td><span class="pv-chip" style="background:#F4F4F7"></span>#F4F4F7</td><td><span class="pv-chip" style="background:#12014E"></span>#12014E</td></tr>
+        <tr><td>Card</td><td><span class="pv-code">--surface</span></td><td><span class="pv-chip" style="background:#FFFFFF"></span>#FFFFFF</td><td><span class="pv-chip" style="background:#1A1046"></span>#1A1046</td></tr>
+        <tr><td>Primary text</td><td><span class="pv-code">--fg-1</span></td><td><span class="pv-chip" style="background:#0C013B"></span>Deep Blue</td><td><span class="pv-chip" style="background:#FBFEF7"></span>Pearl White</td></tr>
+        <tr><td>Secondary / tertiary text</td><td><span class="pv-code">--fg-2 / --fg-3</span></td><td><span class="pv-chip" style="background:#4F4870"></span><span class="pv-chip" style="background:#6C6686"></span>#4F4870 / #6C6686</td><td><span class="pv-chip" style="background:#B8B7C2"></span><span class="pv-chip" style="background:#9B99AC"></span>#B8B7C2 / #9B99AC</td></tr>
+        <tr><td>Primary action</td><td><span class="pv-code">--accent + --on-accent</span></td><td><span class="pv-chip" style="background:#4500F9"></span>Vivid Purple + white</td><td><span class="pv-chip" style="background:#E0FE53"></span>Yellow Green + Deep Blue</td></tr>
+        <tr><td>Accent text and links</td><td><span class="pv-code">--accent-text</span></td><td><span class="pv-chip" style="background:#4500F9"></span>Vivid Purple</td><td><span class="pv-chip" style="background:#E0FE53"></span>Yellow Green</td></tr>
+        <tr><td>Highlight</td><td><span class="pv-code">--highlight</span></td><td><span class="pv-chip" style="background:#E0FE53"></span>Yellow Green fill behind Deep Blue text</td><td><span class="pv-chip" style="background:#E0FE53"></span>Yellow Green text or fill</td></tr>
+        <tr><td>Support</td><td><span class="pv-code">--info, gradients</span></td><td><span class="pv-chip" style="background:#5C70FF"></span><span class="pv-chip" style="background:#B675F5"></span>Soft Blue Violet, Electric Purple: gradients, illustration, charts, icons, large display only</td><td>Same</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="pv-section">
+    <h2>Contrast</h2>
+    <p class="pv-lede">WCAG 2.x ratios, computed. The last row is the rule most often broken.</p>
+    <table class="pv-table">
+      <thead><tr><th>Pair</th><th>Ratio</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td><span class="sample" style="background:#FBFEF7;color:#0C013B">Aa</span>Deep Blue on Pearl White</td><td class="ratio">19.0:1</td><td>All text</td></tr>
+        <tr><td><span class="sample" style="background:#FBFEF7;color:#4500F9">Aa</span>Vivid Purple on Pearl White</td><td class="ratio">7.9:1</td><td>Links, accent text, any size</td></tr>
+        <tr><td><span class="sample" style="background:#4500F9;color:#FFFFFF">Aa</span>White on Vivid Purple</td><td class="ratio">8.0:1</td><td>Primary buttons, labels</td></tr>
+        <tr><td><span class="sample" style="background:#E0FE53;color:#0C013B">Aa</span>Deep Blue on Yellow Green</td><td class="ratio">17.1:1</td><td>Badges, highlighter marks, dark-mode buttons</td></tr>
+        <tr><td><span class="sample" style="background:#0C013B;color:#E0FE53">Aa</span>Yellow Green on Deep Blue</td><td class="ratio">17.1:1</td><td>Accent text on dark</td></tr>
+        <tr><td><span class="sample" style="background:#4500F9;color:#E0FE53">Aa</span>Yellow Green on Vivid Purple</td><td class="ratio">7.0:1</td><td>Accent text on vivid gradients</td></tr>
+        <tr><td><span class="sample" style="background:#FBFEF7;color:#5C70FF">Aa</span>Soft Blue Violet on Pearl White</td><td class="ratio">3.9:1</td><td>Large text only (24px and up, or 19px bold)</td></tr>
+        <tr><td><span class="sample" style="background:#FBFEF7;color:#B675F5">Aa</span>Electric Purple on Pearl White</td><td class="ratio">3.0:1</td><td>Large display and decoration only</td></tr>
+        <tr class="never"><td><span class="sample" style="background:#FBFEF7;color:#E0FE53">Aa</span><b>Yellow Green on Pearl White</b></td><td class="ratio">1.1:1</td><td><span class="badge badge-solid">Never</span>&nbsp; not as text, icons, or thin lines</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Yellow Green on light surfaces is a fill only: a <span class="mark-highlight">highlighter mark</span>, a badge, or a button with Deep Blue text.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>One primary action color per surface: Vivid Purple on light, Yellow Green on dark.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>No new hues. Softer fills, tags, and chart series use the 80/60/40/20 tints.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Gradients come from three families: brand, deep, and vivid (see <a href="gradients.html">gradients</a>).</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Light pages show at most one dark or gradient object and one gradient band per screen.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

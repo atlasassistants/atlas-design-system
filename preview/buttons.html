@@ -2,51 +2,141 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Buttons</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Buttons</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 28px; display:flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-family: var(--font-sans); font-size: 14px; font-weight: 500;
-    cursor: pointer; border: 1px solid transparent;
-    transition: all var(--dur-base) var(--ease);
-    color: var(--fg-1);
-  }
-  .btn:hover { transform: translateY(-1px); }
-  .primary {
-    background: var(--accent);
-    color: #16093a;
-    box-shadow: var(--shadow-3);
-    font-weight: 600;
-  }
-  .primary:hover { background: var(--lavender-dim); }
-  .secondary {
-    background: rgba(255,255,255,0.04);
-    border-color: rgba(255,255,255,0.12);
-  }
-  .secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
-  .ghost {
-    background: transparent;
-    color: var(--fg-2);
-  }
-  .ghost:hover { color: var(--fg-1); background: rgba(255,255,255,0.04); }
-  .gradient {
-    background: var(--gradient-brand);
-    color: white; font-weight: 600;
-    box-shadow: 0 8px 24px rgba(92,112,255,0.32);
-  }
-  .meta { width: 100%; font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); display:block; margin-top: 6px; }
-  .arrow { width: 14px; height: 14px; }
+  .grid { display: grid; grid-template-columns: 150px 1fr; gap: 28px 24px; align-items: center; }
+  .grid .pv-label { margin: 0; }
+  .states { display: grid; grid-template-columns: repeat(4, 220px); justify-content: start; gap: 16px 24px; }
+  .cta-demo { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .cta-demo h3 { margin: 0; font-size: 24px; line-height: 1.3; max-width: 24ch; }
 </style>
 </head>
 <body>
-  <button class="btn primary">Get started <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-  <button class="btn secondary">Watch demo</button>
-  <button class="btn ghost">Learn more</button>
-  <button class="btn gradient">Reclaim your week</button>
-  <span class="meta">Primary · Secondary · Ghost · Gradient — all 8px radius, 10×18 padding, transition 300ms · ease(.6,.6,0,1)</span>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Buttons</h1>
+      <p>Pill buttons in Poppins Semi-Bold, 48px tall. The primary action is Vivid Purple with white text on light, and Yellow Green with Deep Blue text on dark. Arrows are SVG icons, never unicode characters.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Variants on light and dark</h2>
+    <p class="pv-lede">Same markup in both panels. The dark panel only adds <code class="pv-code">data-theme="dark"</code>; the tokens switch the colors.</p>
+    <div class="pv-grid-2">
+      <div class="pv-panel">
+        <span class="pv-label">Light (default) · Pearl White</span>
+        <div class="grid">
+          <span class="pv-label">Primary</span>
+          <div class="pv-row"><a class="btn btn-primary" href="#">Book a call <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+          <span class="pv-label">Secondary</span>
+          <div class="pv-row"><a class="btn btn-secondary" href="#">How it works</a></div>
+          <span class="pv-label">Text link</span>
+          <div class="pv-row"><a class="btn btn-link" href="#">Read the guide <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+          <span class="pv-label">Circular arrow</span>
+          <div class="pv-row">
+            <a class="btn btn-arrow btn-sm" href="#" aria-label="Open"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a class="btn btn-arrow" href="#" aria-label="Open"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a class="btn btn-arrow btn-lg" href="#" aria-label="Open"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="pv-panel" data-theme="dark">
+        <span class="pv-label">Dark · data-theme="dark" · Deep Blue</span>
+        <div class="grid">
+          <span class="pv-label">Primary</span>
+          <div class="pv-row"><a class="btn btn-primary" href="#">Book a call <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+          <span class="pv-label">Secondary</span>
+          <div class="pv-row"><a class="btn btn-secondary" href="#">How it works</a></div>
+          <span class="pv-label">Text link</span>
+          <div class="pv-row"><a class="btn btn-link" href="#">Read the guide <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+          <span class="pv-label">Circular arrow</span>
+          <div class="pv-row">
+            <a class="btn btn-arrow btn-sm" href="#" aria-label="Open"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a class="btn btn-arrow" href="#" aria-label="Open"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            <a class="btn btn-arrow btn-lg" href="#" aria-label="Open"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>States</h2>
+    <p class="pv-lede">Hover lifts 1px and shifts to <code class="pv-code">--accent-hover</code>. Focus shows <code class="pv-code">--focus-ring</code>. Press has no scale. Transitions use 300ms and the signature easing.</p>
+    <div class="pv-stack">
+      <div class="pv-panel">
+        <span class="pv-label">Light</span>
+        <div class="states">
+          <span class="pv-label">Rest</span><span class="pv-label">Hover</span><span class="pv-label">Focus</span><span class="pv-label">Disabled</span>
+          <a class="btn btn-primary" href="#">Book a call</a>
+          <a class="btn btn-primary is-hover" href="#">Book a call</a>
+          <a class="btn btn-primary is-focus" href="#">Book a call</a>
+          <span class="btn btn-primary is-disabled">Book a call</span>
+          <a class="btn btn-secondary" href="#">How it works</a>
+          <a class="btn btn-secondary is-hover" href="#">How it works</a>
+          <a class="btn btn-secondary is-focus" href="#">How it works</a>
+          <span class="btn btn-secondary is-disabled">How it works</span>
+        </div>
+      </div>
+      <div class="pv-panel" data-theme="dark">
+        <span class="pv-label">Dark</span>
+        <div class="states">
+          <span class="pv-label">Rest</span><span class="pv-label">Hover</span><span class="pv-label">Focus</span><span class="pv-label">Disabled</span>
+          <a class="btn btn-primary" href="#">Book a call</a>
+          <a class="btn btn-primary is-hover" href="#">Book a call</a>
+          <a class="btn btn-primary is-focus" href="#">Book a call</a>
+          <span class="btn btn-primary is-disabled">Book a call</span>
+          <a class="btn btn-secondary" href="#">How it works</a>
+          <a class="btn btn-secondary is-hover" href="#">How it works</a>
+          <a class="btn btn-secondary is-focus" href="#">How it works</a>
+          <span class="btn btn-secondary is-disabled">How it works</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Sizes</h2>
+    <p class="pv-lede">Default is 48px. Use 40px in dense UI and nav bars, 56px for a hero or closing call to action.</p>
+    <div class="pv-panel">
+      <div class="pv-row" style="gap:20px">
+        <a class="btn btn-primary btn-sm" href="#">Small 40</a><a class="btn btn-primary" href="#">Default 48</a><a class="btn btn-primary btn-lg" href="#">Large 56 <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        <a class="btn btn-secondary btn-sm" href="#">Small 40</a><a class="btn btn-secondary" href="#">Default 48</a><a class="btn btn-secondary btn-lg" href="#">Large 56</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>In context</h2>
+    <p class="pv-lede">One primary action per surface. Pair it with a secondary or a text link, never with a second primary.</p>
+    <div class="pv-panel">
+      <div class="cta-demo">
+        <h3>Start with a conversation about how you work.</h3>
+        <div class="pv-row" style="gap:28px">
+          <a class="btn btn-link" href="#">How it works <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+          <a class="btn btn-primary btn-lg" href="#">Book a call <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Spec</h2>
+    <table class="pv-table">
+      <thead><tr><th style="width:180px">Button</th><th style="width:44%">Fill and text</th><th>Shape</th></tr></thead>
+      <tbody>
+        <tr><td>Primary</td><td><span class="pv-code">--accent</span> fill, <span class="pv-code">--on-accent</span> text, <span class="pv-code">--shadow-3</span></td><td>Pill, 48px (40 small, 56 large), 24px side padding, optional trailing arrow icon</td></tr>
+        <tr><td>Secondary</td><td>Transparent, 1px <span class="pv-code">--border</span>, <span class="pv-code">--fg-1</span> text</td><td>Pill, same sizes</td></tr>
+        <tr><td>Text link</td><td><span class="pv-code">--accent-text</span> with an arrow icon</td><td>No container</td></tr>
+        <tr><td>Circular arrow</td><td>Light: Vivid Purple, white arrow. Dark and gradients: Yellow Green, Deep Blue arrow</td><td>Circle, 56px (44 small, 72 large), diagonal up-right arrow</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
 </body>
 </html>

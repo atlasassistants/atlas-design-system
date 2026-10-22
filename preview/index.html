@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Preview index</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
+<style>
+  .groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 32px; }
+  .groups h2 { margin: 0 0 14px; font-size: 20px; }
+  .groups ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  .groups a { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border-soft); text-decoration: none; color: var(--fg-1); font: var(--w-medium) 16px/1.3 var(--font-body); }
+  .groups a span { color: var(--fg-3); font-weight: var(--w-regular); font-size: 14px; text-align: right; }
+  .groups a:hover { color: var(--accent-text); }
+</style>
+</head>
+<body>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Preview</h1>
+      <p>One page per primitive, built only from <code class="pv-code">colors_and_type.css</code> and the shared recipes in <code class="pv-code">preview/preview.css</code>. Start with the brand board.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+  <section class="pv-section">
+    <div class="groups">
+      <div><h2>Brand</h2><ul>
+        <li><a href="brand-board.html">Brand board <span>the identity at a glance</span></a></li>
+        <li><a href="logo.html">Logo <span>files, clear space, sizes</span></a></li>
+        <li><a href="patterns.html">Patterns <span>watermark, outlines, strip, wash</span></a></li>
+        <li><a href="light-dark.html">Light and dark <span>modes and mixing</span></a></li>
+      </ul></div>
+      <div><h2>Foundations</h2><ul>
+        <li><a href="colors.html">Color <span>palette, tints, roles, contrast</span></a></li>
+        <li><a href="gradients.html">Gradients <span>brand, deep, vivid</span></a></li>
+        <li><a href="type.html">Type <span>the six guideline roles</span></a></li>
+        <li><a href="spacing.html">Spacing <span>4px grid, container</span></a></li>
+        <li><a href="radii.html">Radii <span>pills to bands</span></a></li>
+        <li><a href="elevation.html">Elevation <span>shadows by mode</span></a></li>
+      </ul></div>
+      <div><h2>Components</h2><ul>
+        <li><a href="buttons.html">Buttons <span>pill and circular arrow</span></a></li>
+        <li><a href="badges.html">Badges <span>highlight and tags</span></a></li>
+        <li><a href="cards.html">Cards <span>states and featured</span></a></li>
+        <li><a href="inputs.html">Inputs <span>fields and states</span></a></li>
+        <li><a href="nav.html">Navigation <span>desktop and mobile</span></a></li>
+        <li><a href="avatars.html">Avatars <span>gradient-brand fill</span></a></li>
+        <li><a href="icons.html">Icons <span>Lucide-style line icons</span></a></li>
+      </ul></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

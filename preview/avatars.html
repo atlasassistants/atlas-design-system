@@ -2,30 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Avatars</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Avatars</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 28px; display: flex; gap: 14px; align-items: center; }
-  .av { border-radius: 999px; background: var(--gradient-brand); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 600; box-shadow: 0 4px 12px rgba(92,112,255,0.32); flex-shrink: 0; }
-  .a-lg { width: 56px; height: 56px; font-size: 18px; }
-  .a-md { width: 40px; height: 40px; font-size: 14px; }
-  .a-sm { width: 28px; height: 28px; font-size: 11px; }
-  .stack { display: flex; }
-  .stack .av { margin-left: -10px; border: 2px solid var(--bg); }
-  .stack .av:first-child { margin-left: 0; }
-  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--fg-3); margin-left: 16px; }
+  .sizes { display: flex; align-items: flex-end; gap: 32px; }
+  .sizes .cell { display: grid; justify-items: center; gap: 10px; }
+  .person { display: flex; align-items: center; gap: 14px; }
+  .person b { display: block; font: var(--w-semibold) 16px/1.3 var(--font-display); color: var(--fg-1); }
+  .person div > span { font-size: 14px; color: var(--fg-3); }
+  .mark-avatar { background: var(--surface); box-shadow: inset 0 0 0 1px var(--border-soft); }
+  .mark-avatar img { width: 62%; height: 62%; border-radius: 0; object-fit: contain; }
 </style>
 </head>
 <body>
-  <div class="av a-lg">SC</div>
-  <div class="av a-md">JR</div>
-  <div class="av a-sm">M</div>
-  <div class="stack">
-    <div class="av a-md">SC</div>
-    <div class="av a-md" style="background: linear-gradient(135deg,#9382ff,#5c70ff)">JR</div>
-    <div class="av a-md" style="background: linear-gradient(135deg,#b675f5,#ba9cff)">MK</div>
-    <div class="av a-md" style="background: rgba(255,255,255,0.1); color: var(--fg-2); box-shadow:none">+8</div>
-  </div>
-  <span class="meta">Gradient-fill · 2-letter · stacked variant</span>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Avatars</h1>
+      <p>Initials sit on the brand gradient (<code class="pv-code">--gradient-brand</code>, the logo gradient) in Poppins Semi-Bold, Deep Blue. Deep Blue holds 4.8:1 or better across the gradient; white drops to 3.1:1 at the Electric Purple end.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Sizes</h2>
+    <div class="pv-panel">
+      <div class="sizes">
+        <div class="cell"><span class="avatar" style="--size:72px">MR</span><span class="pv-label">72</span></div>
+        <div class="cell"><span class="avatar" style="--size:56px">JC</span><span class="pv-label">56</span></div>
+        <div class="cell"><span class="avatar" style="--size:40px">SP</span><span class="pv-label">40</span></div>
+        <div class="cell"><span class="avatar" style="--size:32px">AL</span><span class="pv-label">32</span></div>
+        <div class="cell"><span class="avatar" style="--size:24px">K</span><span class="pv-label">24</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Patterns on light and dark</h2>
+    <div class="pv-grid-2">
+      <div class="pv-panel">
+        <span class="pv-label">Light (default)</span>
+        <div class="pv-stack" style="gap:28px">
+          <div class="person"><span class="avatar" style="--size:48px">MR</span><div><b>Partner name</b><span>Exec Ops Partner</span></div></div>
+          <div class="pv-row"><div class="avatar-stack"><span class="avatar">MR</span><span class="avatar">JC</span><span class="avatar">SP</span><span class="avatar avatar-more">+3</span></div><span class="pv-label">Stack: 3px ring in --bg, -10px overlap</span></div>
+          <div class="pv-row"><span class="avatar mark-avatar" style="--size:48px"><img src="../assets/atlas-mark.png" alt="Atlas Assistants" /></span><span class="pv-label">Brand avatar: gradient mark on white</span></div>
+        </div>
+      </div>
+      <div class="pv-panel" data-theme="dark">
+        <span class="pv-label">Dark · data-theme="dark"</span>
+        <div class="pv-stack" style="gap:28px">
+          <div class="person"><span class="avatar" style="--size:48px">MR</span><div><b>Partner name</b><span>Exec Ops Partner</span></div></div>
+          <div class="pv-row"><div class="avatar-stack"><span class="avatar">MR</span><span class="avatar">JC</span><span class="avatar">SP</span><span class="avatar avatar-more">+3</span></div><span class="pv-label">The ring picks up the dark --bg</span></div>
+          <div class="pv-row"><span class="avatar" style="--size:48px;background:var(--vivid-purple)"><img src="../assets/atlas-mark-white.png" alt="Atlas Assistants" style="width:62%;height:62%;border-radius:0;object-fit:contain" /></span><span class="pv-label">Brand avatar: white mark on Vivid Purple</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Use real photos when you have consent; initials are the fallback. Grade photos toward Vivid or Electric Purple only on marketing surfaces.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>One or two letters. No generic person icons.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>The brand avatar is the logo symbol file, never a typed letter.</li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

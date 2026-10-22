@@ -2,46 +2,74 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Form Inputs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Inputs</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
-  .field { display: flex; flex-direction: column; gap: 6px; }
-  label { font-size: 12px; color: var(--fg-3); font-weight: 500; }
-  input, .search {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border-soft);
-    color: var(--fg-1);
-    border-radius: 8px;
-    padding: 10px 12px;
-    font: 500 14px var(--font-sans);
-    transition: all var(--dur-base) var(--ease);
-    outline: none;
-  }
-  input::placeholder { color: var(--fg-3); }
-  input:focus { border-color: var(--accent-border); box-shadow: 0 0 0 3px rgba(186,156,255,0.12); }
-  .search { display:flex; align-items:center; gap: 8px; }
-  .search svg { width: 14px; height: 14px; stroke: var(--fg-3); fill:none; stroke-width: 2; stroke-linecap: round; }
-  .search .ph { flex:1; color: var(--fg-3); font-size: 13px; }
-  .kbd { padding: 2px 6px; border: 1px solid var(--border-soft); border-radius: 4px; font-size: 11px; color: var(--fg-3); font-family: var(--font-mono); }
+  .form { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 24px; }
+  .form .full { grid-column: 1 / -1; }
+  .inline { display: flex; gap: 12px; }
+  .inline .input { flex: 1; }
 </style>
 </head>
 <body>
-  <div class="field">
-    <label>Email</label>
-    <input type="email" placeholder="you@company.com" value="founder@atlas.co" />
-  </div>
-  <div class="field">
-    <label>Company</label>
-    <input type="text" placeholder="Acme Inc." />
-  </div>
-  <div class="field">
-    <label>Workspace search</label>
-    <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><span class="ph">Search briefings, drafts, files…</span><span class="kbd">⌘K</span></div>
-  </div>
-  <div class="field">
-    <label>Focused state</label>
-    <input type="text" value="Q3 board prep" autofocus />
-  </div>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Inputs</h1>
+      <p>Single-line inputs are 48px pills with a 1px border on <code class="pv-code">--surface</code>. Text areas are 12px. Labels sit above in Outfit Medium; helper text below; focus shows <code class="pv-code">--focus-ring</code>.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Fields on light and dark</h2>
+    <div class="pv-grid-2">
+      <div class="pv-panel">
+        <span class="pv-label">Light (default) · the second field shows focus, the third shows an error</span>
+        <div class="form">
+          <div class="field"><label for="l1">Full name</label><input id="l1" class="input" placeholder="First and last name" /><span class="help">As it appears on your calendar invites.</span></div>
+          <div class="field"><label for="l2">Work email</label><input id="l2" class="input is-focus" value="name@company.com" /><span class="help">We send the confirmation here.</span></div>
+          <div class="field"><label for="l3">Company</label><input id="l3" class="input is-error" value="" placeholder="Company name" /><span class="err"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>Add your company name to continue.</span></div>
+          <div class="field"><label for="l4">Role</label><div class="select"><select id="l4" class="input"><option>Founder or CEO</option><option>Partner</option><option>Executive</option></select><svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div></div>
+          <div class="field full"><label for="l5">What should we know?</label><textarea id="l5" class="input" placeholder="A few lines about how your week runs today."></textarea></div>
+          <div class="field full"><label for="l6">Newsletter</label><div class="inline"><input id="l6" class="input" placeholder="name@company.com" /><a class="btn btn-primary" href="#">Subscribe</a></div></div>
+        </div>
+      </div>
+      <div class="pv-panel" data-theme="dark">
+        <span class="pv-label">Dark · data-theme="dark"</span>
+        <div class="form">
+          <div class="field"><label for="d1">Full name</label><input id="d1" class="input" placeholder="First and last name" /><span class="help">As it appears on your calendar invites.</span></div>
+          <div class="field"><label for="d2">Work email</label><input id="d2" class="input is-focus" value="name@company.com" /><span class="help">We send the confirmation here.</span></div>
+          <div class="field"><label for="d3">Company</label><input id="d3" class="input is-error" value="" placeholder="Company name" /><span class="err"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>Add your company name to continue.</span></div>
+          <div class="field"><label for="d4">Role</label><div class="select"><select id="d4" class="input"><option>Founder or CEO</option><option>Partner</option><option>Executive</option></select><svg class="i" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></div></div>
+          <div class="field full"><label for="d5">What should we know?</label><textarea id="d5" class="input" placeholder="A few lines about how your week runs today."></textarea></div>
+          <div class="field full"><label for="d6">Newsletter</label><div class="inline"><input id="d6" class="input" placeholder="name@company.com" /><a class="btn btn-primary" href="#">Subscribe</a></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>More states</h2>
+    <div class="pv-panel">
+      <div class="form" style="grid-template-columns:1fr 1fr 1fr">
+        <div class="field"><label for="s1">Search</label><div class="input-icon"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="s1" class="input" placeholder="Search guides and templates" /></div></div>
+        <div class="field"><label for="s2">Disabled</label><input id="s2" class="input" value="Locked by your admin" disabled /></div>
+        <div class="field"><label for="s3">Filled</label><input id="s3" class="input" value="Atlas Assistants" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Label above, helper or error below. Never use the placeholder as the label.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Placeholder text uses <code class="pv-code">--fg-3</code> (5.3:1 on white). Disabled text may drop to <code class="pv-code">--fg-4</code>.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Errors use a 2px <code class="pv-code">--fg-1</code> border, an alert icon, and a plain sentence that says how to fix it. The palette has no red; do not add one.</li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

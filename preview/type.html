@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Type</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
+<style>
+  .roles { display: grid; grid-template-columns: 260px 1fr; }
+  .roles > div { padding: 28px 0; border-bottom: 1px solid var(--border-soft); }
+  .roles > div:nth-last-child(-n+2) { border-bottom: 0; }
+  .roles .spec { padding-right: 32px; }
+  .roles .spec b { display: block; font: var(--w-semibold) 16px/1.3 var(--font-display); color: var(--fg-1); margin-bottom: 6px; }
+  .roles .spec span { display: block; font-size: 14px; color: var(--fg-3); line-height: 1.5; }
+  .roles .sample { display: flex; align-items: center; }
+  .roles .sample p { margin: 0; max-width: 62ch; }
+  .accent { color: var(--accent-text); }
+
+  .dark-roles { padding: 56px 64px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+  .dark-roles .t-subheading { color: var(--accent-text); margin: 14px 0 0; }
+  .dark-roles .t-important { color: var(--accent-text); margin: 0; }
+  .dark-roles .t-eyebrow { color: var(--accent-text); }
+  .dark-roles .t-highlight { color: var(--fg-1); margin: 0; }
+  .dark-roles p.t-body { color: var(--fg-1); margin: 0; }
+  .dark-roles .col { display: grid; gap: 22px; }
+
+  .faces { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .face { background: var(--surface); border: 1px solid var(--border-soft); border-radius: var(--r-3xl); padding: 36px 40px; }
+  .face .aa { font-size: 132px; line-height: 1; letter-spacing: -0.03em; margin: 18px 0 24px; color: var(--fg-1); }
+  .face .weights { display: grid; gap: 6px; font-size: 22px; color: var(--fg-1); }
+  .face .weights small { font-size: 14px; color: var(--fg-3); margin-left: 10px; }
+</style>
+</head>
+<body>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Type</h1>
+      <p>Poppins carries the voice: display, headings, eyebrows, and buttons. Outfit carries the reading: body, tables, forms, and UI text. The six roles below come from the guidelines (page 5); web sizes are an Atlas convention.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>The six guideline roles, on light</h2>
+    <p class="pv-lede">Sizes in the guidelines are print points; the web column shows the token. Italic is only for important lines and eyebrows.</p>
+    <div class="roles">
+      <div class="spec"><b>Heading</b><span>60 pt · Poppins Bold</span><span class="pv-code">h1 · .t-heading · clamp(40px, 5.2vw, 72px)</span></div>
+      <div class="sample"><div class="t-heading">Operate in your <span class="accent">zone of genius.</span></div></div>
+
+      <div class="spec"><b>Sub-heading</b><span>35 pt · Poppins Semi-Bold</span><span class="pv-code">h2 · .t-subheading · clamp(28px, 3.2vw, 42px)</span></div>
+      <div class="sample"><div class="t-subheading">An Exec Ops Partner beside you</div></div>
+
+      <div class="spec"><b>Highlight text</b><span>24 pt · Poppins Bold, caps</span><span class="pv-code">.t-highlight · 18-24px · tracking 0.14em (convention)</span></div>
+      <div class="sample"><div class="t-highlight">A talent partnership</div></div>
+
+      <div class="spec"><b>Important line</b><span>18 pt · Poppins Semi-Bold italic</span><span class="pv-code">.t-important · 18-21px</span></div>
+      <div class="sample"><div class="t-important">Atlas recruits and develops exceptional <span style="white-space:nowrap">AI-capable</span> talent.</div></div>
+
+      <div class="spec"><b>Eyebrow</b><span>14 pt · Poppins Semi-Bold italic, caps</span><span class="pv-code">.t-eyebrow · .eyebrow · h5 · 13px · tracking 0.08em (convention)</span></div>
+      <div class="sample"><div class="pv-row"><span class="t-eyebrow">Exec Ops Partner</span><span class="eyebrow">Exec Ops Partner</span></div></div>
+
+      <div class="spec"><b>Body copy</b><span>14 pt · Outfit Regular</span><span class="pv-code">body · p · .t-body · 17px web, 15-16px dense UI</span></div>
+      <div class="sample"><p class="t-body">Atlas Assistants helps people operate in their zone of genius. It recruits and develops exceptional AI-capable talent and equips clients to work with them. Keep lines between 60 and 75 characters.</p></div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>The same roles on dark</h2>
+    <p class="pv-lede">As on guidelines page 5: white headings and highlight text; Yellow Green sub-headings, important lines, and eyebrows. Shown on the vivid gradient, where Yellow Green holds 7:1 or better.</p>
+    <div class="g-object g-vivid contour dark-roles" data-theme="dark">
+      <div class="col">
+        <span class="t-eyebrow">Exec Ops Partner</span>
+        <div class="t-heading">Operate in your <span class="accent">zone of genius.</span></div>
+        <div class="t-subheading">A talent partnership</div>
+      </div>
+      <div class="col">
+        <div class="t-highlight">Talent, developed</div>
+        <div class="t-important">Atlas recruits and develops exceptional <span style="white-space:nowrap">AI-capable</span> talent.</div>
+        <p class="t-body">Body copy stays Outfit Regular. On gradients it is full Pearl White; the dimmer --fg-2 is for flat Deep Blue.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Typefaces</h2>
+    <p class="pv-lede">Both are OFL fonts shipped in <code class="pv-code">fonts/</code>. Poppins: 400, 600, 700 with italics. Outfit: one variable file, 100 to 900.</p>
+    <div class="faces">
+      <div class="face">
+        <span class="pv-label">Poppins · display, headings, eyebrows, buttons · specimen in Bold</span>
+        <div class="aa" style="font-family:var(--font-display);font-weight:700">Aa</div>
+        <div class="weights" style="font-family:var(--font-display)">
+          <div style="font-weight:400">Poppins Regular<small>400</small></div>
+          <div style="font-weight:600">Poppins Semi-Bold<small>600</small></div>
+          <div style="font-weight:700">Poppins Bold<small>700</small></div>
+          <div style="font-weight:600;font-style:italic">Poppins Semi-Bold italic<small>600 italic</small></div>
+        </div>
+      </div>
+      <div class="face">
+        <span class="pv-label">Outfit · body, tables, forms, UI text · specimen in Regular</span>
+        <div class="aa" style="font-family:var(--font-body);font-weight:400">Aa</div>
+        <div class="weights" style="font-family:var(--font-body)">
+          <div style="font-weight:400">Outfit Regular<small>400</small></div>
+          <div style="font-weight:500">Outfit Medium<small>500, labels</small></div>
+          <div style="font-weight:600">Outfit Semi-Bold<small>600, badges</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>UI headings and buttons</h2>
+    <p class="pv-lede">Card titles and UI headings stay in Poppins; labels and captions stay in Outfit.</p>
+    <table class="pv-table">
+      <thead><tr><th>Use</th><th>Sample</th><th>Spec</th></tr></thead>
+      <tbody>
+        <tr><td>Card title, UI heading</td><td><span style="font:600 24px/1.2 var(--font-display);color:var(--fg-1)">Weekly operating rhythm</span></td><td>h3 · Poppins Semi-Bold · 18-24px</td></tr>
+        <tr><td>Small UI heading</td><td><span style="font:600 18px/1.2 var(--font-display);color:var(--fg-1)">Next steps</span></td><td>h4 · Poppins Semi-Bold · 18px</td></tr>
+        <tr><td>Button label</td><td><span style="font:600 15px/1 var(--font-display);color:var(--fg-1)">Book a call</span></td><td>Poppins Semi-Bold · 15-16px</td></tr>
+        <tr><td>Form label</td><td><span style="font:500 15px/1 var(--font-body);color:var(--fg-1)">Work email</span></td><td>Outfit Medium · 14-15px</td></tr>
+        <tr><td>Caption</td><td><span style="font:400 14px/1.4 var(--font-body);color:var(--fg-3)">Never below 14px.</span></td><td>Outfit Regular · 14px · --fg-3</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Three type sizes per screen, plus the eyebrow.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>One accent phrase per headline: Vivid Purple on light, solid Yellow Green on dark. Never the whole headline.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sentence case for web and product. Uppercase only for eyebrows and highlight text.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>No third typeface. Monospace only for code and agent terminals.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>The lowercase "atlas" wordmark lives only inside the logo files. Never set it in type.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

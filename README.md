@@ -1,12 +1,14 @@
 # Atlas Design System
 
-The shared design system for Atlas Assistants — a dark, cosmic, lavender-accented brand language used across Atlas marketing, product, and internal tools. This repo is the single source of truth for Atlas visual identity.
+The shared design system for Atlas Assistants, used across Atlas marketing, product, and internal tools. It follows the **current brand guidelines** (transcribed in [`BRAND-GUIDELINES.md`](BRAND-GUIDELINES.md)): the six-color palette, Poppins and Outfit, and light-first surfaces. This repo is the single source of truth for Atlas visual identity.
+
+> **2026-10-22:** the system moved from the 2026 "cosmic" look (Cosmic Black, lavender, Inter) to the current brand guidelines, which the new atlasassistants.com website uses. Old token names still resolve through deprecated aliases until 2026-12-31.
 
 The system has **three** install paths:
 
 1. **Claude Code skill** — symlink the repo into `~/.claude/skills/atlas-design/` and Claude Code will produce on-brand UI, slides, and assets without further explanation.
 2. **Claude design import** — open Claude design, create a new design system, and point it at this repo's GitHub URL. Tokens, components, fonts, and assets import automatically.
-3. **Standalone design system** — open `ui_kits/marketing/index.html` to see the canonical landing rendered live. Browse `preview/` for component primitives. Copy assets out of `assets/` and `fonts/` for Figma, Keynote, or any non-Claude tool.
+3. **Standalone design system** — start with `preview/brand-board.html`, then browse `preview/` (index at `preview/index.html`) for the primitives. The marketing kit in `ui_kits/marketing/` renders live from a local server (see Quick start). Copy assets out of `assets/` and `fonts/` for Figma, Keynote, or any non-Claude tool.
 
 Most teammates will use both Claude paths. Full setup steps for each are in [`INSTALL.md`](INSTALL.md).
 
@@ -14,32 +16,36 @@ Most teammates will use both Claude paths. Full setup steps for each are in [`IN
 
 | | |
 |---|---|
-| Surface | Dark by default — `#050314` (Cosmic Black) |
-| Accent | Lavender `#ba9cff` — the only chromatic accent |
-| Brand gradient | `linear-gradient(135deg, #5c70ff, #b675f5)` — used on the logomark, large display text, avatar fills |
-| Typeface | **Inter** only (400 / 500 / 600 / 700) |
-| Grid | 4px base — every dimension snaps to multiples of 4 |
-| Easing | `cubic-bezier(0.6, 0.6, 0, 1)` |
-| Atmosphere | Orbital glow + subtle starfield, fixed behind content |
+| Palette | Deep Blue `#0C013B` · Pearl White `#FBFEF7` · Soft Blue Violet `#5C70FF` · Electric Purple `#B675F5` · Yellow Green `#E0FE53` · Vivid Purple `#4500F9`, each with 80/60/40/20% tints |
+| Surface | **Light by default**: Pearl White page, Deep Blue text. Dark (Deep Blue and purple gradients) for social, ads, deck covers, and hero objects. |
+| Primary action | Vivid Purple + white text on light. Yellow Green + Deep Blue text on dark. |
+| Accent | Yellow Green for highlights, badges, and CTA arrows. Never as text on light. |
+| Brand gradient | `linear-gradient(135deg, #5C70FF, #B675F5)`: the logo gradient |
+| Typefaces | **Poppins** (display, headings) + **Outfit** (body) |
+| Grid · easing | 4px base · `cubic-bezier(0.6, 0.6, 0, 1)` |
 
-Full guidance: [`design.md`](design.md). CSS tokens: [`colors_and_type.css`](colors_and_type.css).
+Rules: [`BRAND-GUIDELINES.md`](BRAND-GUIDELINES.md). Full guidance: [`design.md`](design.md). CSS tokens: [`colors_and_type.css`](colors_and_type.css).
 
 ## What's in here
 
 ```
 .
 ├── SKILL.md                    Claude Code skill manifest
-├── design.md                   Full guidance — voice, visual, motion, iconography
+├── BRAND-GUIDELINES.md         The current brand guidelines, transcribed (read first)
+├── design.md                   Full guidance: color roles, type, logo, components, modes, voice
 ├── colors_and_type.css         CSS variables + semantic element styles
-├── assets/                     Logomarks (mark + lockup, dark + light)
-├── fonts/                      Inter (400 / 500 / 600 / 700)
-├── preview/                    Component primitives (one HTML page per primitive)
+├── assets/                     Default logo files; logo/ (full package, SVG + PNG); patterns/; backgrounds/; elements/
+├── fonts/                      Poppins (400/600/700 + italics), Outfit (variable), OFL licenses
+├── preview/                    One HTML page per primitive, plus brand-board, patterns, light-dark; shared recipes in preview.css
 ├── ui_kits/
-│   └── marketing/              Full marketing-site UI kit (React + Babel standalone)
-│       ├── index.html          ← open this first
-│       ├── kit.css
-│       └── *.jsx               Nav, Hero, Services, Pricing, FAQ, etc.
-└── _reference/                 Frozen reference (canonical landing target)
+│   ├── marketing/              Marketing landing kit (React + Babel standalone); index.html, kit.css, *.jsx
+│   ├── social/                 Social artboards (templates.html)
+│   ├── deck/                   Slide masters (master.html)
+│   ├── email/                  Email skeleton (template.html)
+│   ├── internal/               Rules for internal docs, reports, dashboards
+│   └── app/                    Rules for product UI
+├── screens/                    Captures of every preview page and kit
+└── _reference/                 Guideline page renders (brand-guidelines/) + retired cosmic files (legacy-cosmic-2026/, historical only)
 ```
 
 ## Quick start
@@ -48,11 +54,15 @@ Full guidance: [`design.md`](design.md). CSS tokens: [`colors_and_type.css`](col
 # Clone the repo
 git clone https://github.com/atlasassistants/atlas-design-system.git ~/projects/atlas-design-system
 
-# View the marketing kit
-open ~/projects/atlas-design-system/ui_kits/marketing/index.html
+# See the brand at a glance
+open ~/projects/atlas-design-system/preview/brand-board.html
 
 # Browse component primitives
-open ~/projects/atlas-design-system/preview/cards.html
+open ~/projects/atlas-design-system/preview/index.html
+
+# View the marketing kit (its .jsx files need a local server)
+cd ~/projects/atlas-design-system && python3 -m http.server 8765
+# then open http://127.0.0.1:8765/ui_kits/marketing/
 ```
 
 ## Use as a Claude Code skill
@@ -63,7 +73,7 @@ See [`INSTALL.md`](INSTALL.md) for the full team install flow. TL;DR:
 ln -s ~/projects/atlas-design-system ~/.claude/skills/atlas-design
 ```
 
-Once symlinked, invoke the skill in Claude Code with `/atlas-design` — Claude will read `design.md` and act as an expert designer producing on-brand Atlas UI, slides, or production code.
+Once symlinked, invoke the skill in Claude Code with `/atlas-design` — Claude will read `BRAND-GUIDELINES.md` and `design.md` and act as an expert designer producing on-brand Atlas UI, slides, or production code.
 
 ## Use in Claude design
 
@@ -81,9 +91,14 @@ Claude design will import the tokens, components, fonts, and assets so the Atlas
 |---|---|
 | Logomark (gradient "A") | `assets/atlas-mark.png` (light bg) / `assets/atlas-mark-white.png` (dark bg) |
 | Full lockup | `assets/atlas-logo-dark.png` (light bg) / `assets/atlas-logo-white.png` (dark bg) |
-| Inter font files | `fonts/Inter-{Regular,Medium,SemiBold,Bold}.ttf` |
+| Font files | `fonts/Poppins-*.ttf`, `fonts/Outfit-Variable.ttf` (SIL Open Font License; see `fonts/OFL-*.txt`) |
+| Guideline page renders | `_reference/brand-guidelines/page-{1,2,3,5,6}.jpg` (the photo-mockup pages stay on the shared drive) |
+| Full logo package (horizontal, vertical, symbol; 7 colorways; SVG + PNG) | `assets/logo/svg/`, `assets/logo/png/` (all-white lockup: `horizontal-all-white.svg`) |
+| Watermark outlines (gradient texture) | `assets/patterns/logo-watermark-outlines.png` (+ `-web.png`) |
+| Slide and social backgrounds (dark, light; 16:9, 4:5, 9:16) | `assets/backgrounds/` |
+| Deck elements (orbs, glass cog, Yellow Green arrow) | `assets/elements/` |
 | CSS tokens | Copy `colors_and_type.css` into your project; `@import` it before your own styles |
-| Reference HTML/CSS | Crib from `ui_kits/marketing/kit.css` and the JSX components |
+| Reference HTML/CSS | Crib from `preview/preview.css` (component recipes) and `ui_kits/marketing/kit.css` |
 
 ## Updating the system
 
