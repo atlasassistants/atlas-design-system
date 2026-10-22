@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Light and dark</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
+<style>
+  .mini { border-radius: var(--r-3xl); overflow: hidden; background: var(--bg); color: var(--fg-1); box-shadow: inset 0 0 0 1px var(--border-soft); }
+  .mini .bar { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; border-bottom: 1px solid var(--border-soft); }
+  .mini .bar img { height: 28px; width: auto; }
+  .mini .body { padding: 36px 28px 32px; display: grid; gap: 20px; }
+  .mini h2 { margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; }
+  .mini h2 .accent { color: var(--accent-text); }
+  .mini p { margin: 0; font-size: 16px; max-width: 48ch; }
+  .mini .card { padding: 22px; display: flex; gap: 16px; align-items: flex-start; }
+  .mini .card h3 { margin: 0 0 4px; font-size: 18px; }
+  .mini .card p { font-size: 15px; }
+  .mini .ctas { display: flex; gap: 24px; align-items: center; }
+  .mix { border-radius: var(--r-3xl); overflow: hidden; box-shadow: inset 0 0 0 1px var(--border-soft); background: var(--bg); }
+  .mix .sec { padding: 36px 40px; }
+  .mix h3 { margin: 0 0 8px; font-size: 26px; line-height: 1.2; }
+  .mix p { margin: 0; max-width: 56ch; }
+  .band { margin: 0 24px 24px; border-radius: var(--r-4xl); padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; position: relative; overflow: hidden; isolation: isolate; }
+  .band h3 { margin: 0; color: var(--fg-1); }
+  .band .accent { color: var(--accent-text); }
+  .dark-page .sec { padding: 36px 40px 0; }
+  .dark-page .inset { margin: 24px 40px 40px; border-radius: var(--r-xl); padding: 28px; background: var(--bg); color: var(--fg-1); box-shadow: var(--shadow-2); }
+  .tag { display: block; margin-bottom: 14px; }
+  .pv-grid-2 > div { display: grid; grid-template-rows: auto 1fr; }
+</style>
+</head>
+<body>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Light and dark</h1>
+      <p>Light is the default: set nothing, <code class="pv-code">:root</code> is light. Dark is opt-in with <code class="pv-code">data-theme="dark"</code> on <code class="pv-code">&lt;html&gt;</code>, <code class="pv-code">&lt;body&gt;</code>, or any section. The same components render both; only the tokens change.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>One component set, two modes</h2>
+    <div class="pv-grid-2">
+      <div>
+        <span class="pv-label tag">Light (default) · websites, product UI, documents, email</span>
+        <div class="mini">
+          <div class="bar"><img src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" /><a class="btn btn-primary btn-sm" href="#">Book a call</a></div>
+          <div class="body">
+            <span class="t-eyebrow">Exec Ops Partner</span>
+            <h2>Operate in your <span class="accent">zone of genius.</span></h2>
+            <p>Atlas recruits and develops exceptional AI-capable talent and equips you to work with them.</p>
+            <div class="ctas"><a class="btn btn-primary" href="#">Book a call <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a><a class="btn btn-link" href="#">How it works</a></div>
+            <div class="card"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span><div><h3>Weekly rhythm <span class="badge badge-highlight" style="margin-left:6px;vertical-align:2px">New</span></h3><p>Cards are white on Pearl White with a hairline border.</p></div></div>
+            <div class="field"><label for="a">Work email</label><input id="a" class="input" placeholder="name@company.com" /></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="pv-label tag">Dark · social, ads, deck covers, hero objects, feature bands</span>
+        <div class="mini" data-theme="dark">
+          <div class="bar"><img src="../assets/atlas-logo-white.png" alt="Atlas Assistants" /><a class="btn btn-primary btn-sm" href="#">Book a call</a></div>
+          <div class="body">
+            <span class="t-eyebrow">Exec Ops Partner</span>
+            <h2>Operate in your <span class="accent">zone of genius.</span></h2>
+            <p>Atlas recruits and develops exceptional AI-capable talent and equips you to work with them.</p>
+            <div class="ctas"><a class="btn btn-primary" href="#">Book a call <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a><a class="btn btn-link" href="#">How it works</a></div>
+            <div class="card"><span class="icon-box"><svg class="i" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg></span><div><h3>Weekly rhythm <span class="badge badge-highlight" style="margin-left:6px;vertical-align:2px">New</span></h3><p>Cards lift to #1A1046 on Deep Blue.</p></div></div>
+            <div class="field"><label for="b">Work email</label><input id="b" class="input" placeholder="name@company.com" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Mixing</h2>
+    <p class="pv-lede">A light page may hold dark regions; a dark page may hold light regions. Scope each region with its own <code class="pv-code">data-theme</code>. Keep the restraint rule: at most one dark object and one gradient band per screen.</p>
+    <div class="pv-grid-2">
+      <div>
+        <span class="pv-label tag">Light page with a dark band · data-theme="dark" on the band</span>
+        <div class="mix">
+          <div class="sec"><h3>A light section</h3><p>Pearl White, Deep Blue text, Vivid Purple actions.</p></div>
+          <div class="band g-vivid contour contour-soft" data-theme="dark">
+            <h3>Start with a <span class="accent">conversation.</span></h3>
+            <a class="btn btn-arrow" href="#" aria-label="Book a call"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="pv-label tag">Dark page with a light card · data-theme="light" on the card</span>
+        <div class="mix dark-page" data-theme="dark">
+          <div class="sec"><h3>A dark page</h3><p>Deep Blue, Pearl White text, Yellow Green actions.</p></div>
+          <div class="inset" data-theme="light">
+            <h3 style="font-size:20px">A light reading card</h3>
+            <p style="margin-bottom:18px">Long text reads better on light, even inside a dark page.</p>
+            <a class="btn btn-primary btn-sm" href="#">Read the guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Which mode where</h2>
+    <table class="pv-table">
+      <thead><tr><th>Surface</th><th>Default</th><th>Kit</th></tr></thead>
+      <tbody>
+        <tr><td>Marketing websites and landing pages</td><td>Light, with one gradient hero object or band</td><td><span class="pv-code">ui_kits/marketing/</span></td></tr>
+        <tr><td>Social and ads</td><td>Gradient or Deep Blue, Yellow Green accent, circular arrow CTA</td><td><span class="pv-code">ui_kits/social/</span></td></tr>
+        <tr><td>Decks</td><td>Deep-gradient covers and dividers, light content slides</td><td><span class="pv-code">ui_kits/deck/</span></td></tr>
+        <tr><td>Email</td><td>Light body, logo lockup header</td><td><span class="pv-code">ui_kits/email/</span></td></tr>
+        <tr><td>Internal docs, dashboards, reports</td><td>Light</td><td><span class="pv-code">ui_kits/internal/</span></td></tr>
+        <tr><td>Product UI (Atlas App)</td><td>Light, Vivid Purple only for actions</td><td><span class="pv-code">ui_kits/app/</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Switch the logo file with the surface: <code class="pv-code">atlas-logo-dark.png</code> on light, <code class="pv-code">atlas-logo-white.png</code> on Deep Blue.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>One primary action color per surface: Vivid Purple on light, Yellow Green on dark.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>A dark footer is allowed as a page close; it counts as the screen's dark object.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

@@ -1,245 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Atlas Brand Board</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Brand board</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  @font-face { font-family:"Inter"; src:url("../fonts/Inter-Regular.ttf") format("truetype"); font-weight:400; font-display:swap; }
-  @font-face { font-family:"Inter"; src:url("../fonts/Inter-Medium.ttf") format("truetype"); font-weight:500; font-display:swap; }
-  @font-face { font-family:"Inter"; src:url("../fonts/Inter-SemiBold.ttf") format("truetype"); font-weight:600; font-display:swap; }
-  @font-face { font-family:"Inter"; src:url("../fonts/Inter-Bold.ttf") format("truetype"); font-weight:700; font-display:swap; }
-  :root{
-    --bg:#050314; --bg-2:#0a0620; --surface:#110a2c; --surface-2:#1a1140;
-    --border:#2a1f55; --border-soft:#1d1640;
-    --fg-1:#fff; --fg-2:rgba(255,255,255,.72); --fg-3:rgba(255,255,255,.5); --fg-4:rgba(255,255,255,.32);
-    --accent:#ba9cff; --gradient:linear-gradient(135deg,#5c70ff,#b675f5);
-    --ease:cubic-bezier(.6,.6,0,1);
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--fg-1);font-family:Inter,-apple-system,sans-serif;line-height:1.5;overflow-x:hidden}
-  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:
-    radial-gradient(46% 32% at 50% 0%,rgba(186,156,255,.15),transparent 62%),
-    radial-gradient(40% 30% at 50% 100%,rgba(92,112,255,.08),transparent 60%)}
-  .stars{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:
-    radial-gradient(1px 1px at 11% 21%,rgba(255,255,255,.4),transparent),
-    radial-gradient(1px 1px at 33% 63%,rgba(255,255,255,.3),transparent),
-    radial-gradient(1.5px 1.5px at 57% 29%,rgba(255,255,255,.35),transparent),
-    radial-gradient(1px 1px at 73% 77%,rgba(255,255,255,.25),transparent),
-    radial-gradient(1px 1px at 89% 13%,rgba(255,255,255,.4),transparent),
-    radial-gradient(1px 1px at 19% 87%,rgba(255,255,255,.25),transparent),
-    radial-gradient(1.5px 1.5px at 47% 47%,rgba(255,255,255,.2),transparent)}
-  main{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 24px}
-  section{padding:88px 0;border-bottom:1px solid var(--border-soft)}
-  section:last-of-type{border-bottom:0}
-  h2{font-size:clamp(26px,3.4vw,38px);font-weight:700;letter-spacing:-.025em;margin-bottom:36px}
-  .grad{background:var(--gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .muted{color:var(--fg-2)}
-  .card{background:var(--surface);border:1px solid var(--border-soft);border-radius:12px;padding:28px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+  body { background: var(--bg-2); }
+  .board { max-width: 1312px; margin: 0 auto; padding: 48px 64px 64px; }
+  .top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 28px; border-bottom: 1px solid var(--border-soft); }
+  .top img { height: 36px; width: auto; }
+  .top p { margin: 0; font-size: 15px; color: var(--fg-3); text-align: right; }
+  .row { display: grid; gap: 24px; margin-top: 24px; }
+  .r1 { grid-template-columns: 7fr 5fr; }
+  .r1 > div:first-child { display: grid; grid-template-rows: 1fr auto; }
+  .r3 { grid-template-columns: 7fr 5fr; }
+  .r3 > div { display: grid; grid-template-rows: 1fr auto; }
+  .r4 { grid-template-columns: repeat(3, 1fr); }
+  .cap { display: block; margin-top: 12px; font-size: 14px; color: var(--fg-3); }
+  .cap b { color: var(--fg-1); font-weight: var(--w-semibold); }
+  .tile { border-radius: var(--r-3xl); box-shadow: inset 0 0 0 1px var(--border-soft); position: relative; overflow: hidden; isolation: isolate; }
+  .roles, .btns, .type-tile { background: var(--surface); }
 
-  /* hero */
-  .hero{padding:120px 0 96px;border-bottom:1px solid var(--border-soft);position:relative}
-  .hero img.mark{height:64px;width:auto;filter:drop-shadow(0 8px 24px rgba(92,112,255,.32));margin-bottom:44px}
-  .hero h1{font-size:clamp(38px,6vw,72px);font-weight:700;letter-spacing:-.03em;line-height:1.06;max-width:16ch}
-  .hero p.one{margin-top:32px;font-size:clamp(17px,2vw,21px);color:var(--fg-2);max-width:52ch;line-height:1.6}
-  .hero .rings{position:absolute;right:-320px;top:-160px;width:760px;height:760px;pointer-events:none}
-  .hero .rings i{position:absolute;border:1px solid rgba(186,156,255,.12);border-radius:50%;inset:0}
-  .hero .rings i:nth-child(2){inset:90px}
-  .hero .rings i:nth-child(3){inset:180px;border-color:rgba(186,156,255,.2)}
+  .hero { min-height: 560px; height: 100%; padding: 44px 48px; display: flex; flex-direction: column; justify-content: flex-end; box-shadow: none; }
+  /* Light-scoped wrapper carries the elevation: inside data-theme="dark", --shadow-4 is a black drop. */
+  .hero-lift { border-radius: var(--r-3xl); box-shadow: var(--shadow-4); display: grid; }
+  .hero .watermark { height: 120%; right: -16%; top: -26%; }
+  /* Scrim under the text block: keeps the 13px Yellow Green eyebrow above 4.5:1 (design.md color rule 7). */
+  .hero.g-deep { background: linear-gradient(90deg, rgba(12,1,59,0.82) 0%, rgba(12,1,59,0.6) 45%, rgba(12,1,59,0) 78%), var(--gradient-deep); }
+  .hero .t-eyebrow { color: var(--accent-text); }
+  .hero h1 { margin: 14px 0 18px; font-size: 64px; line-height: 1.04; letter-spacing: -0.025em; max-width: 11ch; color: var(--fg-1); }
+  .hero h1 .accent { color: var(--accent-text); }
+  .hero p { margin: 0 0 32px; max-width: 40ch; color: var(--fg-1); font-size: 17px; }
+  .hero .foot { display: flex; align-items: center; justify-content: space-between; }
 
-  /* concept */
-  .concept p{font-size:17px;color:var(--fg-2);max-width:68ch;margin-bottom:18px;line-height:1.65}
-  .concept p strong{color:var(--fg-1)}
-  .devices{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:40px}
-  .devices .card h3{font-size:15px;font-weight:600;margin-bottom:8px}
-  .devices .card p{font-size:14px;color:var(--fg-3);line-height:1.55}
+  .side { display: grid; grid-template-rows: 1fr 1fr; gap: 24px; }
+  .side > div { display: grid; grid-template-rows: 1fr auto; }
+  .logo-tile { display: flex; align-items: center; justify-content: center; background: var(--wash-corner), #FFFFFF; }
+  .logo-tile img { height: 84px; width: auto; }
+  .type-tile { display: grid; grid-template-columns: 1fr 1fr; padding: 28px 32px; gap: 16px; }
+  .type-tile .aa { font-size: 108px; line-height: 1; letter-spacing: -0.03em; color: var(--fg-1); }
+  .type-tile b { display: block; font: var(--w-semibold) 18px/1.3 var(--font-display); color: var(--fg-1); margin-top: 14px; }
+  .type-tile span { font-size: 14px; color: var(--fg-3); }
 
-  /* line demo */
-  .linewrap{position:relative;height:300px;border:1px solid var(--border-soft);border-radius:16px;background:var(--bg-2);overflow:hidden;margin-top:8px}
-  .linewrap .ln{position:absolute;left:0;right:0;top:50%;height:2px;background:linear-gradient(90deg,transparent,#5c70ff 15%,#b675f5 85%,transparent)}
-  .linewrap .zone{position:absolute;left:32px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3)}
-  .linewrap .zone.a{top:34px}
-  .linewrap .zone.b{bottom:34px}
-  .linewrap .above{position:absolute;right:36px;top:44px;text-align:right;font-size:15px;color:var(--fg-2);line-height:1.6}
-  .linewrap .below{position:absolute;right:36px;bottom:44px;text-align:right;font-size:15px;color:var(--fg-3);line-height:1.6}
+  .palette .pcard { height: 300px; }
+  .palette .pcard .pc-name { font-size: 21px; }
 
-  /* palette */
-  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
-  .sw{border:1px solid var(--border-soft);border-radius:12px;overflow:hidden}
-  .sw .chip{height:84px}
-  .sw .meta{padding:12px 14px;background:var(--surface);font-size:12px}
-  .sw .meta b{display:block;font-weight:600;font-size:13px;margin-bottom:2px}
-  .sw .meta span{color:var(--fg-3)}
-  .gradbar{margin-top:14px;height:64px;border-radius:12px;background:var(--gradient);display:flex;align-items:center;padding:0 20px;font-size:13px;font-weight:600;color:#0a0620}
+  .roles { padding: 36px 40px; display: grid; gap: 16px; }
+  .roles .t-heading { font-size: 48px; }
+  .roles .t-subheading { font-size: 30px; }
+  .roles .t-highlight { font-size: 19px; }
+  .roles p { margin: 0; max-width: 58ch; }
+  .roles .accent { color: var(--accent-text); }
+  .btns { padding: 36px 40px; display: grid; gap: 26px; align-content: center; }
+  .btns .pv-row { gap: 14px; }
 
-  /* type */
-  .typerow{display:flex;align-items:baseline;gap:28px;padding:20px 0;border-bottom:1px solid var(--border-soft)}
-  .typerow:last-child{border-bottom:0}
-  .typerow .spec{width:190px;flex:none;font-size:12px;color:var(--fg-3)}
-  .t-h1{font-size:52px;font-weight:700;letter-spacing:-.03em;line-height:1.05}
-  .t-h2{font-size:34px;font-weight:700;letter-spacing:-.025em}
-  .t-h3{font-size:19px;font-weight:600}
-  .t-body{font-size:16px;color:var(--fg-2)}
-  .t-eyebrow{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+  .pat { height: 240px; display: flex; align-items: flex-end; padding: 24px; }
+  .pat .watermark { height: 150%; right: -42%; top: -58%; }
+  .pat.strip { align-items: stretch; padding: 0; flex-direction: column; justify-content: flex-end; background: #FFFFFF; }
+  .pat.strip .tab-strip { height: 56px; border-radius: 0; }
+  .pat.strip .lbl { flex: 1; display: flex; align-items: center; justify-content: center; }
+  .pat.strip .lbl img { height: 64px; width: auto; }
 
-  /* pillars */
-  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-  .pillar{background:var(--surface);border:1px solid var(--border-soft);border-radius:12px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04);transition:border-color .3s var(--ease),transform .3s var(--ease)}
-  .pillar:hover{border-color:rgba(186,156,255,.3);transform:translateY(-2px)}
-  .pillar .n{font-size:26px;font-weight:700;margin-bottom:12px}
-  .pillar h3{font-size:15px;font-weight:600;margin-bottom:8px;line-height:1.3}
-  .pillar p{font-size:13px;color:var(--fg-3);line-height:1.55}
-
-  /* copy bank */
-  .lines{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .line{background:var(--surface);border:1px solid var(--border-soft);border-radius:12px;padding:22px 24px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
-  .line p{font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.4}
-  .line > span{display:block;margin-top:10px;font-size:12px;color:var(--fg-4)}
-  .line.big{grid-column:1/-1;text-align:center;padding:40px}
-  .line.big p{font-size:clamp(24px,3.4vw,34px);font-weight:700;letter-spacing:-.02em}
-
-  /* voice */
-  .voice{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .voice .card h3{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
-  .voice .card.do h3{color:var(--accent)}
-  .voice .card.dont h3{color:var(--fg-3)}
-  .voice li{list-style:none;font-size:14px;color:var(--fg-2);padding:8px 0;border-bottom:1px solid var(--border-soft);line-height:1.5}
-  .voice li:last-child{border-bottom:0}
-  .voice .dont li{color:var(--fg-3)}
-
-  footer{position:relative;z-index:1;padding:56px 24px;text-align:center;font-size:13px;color:var(--fg-3)}
-  footer a{color:var(--accent);text-decoration:none}
-
-  @media (max-width:720px){
-    .lines,.voice{grid-template-columns:1fr}
-    .hero .rings{display:none}
-    section{padding:64px 0}
-  }
-  @media (prefers-reduced-motion: reduce){*{transition-duration:0s!important}}
+  .closing { margin-top: 56px; }
+  .closing .tab-strip { height: 64px; border-radius: var(--r-pill); }
 </style>
 </head>
 <body>
-<div class="stars"></div>
-<main>
-
-  <div class="hero">
-    <div class="rings"><i></i><i></i><i></i></div>
-    <img class="mark" src="../assets/atlas-logo-white.png" alt="Atlas Assistants">
-    <h1>Put the <span class="grad">weight</span> down.</h1>
-    <p class="one">Atlas takes founders across the Leverage Line — from carrying the company on their shoulders to owning a company that improves itself. This board is the brand at a glance; the full system lives in <b>brand-identity.md</b> and <b>design.md</b>.</p>
+<div class="board">
+  <div class="top">
+    <img src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+    <p>Brand board · current brand guidelines (2025 PDF, confirmed 2026-10-22)<br>Rules: BRAND-GUIDELINES.md · Roles and components: design.md</p>
   </div>
 
-  <section class="concept">
-    <h2>The concept</h2>
-    <p>In the myth, Atlas is the titan condemned to hold up the sky. <strong>Every founder below the Leverage Line is playing Atlas</strong> — every new client, hire, and initiative adds weight to the same shoulders.</p>
-    <p>Atlas, the company, exists to end that role. Not by handing the sky to more people — that's the false summit — but by <strong>installing the system that holds itself.</strong> The name was always about the weight. Same name, completed meaning.</p>
-    <div class="devices">
-      <div class="card"><h3>The Leverage Line</h3><p>The signature graphic device. Below it: weight, density, dark. Above it: orbit, altitude, light.</p></div>
-      <div class="card"><h3>The orbital rings</h3><p>The five levels of company autonomy — orbits at increasing altitude. The climb, drawn.</p></div>
-      <div class="card"><h3>The starfield</h3><p>The system running while you sleep. "The company got better last month — and it wasn't my idea."</p></div>
-      <div class="card"><h3>The mark</h3><p>The "A" stands inside the ring — the founder at the center of a system in orbit around them, not on their shoulders.</p></div>
+  <div class="row r1">
+    <div>
+      <div class="hero-lift"><div class="tile hero g-object g-deep contour contour-soft" data-theme="dark">
+        <img class="watermark on-gradient" src="../assets/atlas-mark-white.png" alt="" />
+        <span class="t-eyebrow">Talent partnership</span>
+        <h1>Operate in your <span class="accent">zone of genius.</span></h1>
+        <p>Atlas recruits and develops exceptional AI-capable talent and equips you to work with them.</p>
+        <div class="foot">
+          <a class="btn btn-primary btn-lg" href="#">Book a call</a>
+          <a class="btn btn-arrow btn-lg" href="#" aria-label="Book a call"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        </div>
+      </div></div>
+      <span class="cap"><b>One gradient object.</b> Deep gradient, watermark outlines, 8% symbol watermark, Yellow Green accent.</span>
     </div>
-  </section>
-
-  <section>
-    <h2>The signature device</h2>
-    <div class="linewrap">
-      <div class="ln"></div>
-      <div class="zone a">Above the line</div>
-      <div class="zone b">Below the line</div>
-      <div class="above">The system carries the volume.<br>The founder carries the judgment.</div>
-      <div class="below">Growth costs the founder<br>more of themselves.</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>The logo — two forms, image files only</h2>
-    <div class="devices">
-      <div class="card" style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
-        <img src="../assets/atlas-logo-white.png" alt="Atlas Assistants full lockup" style="height:44px;width:auto">
-        <p style="font-size:13px;color:var(--fg-3);line-height:1.55"><b style="color:var(--fg-1)">The full lockup — the default.</b> Mark + "atlas ASSISTANTS" wordmark, one artwork. Navs, headers, footers, title slides, email headers. Files: <code>atlas-logo-white.png</code> (dark) / <code>atlas-logo-dark.png</code> (light).</p>
+    <div class="side">
+      <div>
+        <div class="tile logo-tile"><img src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" /></div>
+        <span class="cap"><b>Logo.</b> Image files only. Dark lockup on light, white lockup on Deep Blue, white symbol on purple.</span>
       </div>
-      <div class="card" style="display:flex;flex-direction:column;gap:16px;align-items:flex-start">
-        <img src="../assets/atlas-mark-white.png" alt="Atlas mark" style="height:44px;width:auto">
-        <p style="font-size:13px;color:var(--fg-3);line-height:1.55"><b style="color:var(--fg-1)">The mark alone — small spots only.</b> Favicon, avatar, watermark, slide corners. Files: <code>atlas-mark-white.png</code> (dark) / <code>atlas-mark.png</code> (light).</p>
+      <div>
+        <div class="tile type-tile">
+          <div><div class="aa" style="font-family:var(--font-display);font-weight:700">Aa</div><b>Poppins</b><span>Display and headings</span></div>
+          <div><div class="aa" style="font-family:var(--font-body);font-weight:400">Aa</div><b style="font-family:var(--font-body)">Outfit</b><span>Body and UI text</span></div>
+        </div>
+        <span class="cap"><b>Typefaces.</b> Poppins 400, 600, 700 with italics. Outfit variable.</span>
       </div>
     </div>
-    <div class="card" style="margin-top:16px;border-color:rgba(186,156,255,.3)">
-      <p style="font-size:14px;color:var(--fg-2);line-height:1.6"><b style="color:var(--fg-1)">Never typeset the wordmark.</b> Don't place text "atlas" next to the mark to simulate a logo — the wordmark is part of the logo artwork, not UI text. If you need the logo with the name, use the lockup file. The pre-2026 flat-violet logo is retired everywhere.</p>
-    </div>
-  </section>
+  </div>
 
-  <section>
-    <h2>Color</h2>
-    <div class="swatches">
-      <div class="sw"><div class="chip" style="background:#050314;border-bottom:1px solid var(--border-soft)"></div><div class="meta"><b>Cosmic Black</b><span>#050314 · the void</span></div></div>
-      <div class="sw"><div class="chip" style="background:#0a0620"></div><div class="meta"><b>Cosmic Deep</b><span>#0a0620 · lifted bg</span></div></div>
-      <div class="sw"><div class="chip" style="background:#110a2c"></div><div class="meta"><b>Surface</b><span>#110a2c · cards</span></div></div>
-      <div class="sw"><div class="chip" style="background:#1a1140"></div><div class="meta"><b>Surface Lift</b><span>#1a1140 · hover</span></div></div>
-      <div class="sw"><div class="chip" style="background:#ba9cff"></div><div class="meta"><b>Lavender</b><span>#ba9cff · the only accent</span></div></div>
-      <div class="sw"><div class="chip" style="background:#5c70ff"></div><div class="meta"><b>Periwinkle</b><span>#5c70ff · gradient only</span></div></div>
+  <div class="row"><div>
+    <div class="palette">
+      <div class="pcard pc-dark" style="background:var(--deep-blue)"><div class="pc-body"><div class="pc-name">Deep<br>Blue</div><div class="pc-codes">#0C013B<br>12, 1, 59</div></div><div class="pc-tints"><span style="--t:var(--deep-blue-80)"></span><span style="--t:var(--deep-blue-60)"></span><span style="--t:var(--deep-blue-40)"></span><span style="--t:var(--deep-blue-20)"></span></div></div>
+      <div class="pcard pc-light pc-pearl" style="background:var(--pearl-white)"><div class="pc-body"><div class="pc-name">Pearl<br>White</div><div class="pc-codes">#FBFEF7<br>251, 254, 247</div></div><div class="pc-tints"><span style="--t:var(--pearl-white-80)"></span><span style="--t:var(--pearl-white-60)"></span><span style="--t:var(--pearl-white-40)"></span><span style="--t:var(--pearl-white-20)"></span></div></div>
+      <div class="pcard pc-light" style="background:var(--soft-blue-violet)"><div class="pc-body"><div class="pc-name">Soft Blue<br>Violet</div><div class="pc-codes">#5C70FF<br>92, 112, 255</div></div><div class="pc-tints"><span style="--t:var(--soft-blue-violet-80)"></span><span style="--t:var(--soft-blue-violet-60)"></span><span style="--t:var(--soft-blue-violet-40)"></span><span style="--t:var(--soft-blue-violet-20)"></span></div></div>
+      <div class="pcard pc-light" style="background:var(--electric-purple)"><div class="pc-body"><div class="pc-name">Electric<br>Purple</div><div class="pc-codes">#B675F5<br>182, 117, 245</div></div><div class="pc-tints"><span style="--t:var(--electric-purple-80)"></span><span style="--t:var(--electric-purple-60)"></span><span style="--t:var(--electric-purple-40)"></span><span style="--t:var(--electric-purple-20)"></span></div></div>
+      <div class="pcard pc-light" style="background:var(--yellow-green)"><div class="pc-body"><div class="pc-name">Yellow<br>Green</div><div class="pc-codes">#E0FE53<br>224, 254, 83</div></div><div class="pc-tints"><span style="--t:var(--yellow-green-80)"></span><span style="--t:var(--yellow-green-60)"></span><span style="--t:var(--yellow-green-40)"></span><span style="--t:var(--yellow-green-20)"></span></div></div>
+      <div class="pcard pc-dark" style="background:var(--vivid-purple)"><div class="pc-body"><div class="pc-name">Vivid<br>Purple</div><div class="pc-codes">#4500F9<br>69, 0, 249</div></div><div class="pc-tints"><span style="--t:var(--vivid-purple-80)"></span><span style="--t:var(--vivid-purple-60)"></span><span style="--t:var(--vivid-purple-40)"></span><span style="--t:var(--vivid-purple-20)"></span></div></div>
     </div>
-    <div class="gradbar">The gradient: 135° #5c70ff → #b675f5 · logo, headline accents, avatar fills. Never a flat button fill.</div>
-    <div class="card" style="margin-top:16px">
-      <p style="font-size:14px;color:var(--fg-2);line-height:1.6"><b style="color:var(--fg-1)">Two modes, dark by default.</b> Everything pitch-facing stays cosmic dark. A full light theme ships in the tokens (<code>colors_and_type.css → [data-theme="light"]</code>) for reading surfaces: docs, reports, auth, in-app reading, email bodies. On light: text goes Cosmic Black, accent <i>text</i> shifts to indigo <code>#5046e4</code> for contrast, stars turn off, CTAs stay lavender, and the logo switches to the dark-variant files. Canonical demo: <code>preview/light-mode.html</code>.</p>
+    <span class="cap"><b>Palette.</b> Light pages: Pearl White, Deep Blue text, Vivid Purple actions. Yellow Green is a fill on light and the accent on dark. Tints are 80/60/40/20% opacity.</span>
+  </div></div>
+
+  <div class="row r3">
+    <div>
+      <div class="tile roles">
+        <span class="t-eyebrow">Eyebrow · Poppins Semi-Bold italic</span>
+        <div class="t-heading">Heading in <span class="accent">Poppins Bold</span></div>
+        <div class="t-subheading">Sub-heading in Poppins Semi-Bold</div>
+        <div class="t-highlight">Highlight text</div>
+        <div class="t-important">Important line in Poppins Semi-Bold italic</div>
+        <p class="t-body">Body copy in Outfit Regular. Atlas Assistants helps people operate in their zone of genius.</p>
+      </div>
+      <span class="cap"><b>Type.</b> The six guideline roles (page 5). Sentence case on the web; uppercase only for eyebrows and highlight text.</span>
     </div>
-  </section>
-
-  <section>
-    <h2>Type — Inter, four weights, nothing else</h2>
-    <div class="typerow"><div class="spec">H1 · 700 · -3% tracking</div><div class="t-h1">Operate in your zone of genius</div></div>
-    <div class="typerow"><div class="spec">H2 · 700</div><div class="t-h2">The five levels of autonomy</div></div>
-    <div class="typerow"><div class="spec">H3 · 600</div><div class="t-h3">Work arrives decided-shaped</div></div>
-    <div class="typerow"><div class="spec">Body · 400 · 16px</div><div class="t-body">Leverage is what happens when your thinking, your decisions, and your standards operate independently of your presence.</div></div>
-    <div class="typerow"><div class="spec">Eyebrow · 500 · caps</div><div class="t-eyebrow">The map</div></div>
-  </section>
-
-  <section>
-    <h2>The five pillars</h2>
-    <div class="pillars">
-      <div class="pillar"><div class="n grad">1</div><h3>The Line &amp; the Ladder</h3><p>Below the line growth costs you more of yourself; above it, less. Five levels. Product → Owner.</p></div>
-      <div class="pillar"><div class="n grad">2</div><h3>The False Summit</h3><p>Hiring was never up — it was sideways. You hired a call center to query the OS in your head.</p></div>
-      <div class="pillar"><div class="n grad">3</div><h3>The Five Verbs</h3><p>Notice, Plan, Decide, Execute, Improve. Decide stays human at every level, forever.</p></div>
-      <div class="pillar"><div class="n grad">4</div><h3>The Design Equation</h3><p>Output = Time × Leverage. Fix the money and the hours; solve for leverage. The prize is optionality.</p></div>
-      <div class="pillar"><div class="n grad">5</div><h3>Zone of Genius</h3><p>The north star: the future of work is everyone in their zone of genius, and no one carrying the machine.</p></div>
+    <div>
+      <div class="tile btns">
+        <div class="pv-row"><a class="btn btn-primary" href="#">Book a call <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a><a class="btn btn-secondary" href="#">How it works</a><a class="btn btn-arrow" href="#" aria-label="Open"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+        <div class="pv-row"><a class="btn btn-link" href="#">Read the guide <svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+        <div class="pv-row"><span class="badge badge-highlight">New</span><span class="badge badge-accent">Exec Ops Partner</span><span class="badge badge-outline">Draft</span></div>
+        <div style="font:700 28px/1.25 var(--font-display);color:var(--fg-1)">A <span class="mark-highlight">highlighter mark</span> on light</div>
+      </div>
+      <span class="cap"><b>Actions.</b> Pill buttons and a circular arrow. On dark and gradients they turn Yellow Green with Deep Blue text.</span>
     </div>
-  </section>
+  </div>
 
-  <section>
-    <h2>Copy bank — lines that carry the brand</h2>
-    <div class="lines">
-      <div class="line big"><p>"You don't have a time problem. You have a <span class="grad">leverage problem</span>."</p><span>the diagnosis</span></div>
-      <div class="line"><p>"Operate in your zone of genius."</p><span>the north star · retained hero line</span></div>
-      <div class="line"><p>"We've placed 300+ executive assistants. Then we built the thing that made them optional."</p><span>the proof</span></div>
-      <div class="line"><p>"I built a team that needs me."</p><span>Level 2 · felt sentence</span></div>
-      <div class="line"><p>"The company got better last month — and it wasn't my idea."</p><span>Level 5 · felt sentence</span></div>
+  <div class="row r4">
+    <div>
+      <div class="tile pat" style="background:var(--pearl-white)"><img class="watermark on-light" src="../assets/atlas-mark.png" alt="" /><span class="pv-label" style="color:var(--fg-2)">Symbol watermark</span></div>
+      <span class="cap"><b>Watermark.</b> Gradient symbol at 5% on light; white symbol at 8% on gradients.</span>
     </div>
-  </section>
-
-  <section>
-    <h2>Voice — the calm practitioner-guide</h2>
-    <div class="voice">
-      <div class="card do"><h3>Always</h3><ul>
-        <li>Short, declarative sentences. Atlas states.</li>
-        <li>A number on every claim: 0.14×, 90 days, 300+.</li>
-        <li>Honest about altitude: "the climb, not the summit."</li>
-        <li>Teach the model for free — the guide is the marketing.</li>
-        <li>Sentence case. Second person. Calm.</li>
-      </ul></div>
-      <div class="card dont"><h3>Never</h3><ul>
-        <li>"Revolutionary", "next-gen", "best-in-class", "synergy".</li>
-        <li>"Buy back your time" (except naming it as the false solution).</li>
-        <li>Exclamation marks, 🚀, ALL-CAPS shouting.</li>
-        <li>"We believe / we think" hedging.</li>
-        <li>"AI replaces people" framing — our claim is the opposite.</li>
-      </ul></div>
+    <div>
+      <div class="tile pat wash"><span style="font:600 22px/1.2 var(--font-display);color:var(--fg-1);max-width:14ch">A light section with a corner wash</span></div>
+      <span class="cap"><b>Corner wash.</b> One corner of a light hero or section.</span>
     </div>
-  </section>
+    <div>
+      <div class="tile pat strip">
+        <div class="lbl"><img src="../assets/atlas-mark.png" alt="" /></div>
+        <div class="tab-strip"><span style="background:var(--deep-blue)"></span><span class="tab-pearl" style="background:var(--pearl-white)"></span><span style="background:var(--soft-blue-violet)"></span><span style="background:var(--electric-purple)"></span><span style="background:var(--yellow-green)"></span><span style="background:var(--vivid-purple)"></span></div>
+      </div>
+      <span class="cap"><b>Six-tab strip.</b> Brand boards and covers only, in palette order.</span>
+    </div>
+  </div>
 
-</main>
-<footer>
-  Atlas Assistants · Brand Board · canonical system: <a href="../brand-identity.md">brand-identity.md</a> → <a href="../design.md">design.md</a> → tokens &amp; kits
-</footer>
+</div>
 </body>
 </html>

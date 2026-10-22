@@ -2,32 +2,87 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Gradients</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Gradients</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 24px; display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 14px; }
-  .card { border: 1px solid var(--border-soft); border-radius: var(--r-xl); padding: 18px; background: var(--surface); display: flex; flex-direction: column; gap: 10px; }
-  .swatch { height: 56px; border-radius: 8px; }
-  .name { font-size: 12px; font-weight: 500; color: var(--fg-1); }
-  .lbl { font-size: 10px; color: var(--fg-3); font-family: var(--font-mono); line-height: 1.5; }
-  .text { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+  .fam { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; padding: 32px 0; border-bottom: 1px solid var(--border-soft); }
+  .fam:last-child { border-bottom: 0; }
+  .fam .sw { height: 260px; border-radius: var(--r-3xl); position: relative; overflow: hidden; isolation: isolate; display: flex; align-items: flex-end; justify-content: space-between; padding: 28px; }
+  .fam h3 { margin: 0 0 6px; font-size: 24px; }
+  .fam .tok { font-family: var(--font-mono); font-size: 13px; color: var(--accent-text); }
+  .fam p { margin: 14px 0 0; font-size: 16px; }
+  .stops { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
+  .stops span { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--fg-2); padding: 6px 12px 6px 6px; border-radius: var(--r-pill); border: 1px solid var(--border-soft); }
+  .stops i { width: 20px; height: 20px; border-radius: 50%; display: inline-block; }
+  .sw .cap { font: var(--w-semibold) 22px/1.25 var(--font-display); max-width: 18ch; }
+  .extras { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .wash-demo { height: 220px; border-radius: var(--r-3xl); box-shadow: inset 0 0 0 1px var(--border); background: var(--wash-corner), var(--pearl-white); display: flex; align-items: flex-end; padding: 28px; }
+  .text-demo { height: 220px; border-radius: var(--r-3xl); box-shadow: inset 0 0 0 1px var(--border); background: var(--surface); display: flex; flex-direction: column; justify-content: center; gap: 12px; padding: 28px 32px; }
+  .text-demo .big { font: var(--w-bold) 52px/1.05 var(--font-display); letter-spacing: -0.02em; color: var(--fg-1); }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="swatch" style="background: var(--gradient-brand)"></div>
-    <span class="name">--gradient-brand</span>
-    <span class="lbl">135° · #5c70ff → #b675f5<br/>logo, primary fills</span>
-  </div>
-  <div class="card">
-    <div class="text grad-text">zone of genius</div>
-    <span class="name">--gradient-text</span>
-    <span class="lbl">#fff → #d6c8ff → #ba9cff</span>
-  </div>
-  <div class="card">
-    <div class="text grad-text-soft">Atlas</div>
-    <span class="name">--gradient-text-soft</span>
-    <span class="lbl">#fff 30% → #ba9cff</span>
-  </div>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Gradients</h1>
+      <p>Three families, all observed in the guidelines. Gradients are objects and bands, not page backgrounds. On a light page, show at most one gradient object and one gradient band per screen; this spec page breaks that rule on purpose.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <div class="fam">
+      <div class="sw g-brand" data-theme="dark"><span class="cap" style="color:var(--deep-blue)">The logo gradient</span><img src="../assets/atlas-mark-white.png" alt="" style="height:96px;width:auto" /></div>
+      <div>
+        <h3>Brand</h3><span class="tok">--gradient-brand · 135°</span>
+        <div class="stops"><span><i style="background:#5C70FF"></i>Soft Blue Violet 0%</span><span><i style="background:#B675F5"></i>Electric Purple 100%</span></div>
+        <p>The symbol's own gradient. Use it on the symbol, avatars, and small accent fills. Text on it is Deep Blue (4.8:1 or better), as on guidelines page 8.</p>
+      </div>
+    </div>
+    <div class="fam">
+      <div class="sw g-deep contour contour-soft" data-theme="dark"><span class="cap" style="color:var(--fg-1)">Hero objects, feature bands, deck covers, social</span><a class="btn btn-arrow" href="#" aria-label="Open"><svg class="i" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></div>
+      <div>
+        <h3>Deep</h3><span class="tok">--gradient-deep · 135°</span>
+        <div class="stops"><span><i style="background:#B675F5"></i>Electric Purple 0%</span><span><i style="background:#4500F9"></i>Vivid Purple 42%</span><span><i style="background:#0C013B"></i>Deep Blue 100%</span></div>
+        <p>Guidelines pages 2 and 5. White headlines, Yellow Green accents. Keep small text and Yellow Green off the Electric Purple corner (Yellow Green there is 2.7:1); place them over the Vivid Purple and Deep Blue stretch.</p>
+      </div>
+    </div>
+    <div class="fam">
+      <div class="sw g-vivid" data-theme="dark"><span class="cap" style="color:var(--fg-1)">CTA bands and the <span style="color:var(--accent-text)">featured pricing card</span></span><a class="btn btn-primary" href="#">Book a call</a></div>
+      <div>
+        <h3>Vivid</h3><span class="tok">--gradient-vivid · 160°</span>
+        <div class="stops"><span><i style="background:#4500F9"></i>Vivid Purple 0%</span><span><i style="background:#0C013B"></i>Deep Blue 100%</span></div>
+        <p>Guidelines page 8. The highest-contrast family: Yellow Green holds 7.1:1 on Vivid Purple and 17.1:1 on Deep Blue.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>On light surfaces</h2>
+    <p class="pv-lede">Two light-only treatments. Neither counts as a gradient object.</p>
+    <div class="extras">
+      <div class="pv-stack" style="gap:12px">
+        <div class="wash-demo"><span class="pv-label" style="color:var(--fg-2)">Corner wash on Pearl White</span></div>
+        <span class="pv-label"><code class="pv-code">--wash-corner</code>: an Electric Purple bloom at 22% in one corner of a hero or section (guidelines page 1).</span>
+      </div>
+      <div class="pv-stack" style="gap:12px">
+        <div class="text-demo"><div class="big">Your <span class="grad-text">zone of genius</span></div></div>
+        <span class="pv-label"><code class="pv-code">.grad-text</code> on light: Vivid Purple to Electric Purple, large display text only. On dark the accent phrase is solid Yellow Green.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>No other gradients. No mesh blobs, glows, or gradients behind body text on light.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Gradient containers carry <code class="pv-code">data-theme="dark"</code> so buttons and accents switch to Yellow Green.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>The watermark outlines and the symbol watermark may sit on deep and vivid gradients (see patterns).</li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

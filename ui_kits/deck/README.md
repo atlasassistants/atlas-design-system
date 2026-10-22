@@ -1,31 +1,34 @@
 # Atlas Deck Kit
 
-Slide masters for any Atlas presentation — all-hands, client pitch, masterclass, webinar. Open `master.html` in a browser; each 1920×1080 slide is a master to duplicate and re-copy. Print-to-PDF (landscape, background graphics on) produces a shareable deck; or recreate the masters in Keynote/Slides using the token values below.
+Slide masters for Atlas presentations. Open `master.html`; each 1920×1080 master previews at 31%. Add `?full` to render at full size, then print to PDF (landscape, background graphics on), or rebuild the masters in Keynote or Slides with the tokens below.
 
 ## The system
 
-- **One idea per slide.** If a slide needs two headlines, it's two slides.
-- **The Leverage Line is the recurring device.** Use the divider master to mark chapter breaks; position content above/below the line meaningfully (problem content below, destination content above).
-- **The ladder and the verbs have dedicated masters** — don't improvise those diagrams; they're the brand's core visuals and must render identically everywhere.
-- Dark cosmic for anything pitch-facing. Light mode only for dense internal reading decks (see `../internal/README.md`).
+- **Covers, chapter dividers, and the close are dark:** the deep gradient (Electric Purple to Vivid Purple to Deep Blue) or flat Deep Blue.
+- **Content slides are light:** Pearl White, Deep Blue text, Vivid Purple accent phrase.
+- **One idea per slide.** If a slide needs two headlines, it is two slides.
+- **The line** (master 5) is the Leverage Line device from `brand-identity.md`: Pearl White above, Deep Blue below. Copy on it is sample copy; check positioning before use.
 
 ## Masters in `master.html`
 
-| # | Master | Use |
+| # | Master | Surface |
 |---|---|---|
-| 1 | Title | Deck opener — mark, title, presenter line |
-| 2 | Chapter divider | The Leverage Line splits the slide; chapter title |
-| 3 | Content | Headline + body + orbit accent (default slide) |
-| 4 | The Ladder | The five levels with the line between L2 and L3 |
-| 5 | The Five Verbs | Verb grid; DECIDE highlighted as the human column |
-| 6 | The Equation | Output = Time × Leverage, display-scale |
-| 7 | Quote / felt sentence | One line, gradient emphasis, attribution |
-| 8 | Closing | "Put the weight down." + CTA line |
+| 1 | Cover | Deep gradient, watermark outlines, white symbol, Yellow Green accent |
+| 2 | Chapter divider | Deep gradient, symbol watermark |
+| 3 | Content (default) | Light; headline, body, image slot |
+| 4 | Three points | Light; three columns with icon boxes |
+| 5 | The line | Pearl White above, Deep Blue below |
+| 6 | Data | Light; one series in a Vivid Purple tint, the takeaway bar in full Vivid Purple |
+| 7 | Statement | Light; Yellow Green highlighter mark behind Deep Blue text |
+| 8 | Closing | Deep Blue, white lockup, Yellow Green pill, one gradient object |
 
-## Token cheatsheet (for Keynote/Slides recreation)
+The 2026 positioning diagrams (the ladder, the five verbs, the equation) were removed with the cosmic system. They encoded pre-Q4 positioning; rebuild them on these masters only after Colin approves the content.
 
-- Background `#050314` · card surface `#110a2c` · borders `#2a1f55` / `#1d1640`
-- Text: white / 72% / 50% white · accent `#ba9cff` · gradient `135° #5c70ff → #b675f5`
-- Inter only: titles 700, subheads 600, body 400. Slide titles ~64–88pt, body 24–28pt.
-- Eyebrows: 20pt, uppercase, +8% tracking, lavender — max one per chapter, not per slide.
-- Gradient on one phrase per slide, max. CTAs solid lavender with `#0a0620` text.
+## Tokens for Keynote or Slides
+
+- Backgrounds: Pearl White `#FBFEF7` (content), Deep Blue `#0C013B` (close), deep gradient `135°, #B675F5 0%, #4500F9 42%, #0C013B 100%`.
+- Text: Deep Blue `#0C013B`, secondary `#4F4870`; on dark, Pearl White.
+- Accent: Vivid Purple `#4500F9` on light; Yellow Green `#E0FE53` on dark. Yellow Green is never text on a light slide.
+- Type: Poppins Bold for titles (84 to 132pt at 1920 wide), Poppins Semi-Bold italic caps for eyebrows (26pt), Outfit Regular for body (30 to 34pt).
+- Logo: white symbol on gradients, white lockup on Deep Blue, gradient symbol in light-slide footers.
+- Watermark outlines: `assets/patterns/logo-watermark-outlines-web.png` (designer file). Slide backgrounds and deck elements (orbs, glass cog, arrow) from the designer are in `assets/backgrounds/` and `assets/elements/`.

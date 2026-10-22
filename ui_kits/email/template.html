@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,78 +7,85 @@
 <meta name="supported-color-schemes" content="light">
 <title>Atlas Email Template</title>
 <!--
-  Atlas email skeleton. Table-based, 600px, light body + dark brand header.
-  Swap: preheader, headline, body blocks, CTA label/URL, footer address.
-  Host the logo at a public URL before sending (LOGO_URL below).
+  Atlas email skeleton. Table-based, 600px, light body, logo lockup header.
+  Swap: preheader, headline, body blocks, CTA label and URL, sender, footer address.
+  The body copy is neutral sample copy; check claims and offer language before sending.
+  Before sending, host the logo files at a public URL and replace LOGO_URL.
+  Colors are the brand tokens as literal HEX values (email clients ignore CSS variables):
+    page #FBFEF7 (Pearl White), card #FFFFFF, text #0C013B (Deep Blue),
+    secondary text #4F4870, tertiary #6C6686, border #DDDBE4 (--border on white),
+    links and button #4500F9 (Vivid Purple) with white text.
+  Yellow Green never appears in email: it is a fill-only color on light, and email is light.
 -->
 <style>
-  /* Clients that support <style>: mobile squeeze only. Everything critical is inline. */
   @media only screen and (max-width: 620px) {
     .container { width: 100% !important; }
     .px { padding-left: 24px !important; padding-right: 24px !important; }
-    h1 { font-size: 24px !important; }
+    h1 { font-size: 26px !important; }
   }
 </style>
 </head>
-<body style="margin:0;padding:0;background-color:#fafaff;">
+<body style="margin:0;padding:0;background-color:#FBFEF7;">
   <!-- preheader (hidden) -->
   <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
-    You don't have a time problem. &#847;&#847;&#847;&#847;&#847;
+    Preheader: one line that completes the subject. &#847;&#847;&#847;&#847;&#847;
   </div>
 
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#fafaff;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FBFEF7;">
     <tr><td align="center" style="padding:32px 12px;">
 
       <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:600px;">
 
-        <!-- header band: the one dark brand moment -->
-        <tr><td style="background-color:#050314;border-radius:12px 12px 0 0;padding:20px 32px;" class="px">
-          <img src="LOGO_URL/atlas-logo-white.png" alt="atlas" height="30" style="display:block;height:30px;width:auto;border:0;">
+        <!-- header: the logo lockup on white -->
+        <tr><td style="background-color:#FFFFFF;border:1px solid #DDDBE4;border-bottom:0;border-radius:16px 16px 0 0;padding:28px 40px 24px;" class="px">
+          <img src="LOGO_URL/atlas-logo-dark.png" alt="Atlas Assistants" height="36" style="display:block;height:36px;width:auto;border:0;">
         </td></tr>
-        <!-- gradient hairline (single gradient moment) -->
-        <tr><td style="height:3px;background:linear-gradient(135deg,#5c70ff,#b675f5);background-color:#8a73fa;font-size:0;line-height:0;">&nbsp;</td></tr>
+        <!-- brand gradient bar: the single gradient moment -->
+        <tr><td style="height:4px;background-color:#4500F9;background-image:linear-gradient(135deg,#5C70FF,#B675F5);font-size:0;line-height:0;">&nbsp;</td></tr>
 
         <!-- body card -->
-        <tr><td style="background-color:#ffffff;border:1px solid #e5e1f5;border-top:0;border-radius:0 0 12px 12px;padding:40px 32px;" class="px">
+        <tr><td style="background-color:#FFFFFF;border:1px solid #DDDBE4;border-top:0;border-radius:0 0 16px 16px;padding:40px 40px 44px;" class="px">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-
-            <tr><td style="font-family:Inter,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
-              <h1 style="margin:0 0 20px;font-size:28px;line-height:1.25;font-weight:700;letter-spacing:-0.02em;color:#050314;">
+            <tr><td>
+              <p style="margin:0 0 14px;font-family:Poppins,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.3;font-weight:600;font-style:italic;letter-spacing:0.08em;text-transform:uppercase;color:#4500F9;">
+                Exec Ops Partner
+              </p>
+              <h1 style="margin:0 0 20px;font-family:Poppins,'Segoe UI',Helvetica,Arial,sans-serif;font-size:30px;line-height:1.2;font-weight:700;letter-spacing:-0.02em;color:#0C013B;">
                 You don't have a time problem.
               </h1>
 
-              <p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:rgba(5,3,20,.72);">
-                You're working as hard as a human being can work, and the business is still capped. That's not a discipline problem. Time is fixed and effort is maxed &mdash; when both variables are capped, the output is capped.
+              <p style="margin:0 0 18px;font-family:Outfit,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;color:#4F4870;">
+                You're working as hard as anyone can, and the week is still full. That isn't a discipline problem. It is a sign that too much of the operating work still runs through you.
               </p>
-              <p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:rgba(5,3,20,.72);">
-                What isn't capped is <a href="CTA_URL" style="color:#5046e4;text-decoration:underline;">leverage</a> &mdash; your judgment and standards operating without your presence. Built once, it multiplies everything downstream.
+              <p style="margin:0 0 18px;font-family:Outfit,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;color:#4F4870;">
+                An <a href="CTA_URL" style="color:#4500F9;text-decoration:underline;">Exec Ops Partner</a> takes that work on, so more of your time goes to what only you can do.
               </p>
 
-              <!-- bulletproof CTA -->
-              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:28px 0 8px;">
-                <tr><td style="border-radius:8px;background-color:#ba9cff;">
-                  <a href="CTA_URL" style="display:inline-block;padding:14px 32px;font-family:Inter,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:600;color:#0a0620;text-decoration:none;border-radius:8px;">
-                    Read the guide
+              <!-- bulletproof CTA: one per email, label of three words or fewer -->
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:30px 0 10px;">
+                <tr><td style="border-radius:999px;background-color:#4500F9;">
+                  <a href="CTA_URL" style="display:inline-block;padding:15px 34px;font-family:Poppins,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;font-weight:600;line-height:1;color:#FFFFFF;text-decoration:none;border-radius:999px;">
+                    Book a call
                   </a>
                 </td></tr>
               </table>
 
-              <p style="margin:24px 0 0;font-size:16px;line-height:1.6;color:rgba(5,3,20,.72);">
-                &mdash; Colin
+              <p style="margin:28px 0 0;font-family:Outfit,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;color:#0C013B;">
+                Sender name<br>
+                <span style="color:#6C6686;">Atlas Assistants</span>
               </p>
             </td></tr>
-
           </table>
         </td></tr>
 
         <!-- footer -->
-        <tr><td style="padding:28px 32px;" class="px">
+        <tr><td style="padding:28px 40px;" class="px">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-            <tr><td style="font-family:Inter,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:1.6;color:rgba(5,3,20,.5);">
-              <img src="LOGO_URL/atlas-mark.png" alt="" height="22" style="display:block;height:22px;width:auto;border:0;margin-bottom:12px;">
+            <tr><td style="font-family:Outfit,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.6;color:#6C6686;">
+              <img src="LOGO_URL/atlas-mark.png" alt="" height="24" style="display:block;height:24px;width:auto;border:0;margin-bottom:12px;">
               Atlas Assistants &middot; COMPANY_ADDRESS<br>
               You're receiving this because you signed up at atlasassistants.com.
-              <a href="UNSUB_URL" style="color:rgba(5,3,20,.5);text-decoration:underline;">Unsubscribe</a>
+              <a href="UNSUB_URL" style="color:#6C6686;text-decoration:underline;">Unsubscribe</a>
             </td></tr>
           </table>
         </td></tr>

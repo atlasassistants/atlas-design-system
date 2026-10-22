@@ -2,32 +2,78 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Badges & Pills</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Badges</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 28px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .pill {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 4px 10px; border-radius: 999px;
-    font-size: 12px; font-weight: 500;
-  }
-  .accent { background: var(--accent-bg); border: 1px solid var(--accent-border); color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; }
-  .live { background: rgba(74,222,128,0.10); border: 1px solid rgba(74,222,128,0.3); color: #4ade80; }
-  .live .dot { width:6px; height:6px; border-radius:999px; background:#4ade80; box-shadow: 0 0 8px #4ade80; }
-  .neutral { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: var(--fg-2); }
-  .filled { background: var(--accent); color: #16093a; font-weight: 600; }
-  .tool { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: var(--fg-2); }
+  .grid { display: grid; grid-template-columns: 170px 1fr; gap: 24px; align-items: center; }
+  .demo-h { margin: 0; font-size: 34px; line-height: 1.2; }
 </style>
 </head>
 <body>
-  <span class="pill accent">SERVICES</span>
-  <span class="pill accent">EA STAFFING</span>
-  <span class="pill live"><span class="dot"></span>Live now</span>
-  <span class="pill filled">Most popular</span>
-  <span class="pill neutral">v2.4</span>
-  <span class="pill tool">📧 Gmail</span>
-  <span class="pill tool">📝 Notion</span>
-  <span class="pill tool">🎙️ Otter</span>
-  <span class="pill tool">📊 Linear</span>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Badges</h1>
+      <p>Pill-shaped labels in Outfit Semi-Bold, 28px tall. Yellow Green marks emphasis ("New", "Included") as a fill behind Deep Blue text. Neutral tags use the tinted accent.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Variants on light and dark</h2>
+    <div class="pv-grid-2">
+      <div class="pv-panel">
+        <span class="pv-label">Light (default)</span>
+        <div class="grid">
+          <span class="pv-label">Highlight</span>
+          <div class="pv-row"><span class="badge badge-highlight">New</span><span class="badge badge-highlight">Included</span><span class="badge badge-highlight"><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Free</span></div>
+          <span class="pv-label">Accent tag</span>
+          <div class="pv-row"><span class="badge badge-accent">Exec Ops Partner</span><span class="badge badge-accent">Onboarding</span></div>
+          <span class="pv-label">Outline tag</span>
+          <div class="pv-row"><span class="badge badge-outline">Draft</span><span class="badge badge-outline">Internal</span></div>
+          <span class="pv-label">Solid</span>
+          <div class="pv-row"><span class="badge badge-solid">Required</span></div>
+          <span class="pv-label">Eyebrow badge</span>
+          <div class="pv-row"><span class="eyebrow">Talent partnership</span></div>
+        </div>
+      </div>
+      <div class="pv-panel" data-theme="dark">
+        <span class="pv-label">Dark · data-theme="dark"</span>
+        <div class="grid">
+          <span class="pv-label">Highlight</span>
+          <div class="pv-row"><span class="badge badge-highlight">New</span><span class="badge badge-highlight">Included</span><span class="badge badge-highlight"><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Free</span></div>
+          <span class="pv-label">Accent tag</span>
+          <div class="pv-row"><span class="badge badge-accent">Exec Ops Partner</span><span class="badge badge-accent">Onboarding</span></div>
+          <span class="pv-label">Outline tag</span>
+          <div class="pv-row"><span class="badge badge-outline">Draft</span><span class="badge badge-outline">Internal</span></div>
+          <span class="pv-label">Solid</span>
+          <div class="pv-row"><span class="badge badge-solid">Required</span></div>
+          <span class="pv-label">Eyebrow badge</span>
+          <div class="pv-row"><span class="eyebrow">Talent partnership</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Highlighter mark</h2>
+    <p class="pv-lede">The other legal use of Yellow Green on light: a marker band behind Deep Blue text, one phrase per headline at most. Class <code class="pv-code">.mark-highlight</code>.</p>
+    <div class="pv-panel">
+      <p class="demo-h" style="color:var(--fg-1);font-family:var(--font-display);font-weight:700">Operate in your <span class="mark-highlight">zone of genius.</span></p>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Yellow Green on light is a fill with Deep Blue text (17.1:1). Never Yellow Green text, icons, or outlines on light.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Neutral tags use <code class="pv-code">--accent-bg</code> with <code class="pv-code">--accent-text</code>; they flip to Yellow Green on dark.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Sentence case inside badges. The eyebrow badge is the only uppercase badge.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>No decorative status dots. Add an icon only when it carries meaning.</li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

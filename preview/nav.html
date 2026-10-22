@@ -2,45 +2,100 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Nav Bar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Navigation</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 0; min-height: 200px; background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(186,156,255,0.18), transparent 70%),
-    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(92,112,255,0.10), transparent 70%),
-    var(--bg); }
-  .nav {
-    margin: 16px 24px 0;
-    border-radius: 999px;
-    padding: 8px 8px 8px 18px;
-    background: rgba(5,3,20,0.6);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid var(--border-soft);
-    display: flex; align-items: center; gap: 18px;
+  .navbar {
+    height: 72px; display: flex; align-items: center; gap: 32px; padding: 0 28px;
+    background: var(--bg); border: 1px solid var(--border-soft); border-radius: var(--r-xl);
   }
-  .brand { display: flex; align-items: center; gap: 10px; }
-  .orb { width: 28px; height: 28px; display: block; filter: drop-shadow(0 4px 10px rgba(92,112,255,0.3)); }
-  .word { font-weight: 600; font-size: 16px; }
-  .links { display: flex; gap: 4px; flex: 1; justify-content: center; }
-  .links a { color: var(--fg-2); text-decoration:none; font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: 999px; transition: all var(--dur-base) var(--ease); }
-  .links a:hover, .links a.active { color: var(--fg-1); background: rgba(255,255,255,0.06); }
-  .cta { display: flex; gap: 8px; align-items: center; }
-  .ghost { color: var(--fg-2); font-size: 13px; padding: 6px 12px; }
-  .btn { padding: 8px 16px; border-radius: 999px; background: var(--accent); color: #16093a; font-size: 13px; font-weight: 600; box-shadow: var(--shadow-3); }
+  .navbar .logo { height: 32px; width: auto; }
+  .navbar nav { display: flex; gap: 4px; margin: 0 auto; }
+  .nav-link {
+    font: var(--w-medium) 15px/1 var(--font-body); color: var(--fg-2); text-decoration: none;
+    padding: 10px 14px; border-radius: var(--r-pill); transition: color var(--dur-base) var(--ease), background-color var(--dur-base) var(--ease);
+  }
+  .nav-link:hover { color: var(--fg-1); }
+  .nav-link.active { color: var(--fg-1); background: var(--accent-bg); }
+  .navbar .actions { display: flex; align-items: center; gap: 8px; }
+  .navbar .signin { font: var(--w-medium) 15px/1 var(--font-body); color: var(--fg-1); text-decoration: none; padding: 10px 14px; }
+  .menu-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); background: transparent; color: var(--fg-1); display: inline-flex; align-items: center; justify-content: center; }
+  .menu-btn svg.i { width: 20px; height: 20px; }
+
+  .mobiles { display: flex; gap: 32px; align-items: flex-start; }
+  .phone { width: 390px; border: 1px solid var(--border-soft); border-radius: var(--r-3xl); overflow: hidden; background: var(--bg); }
+  .phone .navbar { border: 0; border-radius: 0; border-bottom: 1px solid var(--border-soft); padding: 0 16px 0 20px; gap: 12px; height: 64px; }
+  .phone .navbar .logo { height: 26px; }
+  .phone .navbar .actions { margin-left: auto; }
+  .phone .body { padding: 28px 20px 32px; }
+  .phone .sheet { padding: 12px 20px 28px; display: grid; gap: 4px; }
+  .phone .sheet a.nav-link { font-size: 18px; padding: 14px 4px; border-radius: 0; border-bottom: 1px solid var(--border-soft); background: none; }
+  .phone .sheet .btn { margin-top: 20px; width: 100%; }
 </style>
 </head>
 <body>
-  <div class="nav">
-    <div class="brand"><img class="orb" src="../assets/atlas-mark.png" alt="Atlas" /><span class="word">atlas</span></div>
-    <div class="links">
-      <a class="active">Services</a>
-      <a>Pricing</a>
-      <a>Brief</a>
-      <a>Community</a>
-      <a>About</a>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Navigation</h1>
+      <p>A 72px bar: the logo lockup image on the left, links in Outfit Medium, one primary action on the right. On light use <code class="pv-code">atlas-logo-dark.png</code>; on Deep Blue use <code class="pv-code">atlas-logo-white.png</code>. Never type the brand name next to the mark.</p>
     </div>
-    <div class="cta"><a class="ghost">Sign in</a><span class="btn">Reclaim your week</span></div>
-  </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Desktop, light (default)</h2>
+    <div class="navbar">
+      <img class="logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+      <nav aria-label="Primary"><a class="nav-link active" href="#">How it works</a><a class="nav-link" href="#">The role</a><a class="nav-link" href="#">Resources</a><a class="nav-link" href="#">About</a></nav>
+      <div class="actions"><a class="signin" href="#">Sign in</a><a class="btn btn-primary btn-sm" href="#">Book a call</a></div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Desktop, dark</h2>
+    <p class="pv-lede">For a dark hero or a dark page. The logo file switches with the surface; the action switches to Yellow Green.</p>
+    <div class="navbar" data-theme="dark">
+      <img class="logo" src="../assets/atlas-logo-white.png" alt="Atlas Assistants" />
+      <nav aria-label="Primary"><a class="nav-link active" href="#">How it works</a><a class="nav-link" href="#">The role</a><a class="nav-link" href="#">Resources</a><a class="nav-link" href="#">About</a></nav>
+      <div class="actions"><a class="signin" href="#">Sign in</a><a class="btn btn-primary btn-sm" href="#">Book a call</a></div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Mobile, 390px</h2>
+    <p class="pv-lede">Below 900px the links move into a sheet. The lockup stays at 24px or taller; below that, switch to the mark.</p>
+    <div class="mobiles">
+      <div class="phone">
+        <div class="navbar">
+          <img class="logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+          <div class="actions"><a class="btn btn-primary btn-sm" href="#">Book a call</a><button class="menu-btn" aria-label="Open menu"><svg class="i" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button></div>
+        </div>
+        <div class="body"><span class="pv-label">Closed</span></div>
+      </div>
+      <div class="phone">
+        <div class="navbar">
+          <img class="logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+          <div class="actions"><button class="menu-btn" aria-label="Close menu"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button></div>
+        </div>
+        <div class="sheet">
+          <a class="nav-link" href="#">How it works</a><a class="nav-link" href="#">The role</a><a class="nav-link" href="#">Resources</a><a class="nav-link" href="#">About</a><a class="nav-link" href="#">Sign in</a>
+          <a class="btn btn-primary" href="#">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>One line on desktop, 64 to 72px tall. Condense labels before the bar wraps.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>One primary action, with the same label everywhere on the page.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>The logo is an image file with 2x clear space; keep links and buttons outside it.</li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

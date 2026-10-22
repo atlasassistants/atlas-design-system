@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Patterns</title>
+<link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
+<style>
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .tile { display: grid; gap: 12px; align-content: start; }
+  .demo { height: 340px; border-radius: var(--r-3xl); position: relative; overflow: hidden; isolation: isolate; padding: 32px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .demo.light { background: var(--pearl-white); box-shadow: inset 0 0 0 1px var(--border); }
+  .demo h3 { margin: 0; font-size: 30px; line-height: 1.15; max-width: 14ch; }
+  .demo .watermark { height: 150%; right: -22%; top: -25%; }
+  .approx { display: inline-flex; align-items: center; gap: 8px; }
+  .cover {
+    position: relative; overflow: hidden; border-radius: var(--r-3xl); height: 420px;
+    background: var(--wash-corner), #FFFFFF; box-shadow: inset 0 0 0 1px var(--border);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .cover .top { display: flex; justify-content: flex-end; padding: 32px 36px 0; }
+  .cover .top img { height: 44px; width: auto; }
+  .cover .mid { padding: 0 64px; }
+  .cover .mid img { height: 96px; width: auto; }
+  .cover .tab-strip { height: 56px; border-radius: 0; }
+  .cover .tab-strip > span:last-child { border-radius: var(--r-pill) 0 0 var(--r-pill); }
+  .strip-solo { height: 56px; }
+  .legend { display: flex; margin-top: 12px; }
+  .legend span { flex: 1; margin-left: -28px; padding-left: 16px; font-size: 14px; color: var(--fg-3); }
+  .legend span:first-child { margin-left: 0; }
+</style>
+</head>
+<body>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Patterns</h1>
+      <p>Four brand textures from the guidelines and the designer's assets: the symbol watermark, the watermark outlines, the six-tab color strip, and the corner wash. Keep them quiet: at most two textures on one object. On gradients, the watermark outlines may pair with the symbol watermark. On light, the watermark may pair with the corner wash. Brand covers pair the strip with the corner wash, as on guidelines page 1.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Symbol watermark</h2>
+    <p class="pv-lede">The symbol file, very large and cropped by the edge (guidelines pages 7 and 8). White symbol at 6 to 10% on gradients; gradient symbol at 4 to 6% on light.</p>
+    <div class="pair">
+      <div class="tile">
+        <div class="demo g-object g-deep" data-theme="dark">
+          <img class="watermark on-gradient" src="../assets/atlas-mark-white.png" alt="" />
+          <h3>Operate in your <span style="color:var(--accent-text)">zone of genius.</span></h3>
+        </div>
+        <span class="pv-label">atlas-mark-white.png at 8% on --gradient-deep</span>
+      </div>
+      <div class="tile">
+        <div class="demo light">
+          <img class="watermark on-light" src="../assets/atlas-mark.png" alt="" />
+          <h3>Operate in your <span style="color:var(--accent-text)">zone of genius.</span></h3>
+        </div>
+        <span class="pv-label">atlas-mark.png at 5% on Pearl White</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Watermark outlines</h2>
+    <p class="pv-lede">Concentric outlines of the symbol, from the designer's brand assets ("Logo Watermark Outlines"). Use it oversized and cropped on gradients, as on guidelines page 8. Files: <code class="pv-code">assets/patterns/logo-watermark-outlines.png</code> (original) and <code class="pv-code">logo-watermark-outlines-web.png</code> (1200px, for web).</p>
+    <div class="pair">
+      <div class="tile">
+        <div class="demo g-object g-vivid contour" data-theme="dark">
+          <h3>On the vivid gradient</h3>
+        </div>
+        <span class="pv-label">Designer file, oversized and cropped.</span>
+      </div>
+      <div class="tile">
+        <div class="demo g-object g-brand contour">
+          <h3 style="color:var(--deep-blue)">On the brand gradient</h3>
+        </div>
+        <span class="pv-label">Headlines go Deep Blue here (page 8).</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Six-tab color strip</h2>
+    <p class="pv-lede">Six overlapping rounded tabs in palette order (guidelines page 1). Each tab's rounded left end overlaps the tab before it. For brand boards and covers only, not for web pages or UI.</p>
+    <div class="pv-stack" style="gap:28px">
+      <div class="cover">
+        <div class="top"><img src="../assets/atlas-mark.png" alt="" /></div>
+        <div class="mid"><img src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" /></div>
+        <div class="tab-strip">
+          <span style="background:var(--deep-blue)"></span><span class="tab-pearl" style="background:var(--pearl-white)"></span><span style="background:var(--soft-blue-violet)"></span><span style="background:var(--electric-purple)"></span><span style="background:var(--yellow-green)"></span><span style="background:var(--vivid-purple)"></span>
+        </div>
+      </div>
+      <div>
+        <div class="tab-strip strip-solo">
+          <span style="background:var(--deep-blue)"></span><span class="tab-pearl" style="background:var(--pearl-white)"></span><span style="background:var(--soft-blue-violet)"></span><span style="background:var(--electric-purple)"></span><span style="background:var(--yellow-green)"></span><span style="background:var(--vivid-purple)"></span>
+        </div>
+        <div class="legend"><span>Deep Blue</span><span>Pearl White</span><span>Soft Blue Violet</span><span>Electric Purple</span><span>Yellow Green</span><span>Vivid Purple</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Corner wash</h2>
+    <p class="pv-lede">A soft Electric Purple bloom in one corner of a light surface (<code class="pv-code">--wash-corner</code>, page 1). One corner only; the rest stays Pearl White.</p>
+    <div class="demo wash" style="height:260px;box-shadow:inset 0 0 0 1px var(--border)">
+      <h3 style="max-width:none">Light hero or section with a corner wash</h3>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rules</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>The watermark outlines and the white symbol watermark belong on deep, vivid, or brand gradients. Never on Pearl White.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>A subtle paper texture on light is optional and stays below 4% visible.</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Retired with the 2026 cosmic system: its dark backdrops, cosmic orbital rings, and glow halos.</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

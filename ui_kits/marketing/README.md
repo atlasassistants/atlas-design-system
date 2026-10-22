@@ -1,31 +1,49 @@
 # Atlas Marketing UI Kit
 
-The marketing site is Atlas's only public surface. It pitches the four service tiers (EA Staffing, AI Operators, Managed AI, Executive Brief, Atlas Community), shows a workspace mock in the hero, lists pricing, and books discovery calls. This kit is a high-fidelity, modular React recreation of the canonical landing page (`_reference/atlas-landing-target.html`).
+A modular React recreation of an Atlas marketing landing page, built on the current brand guidelines: light-first, Pearl White page, Deep Blue text, Vivid Purple actions, one deep-gradient hero object, and one vivid-gradient CTA band. Use it as a token and pattern source, not a layout to clone (see `design.md` > Composition model).
+
+Open `index.html` through a local server, because Chrome blocks the `.jsx` fetches on `file://`:
+
+```bash
+cd ~/projects/atlas-design-system && python3 -m http.server 8765
+# then open http://127.0.0.1:8765/ui_kits/marketing/
+```
+
+React 18 and Babel standalone load from unpkg (pinned versions with SRI hashes). That predates this migration and is the only CDN in the kit. Fonts are local (`fonts/`).
 
 ## Files
 
-- `index.html` — full landing page; all components composed with React. Open this to see the kit.
-- `kit.css` — component-layer styles. Loads on top of `colors_and_type.css` (the design system tokens).
-- `Brand.jsx` — Atlas logomark (gradient "A") + wordmark.
-- `NavBar.jsx` — sticky pill nav, brand left, links centered, CTA right. Active link state wired.
-- `Hero.jsx` — orbital backdrop, headline, sub, dual CTAs, meta-row, plus the `HeroAppFrame` workspace mock with toggleable tasks and clickable sidebar.
-- `LogoBar.jsx` — "Trusted by operators at" plus 6 text logos.
-- `Services.jsx` — 5-card service grid with lavender chip icons; first card spans 2 columns.
-- `FeatureSplits.jsx` — `FeatureEAMatch` (EA candidate stack with match indicator) and `FeatureAIOperator` (chat-style AI Operator panel).
-- `Stats.jsx` — 4-stat proof bar + 3-card `Testimonials`.
-- `Pricing.jsx` — 3 plans, middle one featured with top tag.
-- `FAQ.jsx` — single-open accordion.
-- `CTAFooter.jsx` — final CTA block + 4-column footer.
+| File | What it renders |
+|---|---|
+| `index.html` | The full page, composed with React |
+| `kit.css` | Component layer on top of `colors_and_type.css` |
+| `Brand.jsx` | Logo lockup as an image file (`theme="light"` or `"dark"`, `variant="lockup"` or `"mark"`), plus the inline Lucide icon set |
+| `NavBar.jsx` | Light sticky bar: lockup, four links, one "Book a call" pill; links move into a sheet below 900px |
+| `Hero.jsx` | Left-aligned copy, Vivid Purple accent phrase, one deep-gradient hero object with the watermark outlines, white symbol watermark, and the circular arrow |
+| `LogoBar.jsx` | Six labeled "Client logo" placeholder slots |
+| `Approach.jsx` | Three-cell bento: Recruit (light feature panel with corner wash and watermark), Develop, Equip |
+| `RoleSplit.jsx` | The Exec Ops Partner role: copy plus a labeled photo slot and a profile card |
+| `Proof.jsx` | Three "Stat placeholder" slots and one testimonial placeholder |
+| `Pricing.jsx` | Three placeholder plans; the featured plan is a vivid-gradient card |
+| `FAQ.jsx` | Single-open accordion |
+| `CTAFooter.jsx` | Vivid-gradient CTA band and a light footer |
 
-## Interactive bits
+## Copy status
 
-- Nav links scroll-to-section and update the active pill.
-- Hero tasks check/uncheck; sidebar items switch active state.
-- "Book a call" / "Book a discovery call" / pricing CTAs all surface a confirmation toast.
-- FAQ accordion opens one question at a time.
+All copy is neutral placeholder copy built from `design.md`: Atlas is a talent partnership, the public role is the Exec Ops Partner, and the north-star belief is "Operate in your zone of genius." Nothing here is approved marketing copy.
 
-## Caveats
+- **Placeholders that must be replaced or removed before use:** client logos, stats, the testimonial, plan names, prices, inclusions, two FAQ answers, the photo slot, and the booking link (the button shows a toast).
+- **Never fill placeholders with invented numbers, customer counts, names, or quotes.** Every proof point needs a current, checked source and Colin's approval.
+- Do not name retired offers, call Atlas a managed service, or frame hiring or assistants as a false solution.
 
-- Customer logos in the trust bar are text placeholders — Atlas hasn't shipped an official customer wordmark set.
-- Avatar initials in EA matching and testimonials use the brand gradient as a fill stand-in for real headshots.
-- Service icons are inline SVGs in the Lucide line style. If Atlas adopts a custom icon sprite, swap the `SERVICE_ICONS` map in `Services.jsx`.
+## Implementation notes
+
+- Gradient regions carry `data-theme="dark"`, so their buttons and accents switch to Yellow Green with Deep Blue text automatically.
+- Elevation for a gradient object goes on a light-scoped wrapper (`.hero-lift`, `.plan-lift`). Inside `data-theme="dark"`, `--shadow-4` is a black drop that looks muddy on a light page.
+- The hero corner wash is flipped to the top-right so it never meets the next section with a hard edge.
+- The gradient texture is the designer's watermark outlines, `assets/patterns/logo-watermark-outlines-web.png`, oversized and cropped.
+- No scroll animations. Hover transitions use the signature easing and honor `prefers-reduced-motion` through the token file.
+
+## Screens
+
+`screens/kits/marketing-desktop-1440.png` and `screens/kits/marketing-mobile-390.png`.

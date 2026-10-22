@@ -2,24 +2,63 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Atlas — Radii</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlas · Radii</title>
 <link rel="stylesheet" href="../colors_and_type.css" />
+<link rel="stylesheet" href="preview.css" />
 <style>
-  body { margin: 0; padding: 24px; display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; }
-  .cell { display: flex; flex-direction: column; gap: 8px; align-items: center; }
-  .sw { width: 64px; height: 56px; background: var(--surface-2); border:1px solid var(--accent-border); }
-  .name { font-size: 11px; color: var(--fg-1); font-weight:500; }
-  .val { font-size: 10px; color: var(--fg-3); font-family: var(--font-mono); }
+  .scale { display: grid; grid-template-columns: repeat(9, 1fr); gap: 20px; align-items: end; }
+  .scale .cell { display: grid; gap: 10px; }
+  .scale .box { height: 112px; background: var(--vivid-purple-20); box-shadow: inset 0 0 0 1.5px var(--vivid-purple-60); }
+  .scale b { font: var(--w-semibold) 15px/1.2 var(--font-display); color: var(--fg-1); }
+  .scale span { font-size: 14px; color: var(--fg-3); }
+  .map { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; align-items: end; }
+  .map .cell { display: grid; gap: 12px; }
+  .map .shape { background: var(--surface); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--fg-2); font-size: 14px; }
 </style>
 </head>
 <body>
-  <div class="cell"><div class="sw" style="border-radius:4px"></div><span class="name">xs</span><span class="val">4px</span></div>
-  <div class="cell"><div class="sw" style="border-radius:6px"></div><span class="name">sm</span><span class="val">6px</span></div>
-  <div class="cell"><div class="sw" style="border-radius:8px"></div><span class="name">md</span><span class="val">8px</span></div>
-  <div class="cell"><div class="sw" style="border-radius:10px"></div><span class="name">lg</span><span class="val">10px</span></div>
-  <div class="cell"><div class="sw" style="border-radius:12px"></div><span class="name">xl</span><span class="val">12px</span></div>
-  <div class="cell"><div class="sw" style="border-radius:14px"></div><span class="name">2xl</span><span class="val">14px</span></div>
-  <div class="cell"><div class="sw" style="border-radius:24px"></div><span class="name">4xl</span><span class="val">24px</span></div>
-  <div class="cell"><div class="sw" style="border-radius:999px"></div><span class="name">pill</span><span class="val">999px</span></div>
+<main class="pv">
+  <header class="pv-head">
+    <div>
+      <h1>Radii</h1>
+      <p>Generous rounded corners, as in the guidelines. Interactive elements are pills; containers step up with their size.</p>
+    </div>
+    <img class="pv-logo" src="../assets/atlas-logo-dark.png" alt="Atlas Assistants" />
+  </header>
+
+  <section class="pv-section">
+    <h2>Scale</h2>
+    <div class="scale">
+      <div class="cell"><div class="box" style="border-radius:var(--r-xs)"></div><b>--r-xs</b><span>4px</span></div>
+      <div class="cell"><div class="box" style="border-radius:var(--r-sm)"></div><b>--r-sm</b><span>6px</span></div>
+      <div class="cell"><div class="box" style="border-radius:var(--r-md)"></div><b>--r-md</b><span>8px</span></div>
+      <div class="cell"><div class="box" style="border-radius:var(--r-lg)"></div><b>--r-lg</b><span>12px</span></div>
+      <div class="cell"><div class="box" style="border-radius:var(--r-xl)"></div><b>--r-xl</b><span>16px · card</span></div>
+      <div class="cell"><div class="box" style="border-radius:var(--r-2xl)"></div><b>--r-2xl</b><span>20px</span></div>
+      <div class="cell"><div class="box" style="border-radius:var(--r-3xl)"></div><b>--r-3xl</b><span>24px · panel</span></div>
+      <div class="cell"><div class="box" style="border-radius:var(--r-4xl)"></div><b>--r-4xl</b><span>32px · band</span></div>
+      <div class="cell"><div class="box" style="border-radius:var(--r-pill);height:56px"></div><b>--r-pill</b><span>999px</span></div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Where each radius goes</h2>
+    <div class="map">
+      <div class="cell"><a class="btn btn-primary" href="#">Pill button</a><span class="pv-label">Buttons, badges, single-line inputs: pill</span></div>
+      <div class="cell"><div class="shape" style="height:96px;border-radius:var(--r-lg)">Text area</div><span class="pv-label">Text areas, icon boxes: 12px</span></div>
+      <div class="cell"><div class="shape" style="height:140px;border-radius:var(--r-xl)">Card</div><span class="pv-label">Cards: 16px</span></div>
+      <div class="cell"><div class="shape" style="height:180px;border-radius:var(--r-3xl)">Feature panel</div><span class="pv-label">Feature panels, hero objects: 24px</span></div>
+      <div class="cell"><div class="shape" style="height:220px;border-radius:var(--r-4xl);background:var(--gradient-vivid);border:0;color:#FBFEF7">Gradient band</div><span class="pv-label">Large gradient bands: 32px</span></div>
+    </div>
+  </section>
+
+  <section class="pv-section">
+    <h2>Rule</h2>
+    <ul class="pv-rule">
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Keep this mapping everywhere. No square buttons, no sharp cards, no pill-shaped cards.</li>
+    </ul>
+  </section>
+</main>
 </body>
 </html>

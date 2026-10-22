@@ -1,42 +1,47 @@
 # Atlas Assistants Design System
 
-Atlas Assistants is an AI-first company that takes founders across the Leverage Line — from carrying the company on their shoulders to owning a company that improves itself. The offer is the **Atlas Executive OS**: a client-owned Founder Brain + a dedicated agent + self-improving loops, run by a dedicated human AI Operator as a hybrid managed service. The brand's "who we are" layer — concept, positioning, pillars, canonical vocabulary — lives in **`brand-identity.md`. Read it first**; this file is the visual and verbal expression of that identity. The brand is a cosmic, dark-mode aesthetic — deep purple-black surfaces, orbital starfields, lavender as the only true accent, and a signature blue→magenta brand gradient on the logo and buttons. None of it is decoration: the Leverage Line is the signature graphic device, the orbital rings are the five levels of company autonomy, the starfield is the system running while you sleep, and the gradient is the ascent.
+Atlas Assistants helps people operate in their zone of genius. It recruits and develops exceptional AI-capable talent and equips clients to work with them.
 
-This system was reverse-engineered from the **`reflect-design`** reference codebase that the Atlas team uses as their structural starting point — Atlas borrows reflect's 4px grid, signature `cubic-bezier(.6,.6,0,1)` easing, layered orbital motion, and shadow/elevation pattern, then swaps in Atlas's own colors, type, and product copy.
+This file sets the visual and verbal system for every Atlas surface: websites, product UI, decks, social, email, and internal tools.
+
+- **Brand rules** come from the current brand guidelines, transcribed in **`BRAND-GUIDELINES.md`**. Read that file first.
+- **Gaps** are wherever the guidelines say nothing (web UI, states, motion, modes). This file fills them with **Atlas conventions**, and each one is labeled.
+
+> **2026-10-22 change.** Atlas moved from the 2026 "cosmic" system to the current brand guidelines.
+> - **Retired:** Cosmic Black `#050314`, lavender `#ba9cff`, Inter, the starfield, and the orbital rings.
+> - **Current:** the six-color palette, Poppins and Outfit, light-first surfaces, and Yellow Green accents.
+>
+> Old token names still resolve through deprecated aliases in `colors_and_type.css`. Do not use them in new work.
 
 ---
 
-## Composition model — read this first
+## Read order
 
-**This is a brand-lock, not a layout template.** The design engine for any Atlas frontend is the **taste-skill** (`design-taste-frontend`). This system supplies the brand invariants it must respect; taste-skill decides how the page is actually composed. That split is deliberate — reproducing the one reference landing on every build is what makes Atlas work look identical.
+1. `BRAND-GUIDELINES.md`: the rules (logo, palette, type, visual language).
+2. This file: color roles, type scale, logo use, layout, components, and modes.
+3. `brand-identity.md`: brand concept and vocabulary. Its positioning predates the Q4 2026 reset; read its status note first.
+4. `colors_and_type.css` (tokens), `assets/` (logos), `fonts/` (Poppins and Outfit), `preview/` (primitives), and `ui_kits/` (surface kits).
 
-- **taste-skill owns (vary freely per build):** layout family, section structure, composition, spacing rhythm, hero treatment, motion choreography, and how adventurous the design is (its `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY` dials).
-- **This brand-lock owns — LOCKED, never override:**
-  - **Identity** — the brand concept, positioning, messaging pillars, and canonical vocabulary in `brand-identity.md`. Every asset stands on a pillar.
-  - **Color** — Cosmic Black `#050314` base, lavender `#ba9cff` as the only accent, brand gradient `linear-gradient(135deg, #5c70ff, #b675f5)`, and the light/dark token map.
-  - **Type** — Inter only (400 / 500 / 600 / 700). No second typeface.
-  - **Logo** — the Atlas mark / lockup files in `assets/`, rendered as `<img>`.
-  - **Voice** — the CONTENT FUNDAMENTALS rules (confident, founder-grade, sentence case, second-person, the forbidden-words list).
-  - **Signature easing** — `cubic-bezier(0.6, 0.6, 0, 1)`. **4px grid.**
-- **REFERENCE ONLY — do not clone:** the target landing (`reflect-design/_target-atlas-landing.html`), the card anatomy, the orbital starfield + rotating rings, the fixed `120px` section paddings, and `ui_kits/marketing/` are **one expression** of the brand. Use them as a **token / pattern source**, not a layout to rebuild. Don't reproduce that exact page unless explicitly asked.
+---
 
-**Conflict rule.** Where taste-skill and this brand-lock disagree:
-- **Brand-lock wins on brand invariants** — keep **Inter** (taste-skill's "no Inter default" does not apply to Atlas), keep the occasional **em-dash in marketing copy** (taste-skill's em-dash ban is overridden for Atlas voice), keep the palette and gradient.
-- **taste-skill wins on structure** — layout, composition, spacing rhythm, section variety, and motion patterns are its call, even where the reference landing did something different.
+## Composition model: read this first
+
+**This is a brand-lock, not a layout template.** The design engine for any Atlas frontend is the **taste-skill** (`design-taste-frontend`). This system supplies the brand invariants it must respect; taste-skill decides how the page is composed.
+
+- **taste-skill owns (vary per build):** layout family, section structure, composition, spacing rhythm, hero treatment, motion choreography, and its `DESIGN_VARIANCE` / `MOTION_INTENSITY` / `VISUAL_DENSITY` dials.
+- **This brand-lock owns (LOCKED):**
+  - **Color.** The six guideline colors and their 80/60/40/20 tints. Use the color roles and contrast rules below; do not add new hues.
+  - **Type.** Poppins for display, headings, eyebrows, and buttons. Outfit for body and UI text. Add no third typeface; monospace is allowed only for code and agent terminals.
+  - **Logo.** The image files in `assets/`, the clear space, and the usage rules below.
+  - **Voice.** The CONTENT FUNDAMENTALS rules.
+  - **Conventions treated as locked:** the 4px grid, the `cubic-bezier(0.6, 0.6, 0, 1)` easing, pill buttons, and light-first surfaces.
+- **Reference only, do not clone:** `ui_kits/` and `preview/` are one expression of the brand. Use them as a token and pattern source.
+
+**Conflict rule.**
+- **Brand-lock wins on brand.** Keep Poppins and Outfit, even where taste-skill flags them as common fonts. Keep the palette and the color roles. Keep the occasional em dash in Atlas marketing copy; taste-skill's em-dash ban does not apply to Atlas voice.
+- **taste-skill wins on structure:** layout, composition, spacing rhythm, section variety, and motion patterns.
 
 Net: **on-brand always, composition fresh per build.**
-
----
-
-## Sources
-
-- **Reference codebase (read-only mount):** `reflect-design/`
-  - `reflect-design/_target-atlas-landing.html` — the canonical Atlas landing page (the visual north star — every token decision in this system supports how this renders).
-  - `reflect-design/CLAUDE.md` — explicit Atlas-vs-reflect deltas (kept colors, dropped fonts, replaced sections, signature gradient).
-  - `reflect-design/SKILL.md` / `references/DESIGN.md` — reflect's structural language (4px grid, easing, shadow tokens, dark-mode mapping). Used for spacing/motion only — colors and type are Atlas's.
-  - `reflect-design/fonts/` — Inter font files (Atlas keeps Inter only; KaTeX, AeonikPro, swiper-icons are reflect-specific and dropped).
-- **Brand assets (uploaded):** `uploads/atlas-logo-dark.png`, `uploads/atlas-logo-white.png`.
-- **Frozen copies:** the target landing page and reflect's homepage screenshot are mirrored under `_reference/` so this skill works offline if the mount disconnects.
 
 ---
 
@@ -44,27 +49,19 @@ Net: **on-brand always, composition fresh per build.**
 
 ```
 .
-├── brand-identity.md          ← the "who we are" layer — concept, positioning, pillars, vocabulary. READ FIRST.
+├── BRAND-GUIDELINES.md        ← the current brand guidelines, transcribed. READ FIRST.
 ├── design.md                  ← this file
-├── SKILL.md                   ← Claude Code skill manifest (drop-in)
-├── colors_and_type.css        ← CSS variables + semantic element styles
-├── assets/                    ← logos, brand glyphs
-│   ├── atlas-mark.png         ← Atlas "A" logomark, gradient-filled (use on light surfaces)
-│   ├── atlas-mark-white.png   ← Atlas "A" logomark, white (use on dark surfaces)
-│   ├── atlas-logo-dark.png    ← full lockup, navy-on-white
-│   └── atlas-logo-white.png   ← full lockup, white-on-dark
-├── fonts/                     ← Inter (regular, medium, semibold, bold)
-├── preview/                   ← Design System tab cards + brand-board.html (the identity at a glance — share this with new teammates)
-└── ui_kits/
-    ├── marketing/             ← Atlas marketing-site UI kit
-    │   ├── README.md
-    │   ├── index.html
-    │   └── *.jsx              ← Nav, Hero, Services, Pricing, etc.
-    ├── social/                ← social artboards (post, felt-sentence, carousel, OG) — README + templates.html
-    ├── deck/                  ← presentation slide masters (title, divider, ladder, verbs, equation…) — README + master.html
-    ├── email/                 ← client-safe email skeleton + rules (light-body exception documented) — README + template.html
-    ├── internal/              ← internal docs/dashboards/reports conventions — README
-    └── app/                   ← product-UI guidance (decided-shaped screens, lavender = action) — README
+├── brand-identity.md          ← concept, pillars, vocabulary (read its status note)
+├── SKILL.md                   ← Claude Code skill manifest
+├── colors_and_type.css        ← tokens: palette, tints, gradients, light + dark roles, type
+├── assets/                    ← default logo files; logo/ (full package, SVG + PNG); patterns/; backgrounds/; elements/
+├── fonts/                     ← Poppins (400/600/700 + italics), Outfit (variable), OFL licenses
+├── preview/                   ← one page per primitive + brand-board.html, patterns.html, light-dark.html
+├── ui_kits/                   ← marketing, social, deck, email, internal, app
+├── screens/                   ← captures of the preview pages and kits
+└── _reference/
+    ├── brand-guidelines/      ← page renders of the guidelines PDF (pages 1, 2, 3, 5, 6)
+    └── legacy-cosmic-2026/    ← retired cosmic files; historical, not a token or layout source
 ```
 
 ---
@@ -73,189 +70,269 @@ Net: **on-brand always, composition fresh per build.**
 
 | | |
 |---|---|
-| Brand name | **Atlas Assistants**. Logo = image files only: full lockup (`atlas-logo-white/dark.png`) by default, mark alone for small/square spots. **Never typeset the wordmark next to the mark** — see LOGO USAGE in Iconography. |
-| Brand concept | **Put the weight down** — the founder has been playing Atlas; the OS takes the sky. See `brand-identity.md`. |
-| Tagline used | "Operate in your zone of genius" (north star) / "Put the weight down" (brand promise) |
-| Primary surface | Dark (Cosmic Black `#050314`) — marketing is dark-mode-first; a light theme exists for product surfaces (see ["Light mode"](#light-mode)) |
-| Single accent | Lavender `#ba9cff` — the only true pop of color |
-| Brand gradient | `linear-gradient(135deg, #5c70ff, #b675f5)` — periwinkle → magenta. Used on the logo orb, primary mark backgrounds, avatar fills, and large display text fades. |
-| Type | **Inter** only (400 / 500 / 600 / 700) |
-| Grid | 4px base; everything snaps to multiples of 4 |
-| Signature easing | `cubic-bezier(0.6, 0.6, 0, 1)` |
-| Atmosphere | Orbital glow + subtle starfield backdrop on dark, fixed behind content |
+| Brand name | **Atlas Assistants**. The logo is image files only (see Logo). |
+| Palette | Deep Blue `#0C013B` · Pearl White `#FBFEF7` · Soft Blue Violet `#5C70FF` · Electric Purple `#B675F5` · Yellow Green `#E0FE53` · Vivid Purple `#4500F9` |
+| Default surface | **Light**: Pearl White page, Deep Blue text. Dark (Deep Blue and the purple gradients) for social, ads, deck covers, hero objects, and feature bands. |
+| Primary action | Light: Vivid Purple with white text. Dark: Yellow Green with Deep Blue text. |
+| Accent | Yellow Green: highlights, badges, CTA arrows. **Never as text on a light surface.** |
+| Brand gradient | The logo gradient: `linear-gradient(135deg, #5C70FF, #B675F5)`. Deep and vivid gradient families are in Color. |
+| Type | **Poppins** (Regular / Semi-Bold / Bold) for display; **Outfit** for body |
+| Grid · easing | 4px · `cubic-bezier(0.6, 0.6, 0, 1)` (convention) |
+| Tagline in use | "Operate in your zone of genius" (north star). Check current campaign lines against the Q4 sources. |
 
 ---
 
 ## CONTENT FUNDAMENTALS
 
-**Voice.** Confident, slightly literary, founder-grade. Atlas is talking to a CEO or partner — never down to a junior. Sentences are short and declarative, with the occasional well-placed em-dash. Avoids hype words and superlatives. Never explains the obvious.
+> **Q4 2026 note.** The positioning and copy bank in `brand-identity.md` predate the Q4 2026 reset. Before writing public copy:
+> - Do not call Atlas a "managed service".
+> - Do not name retired offers ("Executive OS", "AI Operator").
+> - Do not frame talent as optional or disposable.
+> - The public role is the **Exec Ops Partner**.
+> - Check offer language, prices, and claims with Colin.
 
-**Tone.** Calm, premium, in control. The product promises *relief from operational drag* — the copy reads the way a great Chief of Staff would talk: direct, unflappable, never breathless.
+**Voice.** Confident, calm, founder-grade. Atlas talks to a CEO or partner, never down to a junior. Sentences are short and declarative, with the occasional well-placed em dash. Avoid hype words and superlatives. Never explain the obvious.
 
-**Casing.** Sentence case for everything in body and most headlines. (The lowercase "atlas" wordmark exists only inside the logo image files — never set it in type; see LOGO USAGE.) Eyebrows / section badges (e.g. `SERVICES`, `PRICING`, `EA STAFFING`) are uppercase with `0.08em` letter-spacing — these are the only place uppercase appears.
+**Tone.** Calm, premium, in control. The copy reads the way a great Chief of Staff talks: direct, unflappable, never breathless.
 
-**Person.** Second-person ("you", "your week", "your calendar") in headlines and CTAs. First-person plural ("we", "our bench") when describing the Atlas team. Never "I". Never "we believe…" / "we think…" — Atlas states, doesn't speculate.
+**Casing.** Sentence case for body copy, UI, web pages, product screens, emails, and decks. Title Case is allowed for short social and ad headlines (a few words), as in the guideline mockups. Eyebrows and highlight text are uppercase; these are the only places uppercase appears. The lowercase "atlas" wordmark exists only inside the logo files; never set it in type. (Decided by Colin, 2026-10-22.)
 
-**Numerals.** Spelled out for emotional copy ("two weeks, not three months"); kept as digits for proof points ("90% match success", "14-day placement", "12hr reclaimed weekly", "$3,200 / month"). Always thin spaces, never random ALL-CAPS for emphasis.
+**Person.** Second person ("you", "your week") in headlines and CTAs. First-person plural ("we") for the Atlas team. Never "I". Never "we believe" or "we think": Atlas states, it does not speculate.
 
-**Emoji.** Almost never. Body copy is emoji-free. The one place they appear is as small inline icons inside the AI Operator mock chat bubble (`📧 Gmail`, `📝 Notion`, `🎙️ Otter`, `📊 Linear`) — there they read as tool-tags, not decoration. Don't add them anywhere else.
+**Numerals.** Spell out numbers in emotional copy ("two weeks, not three months"). Use digits for data and prices ("3 conflicts", "$97/mo"). Every proof point needs a current, checked source. Never use ALL CAPS for emphasis.
 
-**Examples (canonical — from `brand-identity.md`'s copy bank; the old staffing-era landing copy is retired):**
+**Emoji.** None in body copy or UI.
 
-- *"Operate in your zone of genius."* — primary headline; "zone of genius" is gradient-filled. Was a tagline; now the north-star belief.
-- *"You don't have a time problem. You have a leverage problem."* — the diagnosis; rhythm of contrast.
-- *"We've placed 300+ executive assistants. Then we built the thing that made them optional."* — proof + pattern interrupt in two sentences.
-- *"Work stops when you don't respond."* — pain line; short, declarative, second person.
-- *"The company got better last month — and it wasn't my idea."* — the destination; em-dash break.
-- *"Put the weight down."* — the brand promise. Three words. That's the whole vibe.
-- *"Made for founders crossing the Leverage Line."* — footer pay-off line.
+**Examples (still usable):**
+- *"Operate in your zone of genius."* The north-star belief.
+- *"You don't have a time problem. You have a leverage problem."* The diagnosis; rhythm of contrast.
+- *"Work stops when you don't respond."* Pain line: short, declarative, second person.
+- *"Put the weight down."* Prior brand promise. Use it only where it fits the current offer.
 
-**Forbidden words/patterns.** "Revolutionary", "best-in-class", "next-gen", "leverage cutting-edge AI", "synergy", "platform that empowers". No exclamation marks (one per page max, and even that's a stretch). No "🚀". No ALL CAPS shouting. No "buy back your time" except when naming it as the outdated advice. The full canonical always/never vocabulary lives in `brand-identity.md` — it wins over any copy that conflicts with it.
-
----
-
-## VISUAL FOUNDATIONS
-
-> **Locked vs reference:** the *token values* below — color, Inter, the 4px spacing scale, corner-radius scale, easing — are LOCKED brand invariants. The specific *expressions* — the orbital starfield, the rotating hero rings, the exact card recipe, the fixed 120px section rhythm — are REFERENCE ONLY. Let taste-skill choose the composition; pull these values in as the palette it paints with. (See "Composition model" above.)
-
-**Color vibe.** Cosmic, indigo, premium. The whole experience lives on `#050314` — a deep blue-black that reads almost violet under the content. Surfaces step up in 5–10% lightness increments (`#0a0620` → `#110a2c` → `#1a1140`); borders sit between them at very low opacity. Lavender `#ba9cff` is the only chromatic accent — used for buttons, badges, focus rings, active list items, and gradient accent stops. Two cooler purples (`#9382ff` indigo, `#5c70ff` periwinkle) and one warmer one (`#b675f5` magenta) appear only inside gradients.
-
-**Type.** Inter, four weights (400/500/600/700). Display sizes go big — H1 is `clamp(40px, 6vw, 78px)` with `-0.03em` tracking and `1.05` line-height. Body is 14–16px. There is no second typeface. Never introduce a serif, a mono display face, or a third weight outside Inter.
-
-**Spacing.** Strict 4px grid. Common rhythm: 4 / 8 (tight, inside chips & cards) → 12 / 16 (between groups) → 24 / 32 (between sections inside a card) → 64 / 80 / 96 / 120 (between full sections). Page sections use `padding: 120px 0` on desktop, `80px 0` under 640px. The container is max-width 1296px with 24px gutters.
-
-**Backgrounds.** No photography, no illustration. The brand is built entirely from light, gradient, and motion:
-- A fixed `body::before` overlay paints two soft radial gradients — a `rgba(186,156,255,0.18)` ellipse at top-center and a `rgba(92,112,255,0.10)` ellipse at bottom-center.
-- A fixed `.stars` layer scatters 1px white dots via `radial-gradient` background-images, with a duplicated layer that twinkles `opacity: 0.2 → 0.5` over 6s.
-- Hero adds an orbital element — two nested concentric circles (1px lavender borders at 12% / 18% opacity) rotating at 100s and 80s in opposite directions, with a 200px-inset radial-blur core.
-- Section CTAs and the featured pricing plan get small radial-gradient halos at the top.
-- Imagery, where used, is suggested via abstract gradient orbs and circular avatar fills using the brand gradient — never warm, never grainy, never b&w.
-
-**Animation.** Expressive but tasteful — never bouncy. Signature curve is `cubic-bezier(0.6, 0.6, 0, 1)` (slow→fast ease-out, dramatic feel). Durations cluster at 150ms (micro-interactions), 300ms (hover/state), 450ms (cards), 600ms (page-level reveals). Big pieces (orbital rings) animate at 80–100s linear loops. Twinkles run 6s ease-in-out infinite. Always respect `prefers-reduced-motion` — the system disables animation duration globally when set.
-
-**Hover states.** Buttons: opacity → 0.92 + `translateY(-1px)`. Outline / ghost buttons: lift `background` from 4% to 8% white and border from 12% to 20% white. Cards: border-color shifts from `#1d1640` (border-soft) to `rgba(186,156,255,0.3)` and the card itself lifts `-2px` translateY; a top-radial accent tint fades from 0 → 1 opacity over 450ms. Nav links: text color goes from `--fg-2` (72%) → `--fg-1` (100%).
-
-**Press states.** Subtle. The signature easing means we lean on color/opacity rather than scale punches. Buttons drop the `-1px` lift and dim opacity slightly during the active phase; we don't apply scale transforms.
-
-**Borders.** Almost always 1px, almost always low-opacity-on-dark. The system has two: `--border` (`#2a1f55` — used on key cards, modals, hero app frame) and `--border-soft` (`#1d1640` — used on dividers, list rows, internal panels). On accent-tinted surfaces we use `rgba(186, 156, 255, 0.16–0.4)` for the ring instead.
-
-**Inner / outer shadow system.** Cards use a layered shadow recipe:
-- **Inset hairline highlight** — `inset 0 1px 0 rgba(255,255,255,0.04–0.06)` — gives a thin "lit edge" along the top of every card. This is universal.
-- **Outer cool drop** — `0 8px 24px rgba(92,112,255,0.10–0.15)` — gives weight, but cool not warm.
-- **Outer accent glow** — `0 0 80px rgba(186,156,255,0.08)` or `0 32px 64px rgba(186,156,255,0.08)` — used only on the hero app frame and the featured pricing plan to single them out.
-- **Primary button glow** — `0 8px 24px rgba(186,156,255,0.28)` — the lavender shadow under primary CTAs.
-
-**Protection gradients vs capsules.** Atlas uses protection gradients more than card chrome. Body has a fixed top/bottom radial pair so any text reads against light at the top and dark at the bottom regardless of scroll. The hero app frame and the CTA block both have an internal `radial-gradient` that lifts text off the surface. Capsules (pill-shaped) appear in three places: section eyebrows (badges), nav-link container, and the "live now" badge in the hero — all with `border-radius: 999px`.
-
-**Layout rules.** A single fixed nav bar at the top with `backdrop-filter: blur(18px)` and `rgba(5,3,20,0.6)` background — sticky, never solid. The body itself never scrolls behind the orbital backdrop (it's `position: fixed`). Nothing else is fixed — Atlas avoids floating chrome, fixed CTAs, sticky sidebars.
-
-**Transparency and blur.** Used surgically. The nav uses 18px blur over a 60% bg. Card surfaces are opaque. The accent button has a tiny inset 40% white highlight on top to look "lit". The "search" input inside the workspace mock uses 4% white over the surface for a recessed feel. Outside of these, surfaces are solid.
-
-**Color vibe of imagery.** N/A — Atlas doesn't ship illustration or photography in v1. When real imagery is added later, it should bias **cool, slightly cyan-tinted, low-saturation** — never warm, never grainy, never sepia. Avatars are circular, filled with the brand gradient, and overlay 2-letter initials in white at `font-weight: 600`.
-
-**Corner radii.** Tight, never pillowy. Use only the scale: 4 / 6 / 8 / 10 / 12 / 14 / 16 / 24 / 999. Most cards are 12 (`--r-xl`), the hero app frame is 14, the CTA block is 24, badges/pills are 999. Buttons are 8.
-
-**Cards — full anatomy.** Background `#110a2c`. Border `1px solid #1d1640`. Radius `12px`. Padding `24–28px` depending on density. Inner highlight via `inset 0 1px 0 rgba(255,255,255,0.04)`. On hover: border becomes `rgba(186,156,255,0.3)`, card lifts `-2px`, a top-radial accent fades in. Featured cards (e.g. pricing "Most popular") add a `0 0 0 1px rgba(186,156,255,0.12)` ring + a top radial wash + a `plan-tag` capsule pinned at `top: -10px`.
+**Forbidden words and patterns.**
+- Words: "Revolutionary", "best-in-class", "next-gen", "leverage cutting-edge AI", "synergy", "platform that empowers".
+- No exclamation marks (one per page at most). No "🚀". No ALL CAPS shouting.
+- No "buy back your time", except when naming it as outdated advice.
+- No claims copied from the guideline mockups ("10-20hrs … guaranteed", "Trusted by over 3,000 users").
 
 ---
 
-## ICONOGRAPHY
+## Color
 
-Atlas uses **inline `<svg>` line icons** in the Lucide / Feather style — 24x24 viewBox, 1.6px stroke, `stroke-linecap: round`, `stroke-linejoin: round`, `fill: none`, stroke colored with `var(--accent)` (`#ba9cff`). They sit in 44x44 rounded squares (`--r-lg`, `border-radius: 10px`) with `rgba(186,156,255,0.12)` fill and `rgba(186,156,255,0.24)` border — this is the canonical "service icon" container.
+### Roles
 
-The target landing inlines a small set: a "users + add" people icon (EA Staffing), a sun-burst (AI Operators), a 3D-cube (Managed AI), a document (Executive Brief), and a target/compass (Community). These are all hand-rolled inline SVGs in the `<svg viewBox="0 0 24 24">` style — Atlas does **not** ship a custom icon font and does not depend on any vendor library. The codebase has **no detected icon library** (per the reflect skill audit it was reverse-engineered from).
-
-**For new work, prefer inline `<svg>` icons in the same line style** (24×24, 1.6px stroke, round caps/joins, `fill: none`, stroke colored with `var(--accent)`). The marketing kit ships them inline rather than depending on a CDN.
-
-**If you need a broader icon set,** Lucide is the closest match to Atlas's inline style — same stroke weight, same line-cap. Use it via the React package or CDN:
-
-```html
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<i data-lucide="calendar" stroke="#ba9cff"></i>
-<script>lucide.createIcons();</script>
-```
-
-**Substitution flag:** if Atlas later ships an official icon sprite, replace any Lucide usage with it.
-
-**Emoji.** Used in exactly one place — the AI Operator chat mock — as 4 small tool-tag chips: `📧`, `📝`, `🎙️`, `📊`. Treat that as a one-off product detail, not a brand pattern. Don't sprinkle emoji elsewhere.
-
-**Unicode chars.** A few well-chosen ones: `⌘` for the keyboard hint inside the workspace search input. The dot separator in the hero meta-row is a real `<span>` with a 4px circle background, not a `·`.
-
-**Logo files.**
-- `assets/atlas-logo-white.png` — **the full logo (lockup)**: mark + "atlas ASSISTANTS" wordmark, white-on-dark. **The default logo for dark surfaces.**
-- `assets/atlas-logo-dark.png` — full lockup, navy-on-white. **The default logo for light surfaces / partner pages.**
-- `assets/atlas-mark.png` — the **logomark alone**: an "A" inscribed inside an open ring, both filled with the brand gradient (blue → purple). Transparent background. Light surfaces. Read it through the brand concept: the "A" stands *inside* the ring — the founder at the center of a system in orbit around them, not on their shoulders.
-- `assets/atlas-mark-white.png` — same logomark, solid white. Dark surfaces.
-
-**LOGO USAGE — LOCKED (the #1 observed misuse is building a fake lockup):**
-- **Two approved forms, both as image files: the full lockup, or the mark alone.** The lockup is the default — navs, headers, footers, title slides, email headers. The mark alone is for small/square spots only: favicon, avatar, watermark, slide-corner, and contexts where the lockup already appeared.
-- **NEVER typeset the wordmark.** Do not place text ("atlas", "Atlas", "atlas assistants") next to the mark to simulate a logo — no `<img mark> + <span>atlas</span>` navs. The wordmark is part of the logo artwork; if you need the logo with the name, use the lockup file. (The brand name may of course appear as plain text *in prose* — just never styled as a logo.)
-- Render as `<img>`, never as CSS shapes or recreated type. On dark surfaces apply `filter: drop-shadow(0 8px 24px rgba(92,112,255,0.32))` for the lit-from-behind feel.
-- Minimum sizes: lockup ≥ 24px tall (below that it's unreadable — switch to the mark); mark ≥ 16px.
-- The pre-2026 flat-violet logo is retired everywhere. If you see it, flag it.
-
----
-
-## Light mode
-
-Atlas is dark-by-default — the marketing site, the landing, anything pitch-facing stays cosmic. **Light mode is an opt-in layer for product surfaces** where dark is too heavy: auth screens, settings, in-app reading, exported documents.
-
-### How it works
-
-The light theme is defined in `colors_and_type.css` under `[data-theme="light"]`. Same token names, inverted surfaces. Apply via:
-
-```html
-<html data-theme="light">
-<!-- or scope to a region -->
-<body data-theme="light">
-<section data-theme="light">
-```
-
-Components that use `var(--bg)`, `var(--surface)`, `var(--fg-1)`, etc. switch automatically. No component code changes are needed.
-
-### What changes
-
-| Token | Dark | Light |
+| Role | Light (default) | Dark (`data-theme="dark"`) |
 |---|---|---|
-| `--bg` | `#050314` (Cosmic Black) | `#fafaff` (near-white, subtle cool tint) |
-| `--bg-2` | `#0a0620` | `#f4f0ff` (lavender wash) |
-| `--surface` | `#110a2c` | `#ffffff` (cards on bg) |
-| `--surface-2` | `#1a1140` | `#f8f6ff` (hovered) |
-| `--border` | `#2a1f55` | `#e5e1f5` |
-| `--border-soft` | `#1d1640` | `#efebfa` |
-| `--fg-1` | `#ffffff` | `#050314` (Cosmic Black for body text) |
-| `--fg-2…4` | `rgba(255,255,255, 0.72/0.5/0.32)` | `rgba(5,3,20, 0.72/0.5/0.32)` |
-| `--accent` (fills) | `#ba9cff` | `#ba9cff` (unchanged — lavender CTAs work on both) |
-| **`--accent-text` (new)** | inherits `--accent` | `#5046e4` (darker indigo for AA contrast on white) |
-| Stars overlay | visible | hidden (`--stars-opacity: 0`) |
-| Atmosphere overlays | strong | reduced ~3× |
-| Inset white highlights on cards | yes | dropped |
-| Card shadows | cool drop + inset glow | subtle dark drop + inset white |
+| Page background `--bg` | Pearl White `#FBFEF7` | Deep Blue `#0C013B` |
+| Lifted band `--bg-2` | `#F4F4F7` | `#12014E` |
+| Card `--surface` | `#FFFFFF` | `#1A1046` |
+| Primary text `--fg-1` | Deep Blue | Pearl White |
+| Secondary text `--fg-2` / tertiary `--fg-3` | `#4F4870` / `#6C6686` | `#B8B7C2` / `#9B99AC` |
+| Primary action `--accent` + `--on-accent` | Vivid Purple + white | Yellow Green + Deep Blue |
+| Accent text and links `--accent-text` | Vivid Purple | Yellow Green |
+| Highlight `--highlight` | Yellow Green **fill** behind Deep Blue text (marker, badge) | Yellow Green text or fill |
+| Support | Soft Blue Violet, Electric Purple: gradients, illustration, charts, icons, large display only | Same |
+
+### Contrast (WCAG 2.x, computed)
+
+| Pair | Ratio | Use |
+|---|---|---|
+| Deep Blue on Pearl White | 19.0:1 | All text |
+| Vivid Purple on Pearl White | 7.9:1 | Links, accent text, any size |
+| White on Vivid Purple | 8.0:1 | Primary buttons, labels |
+| Deep Blue on Yellow Green | 17.1:1 | Badges, highlighter marks, dark-mode buttons |
+| Yellow Green on Deep Blue | 17.1:1 | Accent text on dark |
+| Yellow Green on Vivid Purple | 7.0:1 | Accent text on vivid gradients |
+| Soft Blue Violet on Pearl White | 3.9:1 | Large text only (≥24px, or ≥19px bold) |
+| Electric Purple on Pearl White | 3.0:1 | Large display and decoration only |
+| **Yellow Green on Pearl White** | **1.1:1** | **Never: not as text, icons, or thin lines** |
 
 ### Rules
+1. **Yellow Green on light surfaces is a fill only.** Use it as a highlighter mark, a badge, or a button with Deep Blue text. On dark and gradient surfaces it is the accent text and the CTA color, as in the guideline mockups.
+2. **One primary action color per surface.** On light, that is Vivid Purple; on dark, Yellow Green.
+3. **No new hues.** For softer fills, tags, and chart series, use the 80/60/40/20 tint tokens (`--vivid-purple-20` and so on).
+4. **Gradients come from three families** (observed in the guidelines):
+   - **Brand:** `--gradient-brand`, Soft Blue Violet → Electric Purple. This is the logo gradient; use it on the symbol, avatars, and accent fills.
+   - **Deep:** `--gradient-deep`, Electric Purple → Vivid Purple → Deep Blue. Use it for hero objects, feature bands, deck covers, and social backgrounds.
+   - **Vivid:** `--gradient-vivid`, Vivid Purple → Deep Blue. Use it on CTA bands and the featured pricing card.
+5. **Restraint on light pages (convention).** Show at most one dark or gradient object and one gradient band per screen. Let the Pearl White space do the work.
+6. **Headline accent phrase.** On light, set one phrase per headline in Vivid Purple. For large display text, you may use `.grad-text` (Vivid Purple → Electric Purple) or a `.mark-highlight` Yellow Green marker. On dark, set the phrase in solid Yellow Green, matching the guideline mockups. Never apply the accent to a whole headline.
+7. **Text on gradients (convention).** Body copy on a gradient is Pearl White; `--fg-2` drops to 4.0:1 on Vivid Purple. On the deep gradient, keep small text and Yellow Green off the Electric Purple corner (Yellow Green there is 2.7:1). On the brand gradient, type is Deep Blue.
 
-- **Never mix freely.** A page is either dark or light, not both. The only exception is the executive workspace mock inside the marketing hero — it stays dark even if the surrounding shell is light.
-- **CTA buttons stay lavender on both.** `var(--accent)` as background + `#0a0620` text reads on both modes — don't introduce a "light-mode CTA" variant.
-- **Logo on light:** switch files — `atlas-logo-dark.png` (lockup) / `atlas-mark.png` (gradient mark). The white variants vanish on white.
-- **Use `--accent-text` for accent text on light surfaces** — links, accent labels, list-item bullets. Never put body-sized `#ba9cff` text on white (fails AA contrast at 2.18:1).
-- **The brand gradient is unchanged.** Use it on the logomark, headline accents, and avatar fills regardless of theme.
-- **Atmosphere is subtler.** Stars are off; radial glows are dialed down. The light theme is *clean*, not cosmic.
+---
 
-### When to reach for it
+## Typography
 
-- Auth flow (sign in, sign up, forgot password) — reading-heavy and ambient
-- In-product reading surfaces — the exec workspace's "long form" view, exported PDFs/HTML
-- Partner-facing pages where light is the convention (legal, security disclosure, RFP attachments)
-- Anywhere the eye needs to live for >5 minutes
+| Guideline role (spec) | Web token / class | Typeface and style (spec) | Web size, line height, tracking (convention) |
+|---|---|---|---|
+| Headings (60pt) | `h1`, `.t-heading` | Poppins Bold | `clamp(40px, 5.2vw, 72px)`, line height 1.08, tracking -0.02em |
+| Sub-headings (35pt) | `h2`, `.t-subheading` | Poppins Semi-Bold | `clamp(28px, 3.2vw, 42px)` |
+| Highlight text (24pt) | `.t-highlight` | Poppins Bold, uppercase | 18–24px, tracking 0.14em |
+| Important lines (18pt) | `.t-important` | Poppins Semi-Bold *italic* | 18–21px |
+| Eyebrow (14pt) | `.t-eyebrow`, `.eyebrow`, `h5` | Poppins Semi-Bold *italic*, uppercase | 13px, tracking 0.08em |
+| Body (14pt) | `body`, `p`, `.t-body` | Outfit Regular | 17px web body; 15–16px dense UI; never below 14px |
+| Card titles, UI headings | `h3`, `h4` | Poppins Semi-Bold | 18–24px |
+| Buttons | | Poppins Semi-Bold | 15–16px |
 
-If you're not sure: **stay dark**. The Atlas brand is the cosmic one — light mode is a quiet utility layer, not the alternate identity.
+**Rules**
+- Poppins carries the voice; Outfit carries the reading. Body copy, tables, forms, and long UI text are Outfit.
+- Use italic only for important lines and eyebrows, as the guidelines do.
+- Keep to three type sizes per screen, plus the eyebrow.
+- Line length: 60–75 characters for body copy.
 
-### Reference
+---
 
-See [`preview/light-mode.html`](preview/light-mode.html) for the canonical light-mode primitive page.
+## Logo
+
+| File | Use |
+|---|---|
+| `assets/atlas-logo-dark.png` | **Default on light surfaces.** Full lockup: gradient symbol and Deep Blue wordmark (guidelines page 1). |
+| `assets/atlas-logo-white.png` | **Default on Deep Blue and dark surfaces.** Gradient symbol and white wordmark (page 3). |
+| `assets/atlas-mark.png` | The symbol alone, gradient: favicon, avatar, watermark on light, small or square spots. |
+| `assets/atlas-mark-white.png` | The symbol alone, white: on Vivid Purple and on gradients (page 4). |
+| `assets/logo/svg/horizontal-all-white.svg` | **The all-white lockup** (page 4): on Vivid Purple, mid-tone gradients, and photos. |
+| `assets/logo/svg/vertical-*.svg` | The vertical lockup (symbol above the wordmark), for square or tall spaces. Same colorways as the horizontal lockup. |
+| `assets/logo/svg/*-{vivid-purple,electric-purple,soft-blue-violet,black}.svg` | One-color versions, for uses the gradient cannot reproduce (single-ink print, stamps, embroidery). On screens, prefer the gradient lockups. |
+
+**The full logo package** (horizontal, vertical, and symbol-only, each in seven colorways) is in `assets/logo/svg/` and `assets/logo/png/`. Prefer SVG on the web. The four files at the top of `assets/` are the defaults and stay put. The wordmark-only version is not in the designer's package; never typeset it. See `BRAND-GUIDELINES.md` § 1 for the colorway names.
+
+**LOGO USAGE (LOCKED)**
+- **Image files only.** Render the logo as `<img>`. Never recreate it with CSS shapes or type.
+- **Never typeset the wordmark.** Never place text ("atlas", "Atlas Assistants") next to the mark to simulate a lockup. The brand name may appear as plain text in prose.
+- **Clear space.**
+  - Page 2 defines **x** as the gap between the symbol and the wordmark (measured). It prints `2x · x · 2x` above and below the logo and `4.5x` beside it, without a written rule.
+  - **Atlas convention, derived from that diagram:** keep at least **2x on every side**, and use about **4.5x on the left and right** where space allows.
+- **Contrast.** Use the gradient-symbol lockups only on Pearl White, white, or Deep Blue. On Vivid Purple, mid-tone gradients, or photos, use the all-white lockup or the white symbol.
+- **Minimum size (convention).** The lockup is at least 24px tall; below that, switch to the mark. The mark is at least 16px.
+- **Retired.** The pre-2026 flat-violet logo is retired. Flag every instance you find.
+
+---
+
+## Visual language
+
+From the guideline mockups (observed). Pages are named in `BRAND-GUIDELINES.md` § 4.
+
+- **Light surfaces.**
+  - The page is Pearl White.
+  - A soft lavender corner wash (`--wash-corner`) may sit in one corner of a hero or section, as on the cover page.
+  - A subtle paper texture is optional; keep it below 4% visible.
+- **Gradient objects and bands.** Use the deep and vivid gradients, with Pearl White or white headlines and Yellow Green accents.
+- **CTA devices.**
+  - Pill buttons.
+  - The **circular arrow button**: a circle with a diagonal up-right arrow (SVG). On dark, it is Yellow Green with a Deep Blue arrow. On light (convention), it is Vivid Purple with a white arrow. On the lighter brand gradient (convention), it is Deep Blue with a Yellow Green arrow, because a Yellow Green circle is 2.7:1 against Electric Purple.
+- **Patterns.**
+  - **Symbol watermark:** `atlas-mark-white.png` at 6–10% opacity on gradients, or `atlas-mark.png` at 4–6% on light, very large and cropped by the edge.
+  - **Watermark outlines:** the designer's concentric outlines of the symbol (`assets/patterns/logo-watermark-outlines-web.png`), oversized and cropped on gradients.
+  - **Six-tab color strip:** for brand boards and covers only.
+  - **Combining:** at most two textures on one object. On gradients, the watermark outlines may pair with the symbol watermark. On light, the watermark may pair with the corner wash. On covers, the strip pairs with the corner wash.
+- **Photography.**
+  - Show real people at work, not glossy stock.
+  - Grade or overlay with Vivid Purple or Electric Purple.
+  - Layered depth (a headline behind the subject) is allowed on social and ads.
+  - Use no photos of identifiable clients without consent.
+- **Designer backgrounds and deck elements.** `assets/backgrounds/` holds dark and light backgrounds in 16:9, 4:5, and 9:16, each with the symbol watermark on the right; keep copy on the open left and top. `assets/elements/` holds grainy gradient orbs, a glass cog, and the Yellow Green arrow, for decks and social only. See `BRAND-GUIDELINES.md` § 6.
+- **Retired:** the starfield, orbital rings, lavender glows, and Cosmic Black.
+
+---
+
+## Layout and components (Atlas conventions)
+
+- **Grid and spacing.**
+  - The base grid is 4px.
+  - The container is 1200px, with 24px gutters.
+  - Section padding is 96–120px on desktop and 64–80px on mobile.
+  - Separate sections with whitespace and hairlines, not with stacked color bands.
+- **Radii.**
+  - Cards are 16px (`--r-xl`).
+  - Feature panels and hero objects are 24px (`--r-3xl`).
+  - Large gradient bands are 32px.
+  - Buttons, badges, and single-line inputs are pills.
+  - Text areas are 12px.
+- **Buttons.**
+  - **Primary:** a pill, 48px tall, with `--accent` fill and `--on-accent` text, in Poppins Semi-Bold. It may carry a trailing arrow icon and uses `--shadow-3`.
+  - **Secondary:** a pill with a 1px `--border` outline and `--fg-1` text.
+  - **Text link:** `--accent-text` with an arrow icon.
+  - **Circular arrow:** see Visual language.
+  - **Hover:** a `translateY(-1px)` lift and `--accent-hover`.
+  - **Focus:** `--focus-ring`.
+  - **Press:** no scale.
+- **Cards.**
+  - A `--surface` fill on `--bg`, a 1px `--border-soft` border, 16px radius, and 24–32px padding.
+  - On hover: `--shadow-2` and a 2px lift.
+  - Featured cards use `--shadow-glow`, or a vivid-gradient fill with Pearl White text.
+- **Badges.**
+  - For "Free", "New", or "Included" emphasis, use a Yellow Green fill with Deep Blue text.
+  - For neutral tags, use `--accent-bg` with `--accent-text`.
+- **Inputs.** 48px tall, with a `--surface` fill and a 1px `--border`. On focus: `--focus-ring`. Labels sit above, in Outfit 14–15px Medium. Errors add no new hue: a 2px `--fg-1` border, an alert icon, and a plain sentence that says how to fix it.
+- **Avatars.** `--gradient-brand` fill with Deep Blue initials in Poppins Semi-Bold (4.8:1 or better; white initials fall to 3.1:1 at the Electric Purple end).
+- **Elevation.**
+  - On light, use soft Deep Blue-tinted drops (`--shadow-1`, `--shadow-2`).
+  - The hero object uses `--shadow-4`. Put it on a light-scoped wrapper: inside `data-theme="dark"`, `--shadow-4` is a black drop.
+  - Do not use glow halos on light.
+- **Motion.**
+  - Use the signature easing throughout.
+  - Durations are 150ms (micro), 300ms (hover), 450ms (cards), and 600ms (page).
+  - Never bounce or overshoot.
+  - Always honor `prefers-reduced-motion`.
+  - Never hide content behind a scroll animation that needs JavaScript to reveal it.
+
+---
+
+## Iconography
+
+- Use inline `<svg>` line icons in the Lucide style: 24×24 viewBox, 1.75px stroke, round caps and joins, `fill: none`.
+- **Icon color.** On light, use `--fg-1` or `--accent-text`. On dark, use Pearl White or Yellow Green.
+- **Icon container.** A 44px rounded square (12px radius) with an `--accent-bg` fill.
+- **CTA arrows.** Use a diagonal up-right arrow icon (SVG), never a unicode arrow character.
+- **Broader sets.** Lucide is the closest match. Prefer inline SVG over a CDN.
+
+---
+
+## Light and dark
+
+**Light is the default** for:
+- websites and landing pages
+- product UI (the Atlas App's product team plans both light and dark modes; both use these tokens)
+- documents and reports
+- email
+
+Set nothing: `:root` is light.
+
+**Dark** (`data-theme="dark"` on `<html>`, `<body>`, or a section) is for:
+- social posts and ads
+- deck covers and dividers
+- hero objects and feature bands inside light pages
+- footers, if the page wants a dark close
+
+**Mixing.**
+- A light page may contain dark regions; scope each with `data-theme="dark"`.
+- A light region inside a dark page uses `data-theme="light"`.
+- Keep to the restraint rule: at most one dark object and one gradient band per screen.
+- **Logo:** switch the file with the surface. Use `atlas-logo-dark.png` on light and `atlas-logo-white.png` on Deep Blue.
+
+---
+
+## Surfaces
+
+| Surface | Kit | Default |
+|---|---|---|
+| Marketing websites and landing pages | `ui_kits/marketing/` | Light, with one gradient hero object or band |
+| Social and ads | `ui_kits/social/` | Gradient or Deep Blue, Yellow Green accent, circular arrow CTA |
+| Decks | `ui_kits/deck/` | Deep gradient covers and dividers, light content slides |
+| Email | `ui_kits/email/` | Light body, logo lockup header |
+| Internal docs, dashboards, reports | `ui_kits/internal/` | Light, tokens and fonts apply |
+| Product UI (Atlas App) | `ui_kits/app/` | Light and dark modes, owned by the product team. Vivid Purple (light) or Yellow Green (dark) only for actions. |
+
+---
+
+## Open questions
+
+1. **The new website.** Its web kit (buttons, forms, layout) is not in the PDF. When the site is live, check this file against it and adopt its component choices.
+
+Resolved on 2026-10-22: headline casing (see CONTENT FUNDAMENTALS); the all-white lockup and the watermark-outlines pattern (now in `assets/`); the Atlas App, which the product team owns and plans to build in light and dark modes.
 
 ---
 
 ## Use this with Claude Code
 
-This folder is also a standalone Claude Code skill — see `SKILL.md`. Drop it under `.claude/skills/atlas-design/` and invoke it whenever you need on-brand UI, slides, or assets for Atlas.
+This folder is a standalone Claude Code skill; see `SKILL.md`. Symlink it to `.claude/skills/atlas-design/` and invoke it for on-brand Atlas UI, slides, or assets.

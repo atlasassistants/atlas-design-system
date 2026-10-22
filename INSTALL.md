@@ -71,7 +71,7 @@ When invoked, Claude reads [`design.md`](design.md) and treats itself as an Atla
 - Output on-brand HTML/CSS/React components matching Atlas's visual language
 - Reach for tokens from [`colors_and_type.css`](colors_and_type.css) instead of inventing values
 - Use the brand voice rules (sentence case, no hype words, em-dash cadence) when writing copy
-- Reference the marketing kit ([`ui_kits/marketing/`](ui_kits/marketing/)) as the canonical pattern library
+- Use [`preview/`](preview/) and the surface kits in [`ui_kits/`](ui_kits/) (marketing, social, deck, email, internal, app) as token and pattern sources, not layouts to clone
 - Copy logos and fonts out of [`assets/`](assets/) and [`fonts/`](fonts/) for static artifacts
 
 For production code, Claude will read the rules and write production-quality CSS / React / Tailwind that uses the design tokens. For throwaway prototypes and slides, Claude will produce static HTML files you can open and view.
@@ -103,9 +103,9 @@ When the design system updates on GitHub, re-sync your design system in Claude d
 ### What you get inside Claude design
 
 - All brand tokens (colors, type, spacing, radius, motion) loaded automatically
-- Inter font files available for type
+- Poppins and Outfit font files available for type
 - Logo assets and primitive components ready to drop into mockups
-- The full marketing kit (`ui_kits/marketing/`) as a reference build to crib from
+- The preview pages (`preview/`) and surface kits (`ui_kits/`) as reference builds to crib from
 - Voice/tone rules from `design.md` so any copy Claude generates stays on brand
 
 ---
@@ -117,7 +117,7 @@ Either install option uses the same source of truth — edits go through GitHub.
 ```bash
 cd ~/projects/atlas-design-system
 git checkout -b feat/new-card-pattern
-# edit design.md, colors_and_type.css, ui_kits/marketing/, etc.
+# edit design.md, colors_and_type.css, preview/, ui_kits/, etc.
 git add . && git commit -m "Add featured card hover lift pattern"
 git push -u origin feat/new-card-pattern
 gh pr create
